@@ -68,15 +68,7 @@ public class Map {
     public Cell GetCaracterCell(){
         return new Cell(_caracter.getImgPath(), _caracter.getX(), _caracter.getY());
     }
-
-    public int GetCaracterX() {
-        return _caracter.getX();
-    }
-
-    public int GetCaracterY() {
-        return _caracter.getY();
-    }
-
+    
     public Caracter getCaracter() {
         return _caracter;
     }
