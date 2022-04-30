@@ -1,11 +1,22 @@
 package GUI;
 
+import com.google.gson.Gson;
+import com.google.gson.GsonBuilder;
+import com.google.gson.annotations.Expose;
+import com.google.gson.stream.JsonReader;
+
+import java.io.FileNotFoundException;
+import java.io.FileReader;
 import java.util.concurrent.ThreadLocalRandom;
 
 public class Map {
-    private Caracter _caracter;
+    @Expose
     private Cell[][] _table;
+    @Expose
+    private Caracter _caracter;
 
+    private static int MapWidth = 27;
+    private static int MapHeight = 17;
     public Map(Cell[][] table) {
         _table = table;
     }
@@ -16,9 +27,9 @@ public class Map {
     }
 
     public static Map CreateRandomMap(){
-        var table = new Cell[30][40];
-        for(int i = 0; i < 30; i++){
-            for(int j = 0; j < 40; j++){
+        var table = new Cell[Map.MapWidth][Map.MapHeight];
+        for(int i = 0; i < Map.MapWidth; i++){
+            for(int j = 0; j < Map.MapHeight; j++){
                 if (ThreadLocalRandom.current().nextInt(1, 11) == 1) table[i][j] = new Cell(CellMaterial.Wall, i, j);
                 else if (ThreadLocalRandom.current().nextInt(1, 51) == 1) table[i][j] = new Cell(CellMaterial.Door, i, j);
                 else table[i][j] = new Cell(CellMaterial.Floor, i, j);
@@ -28,9 +39,9 @@ public class Map {
     }
 
     public void UpdateWithRandomMap(){
-        _table = new Cell[30][40];
-        for(int i = 0; i < 30; i++){
-            for(int j = 0; j < 40; j++){
+        _table = new Cell[Map.MapWidth][Map.MapHeight];
+        for(int i = 0; i < Map.MapWidth; i++){
+            for(int j = 0; j < Map.MapHeight; j++){
                 if (ThreadLocalRandom.current().nextInt(1, 11) == 1) _table[i][j] = new Cell(CellMaterial.Wall, i, j);
                 else if (ThreadLocalRandom.current().nextInt(1, 51) == 1) _table[i][j] = new Cell(CellMaterial.Door, i, j);
                 else _table[i][j] = new Cell(CellMaterial.Floor, i, j);
@@ -65,6 +76,10 @@ public class Map {
         return _caracter.getY();
     }
 
+    public Caracter getCaracter() {
+        return _caracter;
+    }
+
     public Coordinates GetCaracterCoordinates(){
         return new Coordinates(_caracter.getX(), _caracter.getY());
     }
@@ -73,7 +88,6 @@ public class Map {
         _caracter.setX(coord.X);
         _caracter.setY(coord.Y);
     }
-
 
     public void SetCaracter(Caracter caracter) {
         _caracter = caracter;
@@ -133,4 +147,18 @@ public class Map {
         }
         return false;
     }
+
+    public String GetSaveFormat() {
+        Gson gson = new GsonBuilder().excludeFieldsWithoutExposeAnnotation().setPrettyPrinting().create();;
+        //var mapDto = new MapDTO(_table, _caracter);
+        return gson.toJson(this);
+    }
+
+    public static Map CreateFromSave(String filePath) throws FileNotFoundException {
+        Gson gson = new GsonBuilder().excludeFieldsWithoutExposeAnnotation().setPrettyPrinting().create();
+        JsonReader reader = new JsonReader(new FileReader(filePath));
+        Map map = gson.fromJson(reader, Map.class);
+        return map;
+    }
+
 }

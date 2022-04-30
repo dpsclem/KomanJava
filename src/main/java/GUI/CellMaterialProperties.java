@@ -1,10 +1,14 @@
 package GUI;
 
+import com.google.gson.annotations.Expose;
 import javafx.scene.paint.Color;
 
 public class CellMaterialProperties {
+    @Expose
     public boolean IsWalkable;
+    @Expose
     public boolean IsPassable;
+    @Expose
     public static Color Color;
 
     public CellMaterialProperties(boolean IsWalkable, boolean IsPassable, Color Color) {

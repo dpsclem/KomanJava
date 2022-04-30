@@ -1,10 +1,16 @@
 package GUI;
 
+import com.google.gson.annotations.Expose;
 import javafx.scene.paint.Color;
 
 public class Caracter {
+    @Expose
     private int x;
+
+    @Expose
     private int y;
+
+    @Expose
     private Color color;
 
     public Caracter(int x, int y, Color color) {
