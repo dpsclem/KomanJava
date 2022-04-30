@@ -11,12 +11,11 @@ public class Caracter {
     private int y;
 
     @Expose
-    private Color color;
+    private String ImgPath = "file:resources/graphics/sprite/character.png";
 
-    public Caracter(int x, int y, Color color) {
+    public Caracter(int x, int y) {
         this.x = x;
         this.y = y;
-        this.color = color;
     }
 
     public int getX() {
@@ -27,10 +26,6 @@ public class Caracter {
         return y;
     }
 
-    public Color getColor() {
-        return color;
-    }
-
     public void setX(int x) {
         this.x = x;
     }
@@ -39,7 +34,7 @@ public class Caracter {
         this.y = y;
     }
 
-    public void setColor(Color color) {
-        this.color = color;
+    public String getImgPath() {
+        return ImgPath;
     }
 }

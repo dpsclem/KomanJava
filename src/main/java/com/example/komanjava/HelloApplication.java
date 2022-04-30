@@ -2,6 +2,7 @@ package com.example.komanjava;
 import GUI.Caracter;
 import GUI.Cell;
 import GUI.Map;
+import GUI.SceneManager;
 import com.google.gson.Gson;
 import javafx.application.Application;
 import javafx.scene.Group;
@@ -14,17 +15,17 @@ import javafx.stage.Stage;
 
 import java.io.IOException;
 import java.io.PrintWriter;
+import java.util.List;
 
 public class HelloApplication extends Application {
     @Override
     public void start(Stage stage) throws IOException, InterruptedException {
         Group root = new Group();
-        Scene scene = new Scene(root, 1300, 900, Color.WHITE);
         stage.setTitle("Koman Java");
 
-
+        var sceneManager = new SceneManager(root, 1350, 850, Color.WHITE, "Koman Java");
         Map randomMap = Map.CreateRandomMap();
-        Caracter caracter = new Caracter(1,1,Color.DARKCYAN);
+        Caracter caracter = new Caracter(1,1);
         randomMap.SetCaracter(caracter);
 
         String jsonSave = randomMap.GetSaveFormat();
@@ -34,20 +35,20 @@ public class HelloApplication extends Application {
 
         //Map randomMap = Map.CreateFromSave("saves/save1.json");
 
-        Button resetMapBtn = getResetMapButton();
-        root.getChildren().add(resetMapBtn);
-
+        List<Button> buttons = sceneManager.GetButtons();
+        root.getChildren().addAll(buttons);
+        FillSceneWithMap(root, randomMap);
 
         resetMapBtn.setOnAction(event -> {
             root.getChildren().clear();
             randomMap.UpdateWithRandomMap();
-            var resetCaracter = new Caracter(1,1,Color.DARKCYAN);
+            var resetCaracter = new Caracter(1,1);
             randomMap.SetCaracter(resetCaracter);
             FillSceneWithMap(root, randomMap);
             root.getChildren().add(resetMapBtn);
         });
 
-        FillSceneWithMap(root, randomMap);
+
         scene.addEventFilter(KeyEvent.KEY_PRESSED, e->{
             root.getChildren().clear();
             root.getChildren().add(resetMapBtn);
@@ -79,27 +80,11 @@ public class HelloApplication extends Application {
             }
         });
         System.out.println("Launching");
-        stage.setScene(scene);
+        stage.setScene(sceneManager.GetScene());
         stage.show();
-
-        /*
-        var randomMap = Map.CreateRandomMap();
-        root[0].getChildren().removeAll();
-        root[0] = FillSceneWithMap(root[0], randomMap);
-        stage.setTitle("Hello " + e.getCode().toString());
-        System.out.println("Click detected");
-        */
     }
 
-    private Button getResetMapButton() {
-        Button resetMapBtn = new Button();
-        resetMapBtn.setText("Reset Map");
-        resetMapBtn.setLayoutX(720);
-        resetMapBtn.setLayoutY(50);
-        resetMapBtn.setPrefWidth(80);
-        resetMapBtn.setPrefHeight(30);
-        return resetMapBtn;
-    }
+
 
     private void FillSceneWithMap(Group root, Map randomMap) {
         for (int i = 0; i < randomMap.GetTableWidth(); i++) {
@@ -109,6 +94,9 @@ public class HelloApplication extends Application {
                 root.getChildren().add(rectangle);
             }
         }
+        Cell cell = randomMap.GetCaracterCell();
+        var rectangle = cell.GetRectangle();
+        root.getChildren().add(rectangle);
     }
 
     public static void main(String[] args) {

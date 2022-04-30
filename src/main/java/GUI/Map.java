@@ -15,8 +15,8 @@ public class Map {
     @Expose
     private Caracter _caracter;
 
-    private static int MapWidth = 27;
-    private static int MapHeight = 17;
+    private static int MapWidth = 25;
+    private static int MapHeight = 15;
     public Map(Cell[][] table) {
         _table = table;
     }
@@ -62,10 +62,11 @@ public class Map {
     }
 
     public Cell GetCellFromCoordinate(int x, int y){
-        if (y == _caracter.getX() && x == _caracter.getY()) {
-            return new Cell(_caracter.getColor(), _caracter.getX(), _caracter.getY());
-        }
         return _table[y][x];
+    }
+
+    public Cell GetCaracterCell(){
+        return new Cell(_caracter.getImgPath(), _caracter.getX(), _caracter.getY());
     }
 
     public int GetCaracterX() {
