@@ -2,6 +2,8 @@ package GUI;
 
 import javafx.scene.Group;
 import javafx.scene.Scene;
+import javafx.scene.canvas.Canvas;
+import javafx.scene.canvas.GraphicsContext;
 import javafx.scene.control.Button;
 import javafx.scene.image.Image;
 import javafx.scene.image.ImageView;
@@ -17,6 +19,8 @@ public class SceneManager {
     private List<Button> Buttons;
     private Group Root;
     private Map Map;
+
+    private boolean IsInventoryOpen = false;
 
     public SceneManager(Group root, int width, int height, Color color) {
         Scene = new Scene(root, width, height, color);
@@ -106,10 +110,25 @@ public class SceneManager {
         button.setGraphic(view);
 
         button.setOnAction(event -> {
+            System.out.println("Open inventory");
+
             Root.getChildren().clear();
-            Map.UpdatePlayerPosition(new Coordinates(1,1));
+
             FillSceneWithMap(Root, Map);
             AddButtons();
+
+            if(!IsInventoryOpen) {
+                IsInventoryOpen = true;
+                Canvas inventoryCanvas = new Canvas(830, 500);
+                inventoryCanvas.setLayoutX(185);
+                inventoryCanvas.setLayoutY(110);
+                GraphicsContext gc = inventoryCanvas.getGraphicsContext2D();
+                gc.setFill(Color.SADDLEBROWN);
+                gc.fillRect(0, 0, 830, 500);
+
+                Root.getChildren().add(inventoryCanvas);
+            }
+            else IsInventoryOpen = false;
         });
         return button;
     }
