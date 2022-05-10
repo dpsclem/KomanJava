@@ -1,0 +1,44 @@
+{
+  "Cells" : [
+    {
+      "Width":  20,
+      "Height": 20,
+      "x": 0,
+      "y": 0,
+      "CellMaterial": 0,
+      "CellMaterialProperties": {
+        "IsWalkable" : true,
+        "IsPassable" : true,
+        "Color":"#000000"
+      }
+    },{
+      "Width":  20,
+      "Height": 20,
+      "x": 0,
+      "y": 1,
+      "CellMaterial": 0,
+      "CellMaterialProperties": {
+        "IsWalkable" : true,
+        "IsPassable" : true,
+        "Color":"#000000"
+      }
+    },{
+      "Width":  20,
+      "Height": 20,
+      "x": 1,
+      "y": 1,
+      "CellMaterial": 0,
+      "CellMaterialProperties": {
+        "IsWalkable" : true,
+        "IsPassable" : true,
+        "Color":"#000000"
+      }
+
+    }
+
+  ],
+  "Caracter" : {
+    "x" : 0,
+    "y" : 0
+  }
+}
