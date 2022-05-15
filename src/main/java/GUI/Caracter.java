@@ -3,6 +3,9 @@ package GUI;
 import com.google.gson.annotations.Expose;
 import javafx.scene.paint.Color;
 
+import java.util.ArrayList;
+import java.util.List;
+
 public class Caracter {
     @Expose
     private int x;
@@ -12,6 +15,8 @@ public class Caracter {
 
     @Expose
     private String ImgPath = "file:resources/graphics/sprite/character.png";
+
+    private List<Item> items = new ArrayList<Item>();
 
     public Caracter(int x, int y) {
         this.x = x;
@@ -36,5 +41,9 @@ public class Caracter {
 
     public String getImgPath() {
         return ImgPath;
+    }
+
+    public void addItem(Item item){
+        items.add(item);
     }
 }

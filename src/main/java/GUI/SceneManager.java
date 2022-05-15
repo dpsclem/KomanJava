@@ -9,6 +9,7 @@ import javafx.scene.image.Image;
 import javafx.scene.image.ImageView;
 import javafx.scene.input.KeyEvent;
 import javafx.scene.paint.Color;
+import javafx.scene.shape.Rectangle;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -144,5 +145,9 @@ public class SceneManager {
         Cell cell = randomMap.GetCaracterCell();
         var rectangle = cell.GetRectangle();
         root.getChildren().add(rectangle);
+
+        for (Rectangle currentRectangle: randomMap.GetItemRectangle()) {
+            root.getChildren().add(currentRectangle);
+        }
     }
 }

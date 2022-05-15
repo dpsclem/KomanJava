@@ -1,8 +1,5 @@
 package com.example.komanjava;
-import GUI.Caracter;
-import GUI.Cell;
-import GUI.Map;
-import GUI.SceneManager;
+import GUI.*;
 import com.google.gson.Gson;
 import javafx.application.Application;
 import javafx.scene.Group;

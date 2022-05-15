@@ -10,9 +10,9 @@ import com.google.gson.Gson;
 
 public class Cell {
     @Expose
-    private static int Width = 48;
+    public static int Width = 48;
     @Expose
-    private static int Height = 48;
+    public static int Height = 48;
     @Expose
     private int _x;
     @Expose

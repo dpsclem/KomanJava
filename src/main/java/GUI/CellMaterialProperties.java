@@ -11,6 +11,8 @@ public class CellMaterialProperties {
     @Expose
     public boolean IsPassable;
     @Expose
+    public boolean IsReplace;
+    @Expose
     public String  ImgPath;
 
     private static String ImgPathDoor = "file:resources/graphics/sprite/door.png";

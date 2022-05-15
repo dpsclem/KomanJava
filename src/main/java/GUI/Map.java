@@ -4,9 +4,14 @@ import com.google.gson.Gson;
 import com.google.gson.GsonBuilder;
 import com.google.gson.annotations.Expose;
 import com.google.gson.stream.JsonReader;
+import javafx.scene.image.Image;
+import javafx.scene.paint.ImagePattern;
+import javafx.scene.shape.Rectangle;
 
 import java.io.FileNotFoundException;
 import java.io.FileReader;
+import java.util.ArrayList;
+import java.util.List;
 import java.util.concurrent.ThreadLocalRandom;
 
 public class Map {
@@ -15,6 +20,7 @@ public class Map {
     @Expose
     private Caracter _caracter;
 
+    private List<MapItem> Items = new ArrayList<MapItem>();
     private static int MapWidth = 25;
     private static int MapHeight = 15;
     public Map(Cell[][] table) {
@@ -35,6 +41,8 @@ public class Map {
                 else table[i][j] = new Cell(CellMaterial.Floor, i, j);
             }
         }
+        var randomMap = new Map(table);
+        randomMap.AddItemOnMap(new Item("key", 10, "file:resources/graphics/sprite/key.png"), 3, 3);
         return new Map(table);
     }
 
@@ -47,6 +55,7 @@ public class Map {
                 else _table[i][j] = new Cell(CellMaterial.Floor, i, j);
             }
         }
+        this.AddItemOnMap(new Item("key", 10, "file:resources/graphics/sprite/key.png"), 3, 3);
     }
 
     public int GetTableSize(){
@@ -120,6 +129,14 @@ public class Map {
 
         if (futureCell.getMaterialProperties().IsWalkable  //Moving on floor
             && futureCell.getMaterialProperties().IsPassable) {
+            var itemtoDelete = new ArrayList<MapItem>();
+            for (MapItem mapItem: Items) {
+                if (mapItem.getX() == newX && mapItem.getY() == newY){
+                    itemtoDelete.add(mapItem);
+                    _caracter.addItem(mapItem.getItem());
+                }
+            }
+            Items.removeAll(itemtoDelete);
             return new Coordinates(newX, newY);
         }
         if (!futureCell.getMaterialProperties().IsWalkable //Moving through door
@@ -139,6 +156,24 @@ public class Map {
             return true;
         }
         return false;
+    }
+
+    public void AddItemOnMap(Item item,int x,int y){
+        Items.add(new MapItem(item, x, y));
+    }
+
+    public List<Rectangle> GetItemRectangle(){
+        var rectangles = new ArrayList<Rectangle>();
+
+        for (MapItem mapItem: Items) {
+            var rectangle = new Rectangle(mapItem.getX()*Cell.Width, mapItem.getY()*Cell.Height, Cell.Height, Cell.Width);
+            Image img = new Image(mapItem.getItem().getImagePath(), Cell.Width, Cell.Height, true, false);
+            rectangle.setFill(new ImagePattern(img));
+
+            rectangles.add(rectangle);
+        }
+
+        return rectangles;
     }
 
     public String GetSaveFormat() {

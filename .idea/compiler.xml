@@ -10,7 +10,7 @@
       </profile>
     </annotationProcessing>
     <bytecodeTargetLevel>
-      <module name="KomanJava" target="16" />
+      <module name="KomanJava" target="17" />
     </bytecodeTargetLevel>
   </component>
 </project>
