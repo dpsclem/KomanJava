@@ -1,14 +1,17 @@
 package GUI;
 
+import javafx.print.Printer;
 import javafx.scene.Group;
 import javafx.scene.Scene;
 import javafx.scene.canvas.Canvas;
 import javafx.scene.canvas.GraphicsContext;
+import javafx.scene.control.Alert;
 import javafx.scene.control.Button;
 import javafx.scene.image.Image;
 import javafx.scene.image.ImageView;
 import javafx.scene.input.KeyEvent;
 import javafx.scene.paint.Color;
+import javafx.scene.paint.ImagePattern;
 import javafx.scene.shape.Rectangle;
 
 import java.util.ArrayList;
@@ -136,13 +139,28 @@ public class SceneManager {
             addEntities();
             if(!IsInventoryOpen) {
                 IsInventoryOpen = true;
+
                 Canvas inventoryCanvas = new Canvas(830, 500);
                 inventoryCanvas.setLayoutX(185);
                 inventoryCanvas.setLayoutY(110);
                 GraphicsContext gc = inventoryCanvas.getGraphicsContext2D();
-                gc.setFill(Color.SADDLEBROWN);
+                gc.setFill(Color.LIGHTCORAL);
                 gc.fillRect(0, 0, 830, 500);
 
+                //PETE MOI LE CUL MAT
+                var items = Map.getCaracter().getItems();
+                var itemsIterator = items.iterator();
+                for (int i = 0; i < 7; i++) {
+                    for (int j =0; j < 7; j++) {
+                        System.out.println(items.size());
+                        if (itemsIterator.hasNext()) {
+                            var item = itemsIterator.next();
+                            var itemImage = new Image(item.getImagePath(), 70, 70, true, false);
+                            gc.setFill(new ImagePattern(itemImage));
+                            gc.fillRect((j *70) + (j*40) + 30, (i * 70)+(i*40) + 30, 70, 70);
+                        }
+                    }
+                }
                 Root.getChildren().add(inventoryCanvas);
             }
             else IsInventoryOpen = false;

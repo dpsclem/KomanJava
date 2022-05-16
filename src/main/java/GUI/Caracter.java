@@ -16,7 +16,10 @@ public class Caracter {
     @Expose
     private String ImgPath = "file:resources/graphics/sprite/character.png";
 
-    private List<Item> items = new ArrayList<Item>();
+    public List<Item> getItems() {
+        return items;
+    }
+
 
     public Caracter(int x, int y) {
         this.x = x;
@@ -46,4 +49,6 @@ public class Caracter {
     public void addItem(Item item){
         items.add(item);
     }
+    private List<Item> items = new ArrayList<Item>();
+
 }
