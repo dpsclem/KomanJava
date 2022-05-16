@@ -27,6 +27,16 @@ public class HelloApplication extends Application {
         var sceneManager = new SceneManager(root, 1350, 850, Color.WHITE);
         Map randomMap = Map.CreateRandomMap();
         Caracter caracter = new Caracter(1,1);
+        caracter.setCaracteristics(new Caracteristics(5,5,20));
+        var shield = new Equipment("Shield", 10,  EquipmentType.SHIELD,new Caracteristics(1,10,1), "file:resources/graphics/sprite/equipements/shield1.png");
+        caracter.addItem(shield);
+
+        var chestplate = new Equipment("Chestplate", 10,  EquipmentType.CHESTPLATE,new Caracteristics(1,10,1), "file:resources/graphics/sprite/equipements/chestplate1.png");
+        caracter.addItem(chestplate);
+
+        var sword = new Equipment("Sword", 10,  EquipmentType.CHESTPLATE,new Caracteristics(15,0,0), "file:resources/graphics/sprite/equipements/attack.png");
+        randomMap.AddItemOnMap(sword, 4,2);
+
         randomMap.SetCaracter(caracter);
         String jsonSave = randomMap.GetSaveFormat();
         PrintWriter writer = null;

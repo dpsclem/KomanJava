@@ -62,9 +62,9 @@ public class Map {
                 else _table[i][j] = new Cell(CellMaterial.Floor, i, j);
             }
         }
-        this.AddEntityOnMap(new Entity(5,5,EntityStatus.INACTIVE,EntityType.MONSTER,"file:resources/graphics/sprite/monster1.gif" ));
         this.AddItemOnMap(new Item("key", 10, "file:resources/graphics/sprite/key.png"), 3, 3);
         this.AddItemOnMap(new Item("pioche", 10, "file:resources/graphics/sprite/pioche.png"), 3, 5);
+        this.AddEntityOnMap(new Entity(5,5,EntityStatus.INACTIVE,EntityType.MONSTER,"file:resources/graphics/sprite/monster1.gif" ));
     }
 
     public int GetTableSize(){

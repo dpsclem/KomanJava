@@ -16,6 +16,9 @@ public class Caracter {
     @Expose
     private String ImgPath = "file:resources/graphics/sprite/character.png";
 
+    @Expose
+    private Caracteristics caracteristics;
+
     public List<Item> getItems() {
         return items;
     }
@@ -51,4 +54,21 @@ public class Caracter {
     }
     private List<Item> items = new ArrayList<Item>();
 
+    public Caracteristics getCaracteristics() {
+        return caracteristics;
+    }
+
+    public void setCaracteristics(Caracteristics caracteristics) {
+        this.caracteristics = caracteristics;
+    }
+
+    public void EquipItem(Equipment item){
+        caracteristics.AddCaracteristics(item.getCaracteristics());
+        item.setEquiped(true);
+    }
+
+    public void UnequipItem(Equipment item){
+        caracteristics.SubstractCaracteristics(item.getCaracteristics());
+        item.setEquiped(false);
+    }
 }

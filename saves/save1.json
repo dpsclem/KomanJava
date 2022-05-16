@@ -26,12 +26,12 @@
       {
         "_x": 0,
         "_y": 96,
-        "_material": "Wall",
+        "_material": "Floor",
         "_materialProperties": {
-          "IsWalkable": false,
-          "IsPassable": false,
+          "IsWalkable": true,
+          "IsPassable": true,
           "IsReplace": false,
-          "ImgPath": "file:resources/graphics/sprite/wall.png"
+          "ImgPath": "file:resources/graphics/sprite/floor.png"
         }
       },
       {
@@ -59,23 +59,23 @@
       {
         "_x": 0,
         "_y": 240,
-        "_material": "Door",
+        "_material": "Floor",
         "_materialProperties": {
-          "IsWalkable": false,
+          "IsWalkable": true,
           "IsPassable": true,
           "IsReplace": false,
-          "ImgPath": "file:resources/graphics/sprite/door.png"
+          "ImgPath": "file:resources/graphics/sprite/floor.png"
         }
       },
       {
         "_x": 0,
         "_y": 288,
-        "_material": "Wall",
+        "_material": "Floor",
         "_materialProperties": {
-          "IsWalkable": false,
-          "IsPassable": false,
+          "IsWalkable": true,
+          "IsPassable": true,
           "IsReplace": false,
-          "ImgPath": "file:resources/graphics/sprite/wall.png"
+          "ImgPath": "file:resources/graphics/sprite/floor.png"
         }
       },
       {
@@ -147,12 +147,12 @@
       {
         "_x": 0,
         "_y": 624,
-        "_material": "Wall",
+        "_material": "Floor",
         "_materialProperties": {
-          "IsWalkable": false,
-          "IsPassable": false,
+          "IsWalkable": true,
+          "IsPassable": true,
           "IsReplace": false,
-          "ImgPath": "file:resources/graphics/sprite/wall.png"
+          "ImgPath": "file:resources/graphics/sprite/floor.png"
         }
       },
       {
@@ -171,12 +171,12 @@
       {
         "_x": 48,
         "_y": 0,
-        "_material": "Wall",
+        "_material": "Floor",
         "_materialProperties": {
-          "IsWalkable": false,
-          "IsPassable": false,
+          "IsWalkable": true,
+          "IsPassable": true,
           "IsReplace": false,
-          "ImgPath": "file:resources/graphics/sprite/wall.png"
+          "ImgPath": "file:resources/graphics/sprite/floor.png"
         }
       },
       {
@@ -215,12 +215,12 @@
       {
         "_x": 48,
         "_y": 192,
-        "_material": "Floor",
+        "_material": "Wall",
         "_materialProperties": {
-          "IsWalkable": true,
-          "IsPassable": true,
+          "IsWalkable": false,
+          "IsPassable": false,
           "IsReplace": false,
-          "ImgPath": "file:resources/graphics/sprite/floor.png"
+          "ImgPath": "file:resources/graphics/sprite/wall.png"
         }
       },
       {
@@ -237,1519 +237,16 @@
       {
         "_x": 48,
         "_y": 288,
-        "_material": "Floor",
+        "_material": "Wall",
         "_materialProperties": {
-          "IsWalkable": true,
-          "IsPassable": true,
+          "IsWalkable": false,
+          "IsPassable": false,
           "IsReplace": false,
-          "ImgPath": "file:resources/graphics/sprite/floor.png"
+          "ImgPath": "file:resources/graphics/sprite/wall.png"
         }
       },
       {
         "_x": 48,
-        "_y": 336,
-        "_material": "Floor",
-        "_materialProperties": {
-          "IsWalkable": true,
-          "IsPassable": true,
-          "IsReplace": false,
-          "ImgPath": "file:resources/graphics/sprite/floor.png"
-        }
-      },
-      {
-        "_x": 48,
-        "_y": 384,
-        "_material": "Floor",
-        "_materialProperties": {
-          "IsWalkable": true,
-          "IsPassable": true,
-          "IsReplace": false,
-          "ImgPath": "file:resources/graphics/sprite/floor.png"
-        }
-      },
-      {
-        "_x": 48,
-        "_y": 432,
-        "_material": "Floor",
-        "_materialProperties": {
-          "IsWalkable": true,
-          "IsPassable": true,
-          "IsReplace": false,
-          "ImgPath": "file:resources/graphics/sprite/floor.png"
-        }
-      },
-      {
-        "_x": 48,
-        "_y": 480,
-        "_material": "Floor",
-        "_materialProperties": {
-          "IsWalkable": true,
-          "IsPassable": true,
-          "IsReplace": false,
-          "ImgPath": "file:resources/graphics/sprite/floor.png"
-        }
-      },
-      {
-        "_x": 48,
-        "_y": 528,
-        "_material": "Floor",
-        "_materialProperties": {
-          "IsWalkable": true,
-          "IsPassable": true,
-          "IsReplace": false,
-          "ImgPath": "file:resources/graphics/sprite/floor.png"
-        }
-      },
-      {
-        "_x": 48,
-        "_y": 576,
-        "_material": "Floor",
-        "_materialProperties": {
-          "IsWalkable": true,
-          "IsPassable": true,
-          "IsReplace": false,
-          "ImgPath": "file:resources/graphics/sprite/floor.png"
-        }
-      },
-      {
-        "_x": 48,
-        "_y": 624,
-        "_material": "Floor",
-        "_materialProperties": {
-          "IsWalkable": true,
-          "IsPassable": true,
-          "IsReplace": false,
-          "ImgPath": "file:resources/graphics/sprite/floor.png"
-        }
-      },
-      {
-        "_x": 48,
-        "_y": 672,
-        "_material": "Floor",
-        "_materialProperties": {
-          "IsWalkable": true,
-          "IsPassable": true,
-          "IsReplace": false,
-          "ImgPath": "file:resources/graphics/sprite/floor.png"
-        }
-      }
-    ],
-    [
-      {
-        "_x": 96,
-        "_y": 0,
-        "_material": "Floor",
-        "_materialProperties": {
-          "IsWalkable": true,
-          "IsPassable": true,
-          "IsReplace": false,
-          "ImgPath": "file:resources/graphics/sprite/floor.png"
-        }
-      },
-      {
-        "_x": 96,
-        "_y": 48,
-        "_material": "Floor",
-        "_materialProperties": {
-          "IsWalkable": true,
-          "IsPassable": true,
-          "IsReplace": false,
-          "ImgPath": "file:resources/graphics/sprite/floor.png"
-        }
-      },
-      {
-        "_x": 96,
-        "_y": 96,
-        "_material": "Floor",
-        "_materialProperties": {
-          "IsWalkable": true,
-          "IsPassable": true,
-          "IsReplace": false,
-          "ImgPath": "file:resources/graphics/sprite/floor.png"
-        }
-      },
-      {
-        "_x": 96,
-        "_y": 144,
-        "_material": "Floor",
-        "_materialProperties": {
-          "IsWalkable": true,
-          "IsPassable": true,
-          "IsReplace": false,
-          "ImgPath": "file:resources/graphics/sprite/floor.png"
-        }
-      },
-      {
-        "_x": 96,
-        "_y": 192,
-        "_material": "Floor",
-        "_materialProperties": {
-          "IsWalkable": true,
-          "IsPassable": true,
-          "IsReplace": false,
-          "ImgPath": "file:resources/graphics/sprite/floor.png"
-        }
-      },
-      {
-        "_x": 96,
-        "_y": 240,
-        "_material": "Floor",
-        "_materialProperties": {
-          "IsWalkable": true,
-          "IsPassable": true,
-          "IsReplace": false,
-          "ImgPath": "file:resources/graphics/sprite/floor.png"
-        }
-      },
-      {
-        "_x": 96,
-        "_y": 288,
-        "_material": "Floor",
-        "_materialProperties": {
-          "IsWalkable": true,
-          "IsPassable": true,
-          "IsReplace": false,
-          "ImgPath": "file:resources/graphics/sprite/floor.png"
-        }
-      },
-      {
-        "_x": 96,
-        "_y": 336,
-        "_material": "Wall",
-        "_materialProperties": {
-          "IsWalkable": false,
-          "IsPassable": false,
-          "IsReplace": false,
-          "ImgPath": "file:resources/graphics/sprite/wall.png"
-        }
-      },
-      {
-        "_x": 96,
-        "_y": 384,
-        "_material": "Floor",
-        "_materialProperties": {
-          "IsWalkable": true,
-          "IsPassable": true,
-          "IsReplace": false,
-          "ImgPath": "file:resources/graphics/sprite/floor.png"
-        }
-      },
-      {
-        "_x": 96,
-        "_y": 432,
-        "_material": "Floor",
-        "_materialProperties": {
-          "IsWalkable": true,
-          "IsPassable": true,
-          "IsReplace": false,
-          "ImgPath": "file:resources/graphics/sprite/floor.png"
-        }
-      },
-      {
-        "_x": 96,
-        "_y": 480,
-        "_material": "Floor",
-        "_materialProperties": {
-          "IsWalkable": true,
-          "IsPassable": true,
-          "IsReplace": false,
-          "ImgPath": "file:resources/graphics/sprite/floor.png"
-        }
-      },
-      {
-        "_x": 96,
-        "_y": 528,
-        "_material": "Floor",
-        "_materialProperties": {
-          "IsWalkable": true,
-          "IsPassable": true,
-          "IsReplace": false,
-          "ImgPath": "file:resources/graphics/sprite/floor.png"
-        }
-      },
-      {
-        "_x": 96,
-        "_y": 576,
-        "_material": "Wall",
-        "_materialProperties": {
-          "IsWalkable": false,
-          "IsPassable": false,
-          "IsReplace": false,
-          "ImgPath": "file:resources/graphics/sprite/wall.png"
-        }
-      },
-      {
-        "_x": 96,
-        "_y": 624,
-        "_material": "Floor",
-        "_materialProperties": {
-          "IsWalkable": true,
-          "IsPassable": true,
-          "IsReplace": false,
-          "ImgPath": "file:resources/graphics/sprite/floor.png"
-        }
-      },
-      {
-        "_x": 96,
-        "_y": 672,
-        "_material": "Floor",
-        "_materialProperties": {
-          "IsWalkable": true,
-          "IsPassable": true,
-          "IsReplace": false,
-          "ImgPath": "file:resources/graphics/sprite/floor.png"
-        }
-      }
-    ],
-    [
-      {
-        "_x": 144,
-        "_y": 0,
-        "_material": "Floor",
-        "_materialProperties": {
-          "IsWalkable": true,
-          "IsPassable": true,
-          "IsReplace": false,
-          "ImgPath": "file:resources/graphics/sprite/floor.png"
-        }
-      },
-      {
-        "_x": 144,
-        "_y": 48,
-        "_material": "Floor",
-        "_materialProperties": {
-          "IsWalkable": true,
-          "IsPassable": true,
-          "IsReplace": false,
-          "ImgPath": "file:resources/graphics/sprite/floor.png"
-        }
-      },
-      {
-        "_x": 144,
-        "_y": 96,
-        "_material": "Wall",
-        "_materialProperties": {
-          "IsWalkable": false,
-          "IsPassable": false,
-          "IsReplace": false,
-          "ImgPath": "file:resources/graphics/sprite/wall.png"
-        }
-      },
-      {
-        "_x": 144,
-        "_y": 144,
-        "_material": "Floor",
-        "_materialProperties": {
-          "IsWalkable": true,
-          "IsPassable": true,
-          "IsReplace": false,
-          "ImgPath": "file:resources/graphics/sprite/floor.png"
-        }
-      },
-      {
-        "_x": 144,
-        "_y": 192,
-        "_material": "Floor",
-        "_materialProperties": {
-          "IsWalkable": true,
-          "IsPassable": true,
-          "IsReplace": false,
-          "ImgPath": "file:resources/graphics/sprite/floor.png"
-        }
-      },
-      {
-        "_x": 144,
-        "_y": 240,
-        "_material": "Floor",
-        "_materialProperties": {
-          "IsWalkable": true,
-          "IsPassable": true,
-          "IsReplace": false,
-          "ImgPath": "file:resources/graphics/sprite/floor.png"
-        }
-      },
-      {
-        "_x": 144,
-        "_y": 288,
-        "_material": "Floor",
-        "_materialProperties": {
-          "IsWalkable": true,
-          "IsPassable": true,
-          "IsReplace": false,
-          "ImgPath": "file:resources/graphics/sprite/floor.png"
-        }
-      },
-      {
-        "_x": 144,
-        "_y": 336,
-        "_material": "Floor",
-        "_materialProperties": {
-          "IsWalkable": true,
-          "IsPassable": true,
-          "IsReplace": false,
-          "ImgPath": "file:resources/graphics/sprite/floor.png"
-        }
-      },
-      {
-        "_x": 144,
-        "_y": 384,
-        "_material": "Floor",
-        "_materialProperties": {
-          "IsWalkable": true,
-          "IsPassable": true,
-          "IsReplace": false,
-          "ImgPath": "file:resources/graphics/sprite/floor.png"
-        }
-      },
-      {
-        "_x": 144,
-        "_y": 432,
-        "_material": "Floor",
-        "_materialProperties": {
-          "IsWalkable": true,
-          "IsPassable": true,
-          "IsReplace": false,
-          "ImgPath": "file:resources/graphics/sprite/floor.png"
-        }
-      },
-      {
-        "_x": 144,
-        "_y": 480,
-        "_material": "Floor",
-        "_materialProperties": {
-          "IsWalkable": true,
-          "IsPassable": true,
-          "IsReplace": false,
-          "ImgPath": "file:resources/graphics/sprite/floor.png"
-        }
-      },
-      {
-        "_x": 144,
-        "_y": 528,
-        "_material": "Floor",
-        "_materialProperties": {
-          "IsWalkable": true,
-          "IsPassable": true,
-          "IsReplace": false,
-          "ImgPath": "file:resources/graphics/sprite/floor.png"
-        }
-      },
-      {
-        "_x": 144,
-        "_y": 576,
-        "_material": "Floor",
-        "_materialProperties": {
-          "IsWalkable": true,
-          "IsPassable": true,
-          "IsReplace": false,
-          "ImgPath": "file:resources/graphics/sprite/floor.png"
-        }
-      },
-      {
-        "_x": 144,
-        "_y": 624,
-        "_material": "Floor",
-        "_materialProperties": {
-          "IsWalkable": true,
-          "IsPassable": true,
-          "IsReplace": false,
-          "ImgPath": "file:resources/graphics/sprite/floor.png"
-        }
-      },
-      {
-        "_x": 144,
-        "_y": 672,
-        "_material": "Floor",
-        "_materialProperties": {
-          "IsWalkable": true,
-          "IsPassable": true,
-          "IsReplace": false,
-          "ImgPath": "file:resources/graphics/sprite/floor.png"
-        }
-      }
-    ],
-    [
-      {
-        "_x": 192,
-        "_y": 0,
-        "_material": "Wall",
-        "_materialProperties": {
-          "IsWalkable": false,
-          "IsPassable": false,
-          "IsReplace": false,
-          "ImgPath": "file:resources/graphics/sprite/wall.png"
-        }
-      },
-      {
-        "_x": 192,
-        "_y": 48,
-        "_material": "Floor",
-        "_materialProperties": {
-          "IsWalkable": true,
-          "IsPassable": true,
-          "IsReplace": false,
-          "ImgPath": "file:resources/graphics/sprite/floor.png"
-        }
-      },
-      {
-        "_x": 192,
-        "_y": 96,
-        "_material": "Floor",
-        "_materialProperties": {
-          "IsWalkable": true,
-          "IsPassable": true,
-          "IsReplace": false,
-          "ImgPath": "file:resources/graphics/sprite/floor.png"
-        }
-      },
-      {
-        "_x": 192,
-        "_y": 144,
-        "_material": "Floor",
-        "_materialProperties": {
-          "IsWalkable": true,
-          "IsPassable": true,
-          "IsReplace": false,
-          "ImgPath": "file:resources/graphics/sprite/floor.png"
-        }
-      },
-      {
-        "_x": 192,
-        "_y": 192,
-        "_material": "Floor",
-        "_materialProperties": {
-          "IsWalkable": true,
-          "IsPassable": true,
-          "IsReplace": false,
-          "ImgPath": "file:resources/graphics/sprite/floor.png"
-        }
-      },
-      {
-        "_x": 192,
-        "_y": 240,
-        "_material": "Floor",
-        "_materialProperties": {
-          "IsWalkable": true,
-          "IsPassable": true,
-          "IsReplace": false,
-          "ImgPath": "file:resources/graphics/sprite/floor.png"
-        }
-      },
-      {
-        "_x": 192,
-        "_y": 288,
-        "_material": "Wall",
-        "_materialProperties": {
-          "IsWalkable": false,
-          "IsPassable": false,
-          "IsReplace": false,
-          "ImgPath": "file:resources/graphics/sprite/wall.png"
-        }
-      },
-      {
-        "_x": 192,
-        "_y": 336,
-        "_material": "Floor",
-        "_materialProperties": {
-          "IsWalkable": true,
-          "IsPassable": true,
-          "IsReplace": false,
-          "ImgPath": "file:resources/graphics/sprite/floor.png"
-        }
-      },
-      {
-        "_x": 192,
-        "_y": 384,
-        "_material": "Floor",
-        "_materialProperties": {
-          "IsWalkable": true,
-          "IsPassable": true,
-          "IsReplace": false,
-          "ImgPath": "file:resources/graphics/sprite/floor.png"
-        }
-      },
-      {
-        "_x": 192,
-        "_y": 432,
-        "_material": "Floor",
-        "_materialProperties": {
-          "IsWalkable": true,
-          "IsPassable": true,
-          "IsReplace": false,
-          "ImgPath": "file:resources/graphics/sprite/floor.png"
-        }
-      },
-      {
-        "_x": 192,
-        "_y": 480,
-        "_material": "Floor",
-        "_materialProperties": {
-          "IsWalkable": true,
-          "IsPassable": true,
-          "IsReplace": false,
-          "ImgPath": "file:resources/graphics/sprite/floor.png"
-        }
-      },
-      {
-        "_x": 192,
-        "_y": 528,
-        "_material": "Floor",
-        "_materialProperties": {
-          "IsWalkable": true,
-          "IsPassable": true,
-          "IsReplace": false,
-          "ImgPath": "file:resources/graphics/sprite/floor.png"
-        }
-      },
-      {
-        "_x": 192,
-        "_y": 576,
-        "_material": "Floor",
-        "_materialProperties": {
-          "IsWalkable": true,
-          "IsPassable": true,
-          "IsReplace": false,
-          "ImgPath": "file:resources/graphics/sprite/floor.png"
-        }
-      },
-      {
-        "_x": 192,
-        "_y": 624,
-        "_material": "Floor",
-        "_materialProperties": {
-          "IsWalkable": true,
-          "IsPassable": true,
-          "IsReplace": false,
-          "ImgPath": "file:resources/graphics/sprite/floor.png"
-        }
-      },
-      {
-        "_x": 192,
-        "_y": 672,
-        "_material": "Floor",
-        "_materialProperties": {
-          "IsWalkable": true,
-          "IsPassable": true,
-          "IsReplace": false,
-          "ImgPath": "file:resources/graphics/sprite/floor.png"
-        }
-      }
-    ],
-    [
-      {
-        "_x": 240,
-        "_y": 0,
-        "_material": "Floor",
-        "_materialProperties": {
-          "IsWalkable": true,
-          "IsPassable": true,
-          "IsReplace": false,
-          "ImgPath": "file:resources/graphics/sprite/floor.png"
-        }
-      },
-      {
-        "_x": 240,
-        "_y": 48,
-        "_material": "Wall",
-        "_materialProperties": {
-          "IsWalkable": false,
-          "IsPassable": false,
-          "IsReplace": false,
-          "ImgPath": "file:resources/graphics/sprite/wall.png"
-        }
-      },
-      {
-        "_x": 240,
-        "_y": 96,
-        "_material": "Floor",
-        "_materialProperties": {
-          "IsWalkable": true,
-          "IsPassable": true,
-          "IsReplace": false,
-          "ImgPath": "file:resources/graphics/sprite/floor.png"
-        }
-      },
-      {
-        "_x": 240,
-        "_y": 144,
-        "_material": "Floor",
-        "_materialProperties": {
-          "IsWalkable": true,
-          "IsPassable": true,
-          "IsReplace": false,
-          "ImgPath": "file:resources/graphics/sprite/floor.png"
-        }
-      },
-      {
-        "_x": 240,
-        "_y": 192,
-        "_material": "Floor",
-        "_materialProperties": {
-          "IsWalkable": true,
-          "IsPassable": true,
-          "IsReplace": false,
-          "ImgPath": "file:resources/graphics/sprite/floor.png"
-        }
-      },
-      {
-        "_x": 240,
-        "_y": 240,
-        "_material": "Floor",
-        "_materialProperties": {
-          "IsWalkable": true,
-          "IsPassable": true,
-          "IsReplace": false,
-          "ImgPath": "file:resources/graphics/sprite/floor.png"
-        }
-      },
-      {
-        "_x": 240,
-        "_y": 288,
-        "_material": "Floor",
-        "_materialProperties": {
-          "IsWalkable": true,
-          "IsPassable": true,
-          "IsReplace": false,
-          "ImgPath": "file:resources/graphics/sprite/floor.png"
-        }
-      },
-      {
-        "_x": 240,
-        "_y": 336,
-        "_material": "Floor",
-        "_materialProperties": {
-          "IsWalkable": true,
-          "IsPassable": true,
-          "IsReplace": false,
-          "ImgPath": "file:resources/graphics/sprite/floor.png"
-        }
-      },
-      {
-        "_x": 240,
-        "_y": 384,
-        "_material": "Floor",
-        "_materialProperties": {
-          "IsWalkable": true,
-          "IsPassable": true,
-          "IsReplace": false,
-          "ImgPath": "file:resources/graphics/sprite/floor.png"
-        }
-      },
-      {
-        "_x": 240,
-        "_y": 432,
-        "_material": "Floor",
-        "_materialProperties": {
-          "IsWalkable": true,
-          "IsPassable": true,
-          "IsReplace": false,
-          "ImgPath": "file:resources/graphics/sprite/floor.png"
-        }
-      },
-      {
-        "_x": 240,
-        "_y": 480,
-        "_material": "Floor",
-        "_materialProperties": {
-          "IsWalkable": true,
-          "IsPassable": true,
-          "IsReplace": false,
-          "ImgPath": "file:resources/graphics/sprite/floor.png"
-        }
-      },
-      {
-        "_x": 240,
-        "_y": 528,
-        "_material": "Floor",
-        "_materialProperties": {
-          "IsWalkable": true,
-          "IsPassable": true,
-          "IsReplace": false,
-          "ImgPath": "file:resources/graphics/sprite/floor.png"
-        }
-      },
-      {
-        "_x": 240,
-        "_y": 576,
-        "_material": "Floor",
-        "_materialProperties": {
-          "IsWalkable": true,
-          "IsPassable": true,
-          "IsReplace": false,
-          "ImgPath": "file:resources/graphics/sprite/floor.png"
-        }
-      },
-      {
-        "_x": 240,
-        "_y": 624,
-        "_material": "Floor",
-        "_materialProperties": {
-          "IsWalkable": true,
-          "IsPassable": true,
-          "IsReplace": false,
-          "ImgPath": "file:resources/graphics/sprite/floor.png"
-        }
-      },
-      {
-        "_x": 240,
-        "_y": 672,
-        "_material": "Floor",
-        "_materialProperties": {
-          "IsWalkable": true,
-          "IsPassable": true,
-          "IsReplace": false,
-          "ImgPath": "file:resources/graphics/sprite/floor.png"
-        }
-      }
-    ],
-    [
-      {
-        "_x": 288,
-        "_y": 0,
-        "_material": "Floor",
-        "_materialProperties": {
-          "IsWalkable": true,
-          "IsPassable": true,
-          "IsReplace": false,
-          "ImgPath": "file:resources/graphics/sprite/floor.png"
-        }
-      },
-      {
-        "_x": 288,
-        "_y": 48,
-        "_material": "Wall",
-        "_materialProperties": {
-          "IsWalkable": false,
-          "IsPassable": false,
-          "IsReplace": false,
-          "ImgPath": "file:resources/graphics/sprite/wall.png"
-        }
-      },
-      {
-        "_x": 288,
-        "_y": 96,
-        "_material": "Floor",
-        "_materialProperties": {
-          "IsWalkable": true,
-          "IsPassable": true,
-          "IsReplace": false,
-          "ImgPath": "file:resources/graphics/sprite/floor.png"
-        }
-      },
-      {
-        "_x": 288,
-        "_y": 144,
-        "_material": "Floor",
-        "_materialProperties": {
-          "IsWalkable": true,
-          "IsPassable": true,
-          "IsReplace": false,
-          "ImgPath": "file:resources/graphics/sprite/floor.png"
-        }
-      },
-      {
-        "_x": 288,
-        "_y": 192,
-        "_material": "Floor",
-        "_materialProperties": {
-          "IsWalkable": true,
-          "IsPassable": true,
-          "IsReplace": false,
-          "ImgPath": "file:resources/graphics/sprite/floor.png"
-        }
-      },
-      {
-        "_x": 288,
-        "_y": 240,
-        "_material": "Floor",
-        "_materialProperties": {
-          "IsWalkable": true,
-          "IsPassable": true,
-          "IsReplace": false,
-          "ImgPath": "file:resources/graphics/sprite/floor.png"
-        }
-      },
-      {
-        "_x": 288,
-        "_y": 288,
-        "_material": "Floor",
-        "_materialProperties": {
-          "IsWalkable": true,
-          "IsPassable": true,
-          "IsReplace": false,
-          "ImgPath": "file:resources/graphics/sprite/floor.png"
-        }
-      },
-      {
-        "_x": 288,
-        "_y": 336,
-        "_material": "Floor",
-        "_materialProperties": {
-          "IsWalkable": true,
-          "IsPassable": true,
-          "IsReplace": false,
-          "ImgPath": "file:resources/graphics/sprite/floor.png"
-        }
-      },
-      {
-        "_x": 288,
-        "_y": 384,
-        "_material": "Floor",
-        "_materialProperties": {
-          "IsWalkable": true,
-          "IsPassable": true,
-          "IsReplace": false,
-          "ImgPath": "file:resources/graphics/sprite/floor.png"
-        }
-      },
-      {
-        "_x": 288,
-        "_y": 432,
-        "_material": "Floor",
-        "_materialProperties": {
-          "IsWalkable": true,
-          "IsPassable": true,
-          "IsReplace": false,
-          "ImgPath": "file:resources/graphics/sprite/floor.png"
-        }
-      },
-      {
-        "_x": 288,
-        "_y": 480,
-        "_material": "Wall",
-        "_materialProperties": {
-          "IsWalkable": false,
-          "IsPassable": false,
-          "IsReplace": false,
-          "ImgPath": "file:resources/graphics/sprite/wall.png"
-        }
-      },
-      {
-        "_x": 288,
-        "_y": 528,
-        "_material": "Floor",
-        "_materialProperties": {
-          "IsWalkable": true,
-          "IsPassable": true,
-          "IsReplace": false,
-          "ImgPath": "file:resources/graphics/sprite/floor.png"
-        }
-      },
-      {
-        "_x": 288,
-        "_y": 576,
-        "_material": "Floor",
-        "_materialProperties": {
-          "IsWalkable": true,
-          "IsPassable": true,
-          "IsReplace": false,
-          "ImgPath": "file:resources/graphics/sprite/floor.png"
-        }
-      },
-      {
-        "_x": 288,
-        "_y": 624,
-        "_material": "Floor",
-        "_materialProperties": {
-          "IsWalkable": true,
-          "IsPassable": true,
-          "IsReplace": false,
-          "ImgPath": "file:resources/graphics/sprite/floor.png"
-        }
-      },
-      {
-        "_x": 288,
-        "_y": 672,
-        "_material": "Floor",
-        "_materialProperties": {
-          "IsWalkable": true,
-          "IsPassable": true,
-          "IsReplace": false,
-          "ImgPath": "file:resources/graphics/sprite/floor.png"
-        }
-      }
-    ],
-    [
-      {
-        "_x": 336,
-        "_y": 0,
-        "_material": "Floor",
-        "_materialProperties": {
-          "IsWalkable": true,
-          "IsPassable": true,
-          "IsReplace": false,
-          "ImgPath": "file:resources/graphics/sprite/floor.png"
-        }
-      },
-      {
-        "_x": 336,
-        "_y": 48,
-        "_material": "Floor",
-        "_materialProperties": {
-          "IsWalkable": true,
-          "IsPassable": true,
-          "IsReplace": false,
-          "ImgPath": "file:resources/graphics/sprite/floor.png"
-        }
-      },
-      {
-        "_x": 336,
-        "_y": 96,
-        "_material": "Floor",
-        "_materialProperties": {
-          "IsWalkable": true,
-          "IsPassable": true,
-          "IsReplace": false,
-          "ImgPath": "file:resources/graphics/sprite/floor.png"
-        }
-      },
-      {
-        "_x": 336,
-        "_y": 144,
-        "_material": "Floor",
-        "_materialProperties": {
-          "IsWalkable": true,
-          "IsPassable": true,
-          "IsReplace": false,
-          "ImgPath": "file:resources/graphics/sprite/floor.png"
-        }
-      },
-      {
-        "_x": 336,
-        "_y": 192,
-        "_material": "Floor",
-        "_materialProperties": {
-          "IsWalkable": true,
-          "IsPassable": true,
-          "IsReplace": false,
-          "ImgPath": "file:resources/graphics/sprite/floor.png"
-        }
-      },
-      {
-        "_x": 336,
-        "_y": 240,
-        "_material": "Wall",
-        "_materialProperties": {
-          "IsWalkable": false,
-          "IsPassable": false,
-          "IsReplace": false,
-          "ImgPath": "file:resources/graphics/sprite/wall.png"
-        }
-      },
-      {
-        "_x": 336,
-        "_y": 288,
-        "_material": "Floor",
-        "_materialProperties": {
-          "IsWalkable": true,
-          "IsPassable": true,
-          "IsReplace": false,
-          "ImgPath": "file:resources/graphics/sprite/floor.png"
-        }
-      },
-      {
-        "_x": 336,
-        "_y": 336,
-        "_material": "Floor",
-        "_materialProperties": {
-          "IsWalkable": true,
-          "IsPassable": true,
-          "IsReplace": false,
-          "ImgPath": "file:resources/graphics/sprite/floor.png"
-        }
-      },
-      {
-        "_x": 336,
-        "_y": 384,
-        "_material": "Floor",
-        "_materialProperties": {
-          "IsWalkable": true,
-          "IsPassable": true,
-          "IsReplace": false,
-          "ImgPath": "file:resources/graphics/sprite/floor.png"
-        }
-      },
-      {
-        "_x": 336,
-        "_y": 432,
-        "_material": "Floor",
-        "_materialProperties": {
-          "IsWalkable": true,
-          "IsPassable": true,
-          "IsReplace": false,
-          "ImgPath": "file:resources/graphics/sprite/floor.png"
-        }
-      },
-      {
-        "_x": 336,
-        "_y": 480,
-        "_material": "Floor",
-        "_materialProperties": {
-          "IsWalkable": true,
-          "IsPassable": true,
-          "IsReplace": false,
-          "ImgPath": "file:resources/graphics/sprite/floor.png"
-        }
-      },
-      {
-        "_x": 336,
-        "_y": 528,
-        "_material": "Floor",
-        "_materialProperties": {
-          "IsWalkable": true,
-          "IsPassable": true,
-          "IsReplace": false,
-          "ImgPath": "file:resources/graphics/sprite/floor.png"
-        }
-      },
-      {
-        "_x": 336,
-        "_y": 576,
-        "_material": "Floor",
-        "_materialProperties": {
-          "IsWalkable": true,
-          "IsPassable": true,
-          "IsReplace": false,
-          "ImgPath": "file:resources/graphics/sprite/floor.png"
-        }
-      },
-      {
-        "_x": 336,
-        "_y": 624,
-        "_material": "Floor",
-        "_materialProperties": {
-          "IsWalkable": true,
-          "IsPassable": true,
-          "IsReplace": false,
-          "ImgPath": "file:resources/graphics/sprite/floor.png"
-        }
-      },
-      {
-        "_x": 336,
-        "_y": 672,
-        "_material": "Wall",
-        "_materialProperties": {
-          "IsWalkable": false,
-          "IsPassable": false,
-          "IsReplace": false,
-          "ImgPath": "file:resources/graphics/sprite/wall.png"
-        }
-      }
-    ],
-    [
-      {
-        "_x": 384,
-        "_y": 0,
-        "_material": "Floor",
-        "_materialProperties": {
-          "IsWalkable": true,
-          "IsPassable": true,
-          "IsReplace": false,
-          "ImgPath": "file:resources/graphics/sprite/floor.png"
-        }
-      },
-      {
-        "_x": 384,
-        "_y": 48,
-        "_material": "Floor",
-        "_materialProperties": {
-          "IsWalkable": true,
-          "IsPassable": true,
-          "IsReplace": false,
-          "ImgPath": "file:resources/graphics/sprite/floor.png"
-        }
-      },
-      {
-        "_x": 384,
-        "_y": 96,
-        "_material": "Floor",
-        "_materialProperties": {
-          "IsWalkable": true,
-          "IsPassable": true,
-          "IsReplace": false,
-          "ImgPath": "file:resources/graphics/sprite/floor.png"
-        }
-      },
-      {
-        "_x": 384,
-        "_y": 144,
-        "_material": "Floor",
-        "_materialProperties": {
-          "IsWalkable": true,
-          "IsPassable": true,
-          "IsReplace": false,
-          "ImgPath": "file:resources/graphics/sprite/floor.png"
-        }
-      },
-      {
-        "_x": 384,
-        "_y": 192,
-        "_material": "Floor",
-        "_materialProperties": {
-          "IsWalkable": true,
-          "IsPassable": true,
-          "IsReplace": false,
-          "ImgPath": "file:resources/graphics/sprite/floor.png"
-        }
-      },
-      {
-        "_x": 384,
-        "_y": 240,
-        "_material": "Floor",
-        "_materialProperties": {
-          "IsWalkable": true,
-          "IsPassable": true,
-          "IsReplace": false,
-          "ImgPath": "file:resources/graphics/sprite/floor.png"
-        }
-      },
-      {
-        "_x": 384,
-        "_y": 288,
-        "_material": "Floor",
-        "_materialProperties": {
-          "IsWalkable": true,
-          "IsPassable": true,
-          "IsReplace": false,
-          "ImgPath": "file:resources/graphics/sprite/floor.png"
-        }
-      },
-      {
-        "_x": 384,
-        "_y": 336,
-        "_material": "Floor",
-        "_materialProperties": {
-          "IsWalkable": true,
-          "IsPassable": true,
-          "IsReplace": false,
-          "ImgPath": "file:resources/graphics/sprite/floor.png"
-        }
-      },
-      {
-        "_x": 384,
-        "_y": 384,
-        "_material": "Floor",
-        "_materialProperties": {
-          "IsWalkable": true,
-          "IsPassable": true,
-          "IsReplace": false,
-          "ImgPath": "file:resources/graphics/sprite/floor.png"
-        }
-      },
-      {
-        "_x": 384,
-        "_y": 432,
-        "_material": "Floor",
-        "_materialProperties": {
-          "IsWalkable": true,
-          "IsPassable": true,
-          "IsReplace": false,
-          "ImgPath": "file:resources/graphics/sprite/floor.png"
-        }
-      },
-      {
-        "_x": 384,
-        "_y": 480,
-        "_material": "Floor",
-        "_materialProperties": {
-          "IsWalkable": true,
-          "IsPassable": true,
-          "IsReplace": false,
-          "ImgPath": "file:resources/graphics/sprite/floor.png"
-        }
-      },
-      {
-        "_x": 384,
-        "_y": 528,
-        "_material": "Wall",
-        "_materialProperties": {
-          "IsWalkable": false,
-          "IsPassable": false,
-          "IsReplace": false,
-          "ImgPath": "file:resources/graphics/sprite/wall.png"
-        }
-      },
-      {
-        "_x": 384,
-        "_y": 576,
-        "_material": "Floor",
-        "_materialProperties": {
-          "IsWalkable": true,
-          "IsPassable": true,
-          "IsReplace": false,
-          "ImgPath": "file:resources/graphics/sprite/floor.png"
-        }
-      },
-      {
-        "_x": 384,
-        "_y": 624,
-        "_material": "Floor",
-        "_materialProperties": {
-          "IsWalkable": true,
-          "IsPassable": true,
-          "IsReplace": false,
-          "ImgPath": "file:resources/graphics/sprite/floor.png"
-        }
-      },
-      {
-        "_x": 384,
-        "_y": 672,
-        "_material": "Floor",
-        "_materialProperties": {
-          "IsWalkable": true,
-          "IsPassable": true,
-          "IsReplace": false,
-          "ImgPath": "file:resources/graphics/sprite/floor.png"
-        }
-      }
-    ],
-    [
-      {
-        "_x": 432,
-        "_y": 0,
-        "_material": "Floor",
-        "_materialProperties": {
-          "IsWalkable": true,
-          "IsPassable": true,
-          "IsReplace": false,
-          "ImgPath": "file:resources/graphics/sprite/floor.png"
-        }
-      },
-      {
-        "_x": 432,
-        "_y": 48,
-        "_material": "Floor",
-        "_materialProperties": {
-          "IsWalkable": true,
-          "IsPassable": true,
-          "IsReplace": false,
-          "ImgPath": "file:resources/graphics/sprite/floor.png"
-        }
-      },
-      {
-        "_x": 432,
-        "_y": 96,
-        "_material": "Floor",
-        "_materialProperties": {
-          "IsWalkable": true,
-          "IsPassable": true,
-          "IsReplace": false,
-          "ImgPath": "file:resources/graphics/sprite/floor.png"
-        }
-      },
-      {
-        "_x": 432,
-        "_y": 144,
-        "_material": "Floor",
-        "_materialProperties": {
-          "IsWalkable": true,
-          "IsPassable": true,
-          "IsReplace": false,
-          "ImgPath": "file:resources/graphics/sprite/floor.png"
-        }
-      },
-      {
-        "_x": 432,
-        "_y": 192,
-        "_material": "Floor",
-        "_materialProperties": {
-          "IsWalkable": true,
-          "IsPassable": true,
-          "IsReplace": false,
-          "ImgPath": "file:resources/graphics/sprite/floor.png"
-        }
-      },
-      {
-        "_x": 432,
-        "_y": 240,
-        "_material": "Floor",
-        "_materialProperties": {
-          "IsWalkable": true,
-          "IsPassable": true,
-          "IsReplace": false,
-          "ImgPath": "file:resources/graphics/sprite/floor.png"
-        }
-      },
-      {
-        "_x": 432,
-        "_y": 288,
-        "_material": "Floor",
-        "_materialProperties": {
-          "IsWalkable": true,
-          "IsPassable": true,
-          "IsReplace": false,
-          "ImgPath": "file:resources/graphics/sprite/floor.png"
-        }
-      },
-      {
-        "_x": 432,
-        "_y": 336,
-        "_material": "Floor",
-        "_materialProperties": {
-          "IsWalkable": true,
-          "IsPassable": true,
-          "IsReplace": false,
-          "ImgPath": "file:resources/graphics/sprite/floor.png"
-        }
-      },
-      {
-        "_x": 432,
-        "_y": 384,
-        "_material": "Floor",
-        "_materialProperties": {
-          "IsWalkable": true,
-          "IsPassable": true,
-          "IsReplace": false,
-          "ImgPath": "file:resources/graphics/sprite/floor.png"
-        }
-      },
-      {
-        "_x": 432,
-        "_y": 432,
-        "_material": "Floor",
-        "_materialProperties": {
-          "IsWalkable": true,
-          "IsPassable": true,
-          "IsReplace": false,
-          "ImgPath": "file:resources/graphics/sprite/floor.png"
-        }
-      },
-      {
-        "_x": 432,
-        "_y": 480,
-        "_material": "Floor",
-        "_materialProperties": {
-          "IsWalkable": true,
-          "IsPassable": true,
-          "IsReplace": false,
-          "ImgPath": "file:resources/graphics/sprite/floor.png"
-        }
-      },
-      {
-        "_x": 432,
-        "_y": 528,
-        "_material": "Wall",
-        "_materialProperties": {
-          "IsWalkable": false,
-          "IsPassable": false,
-          "IsReplace": false,
-          "ImgPath": "file:resources/graphics/sprite/wall.png"
-        }
-      },
-      {
-        "_x": 432,
-        "_y": 576,
-        "_material": "Floor",
-        "_materialProperties": {
-          "IsWalkable": true,
-          "IsPassable": true,
-          "IsReplace": false,
-          "ImgPath": "file:resources/graphics/sprite/floor.png"
-        }
-      },
-      {
-        "_x": 432,
-        "_y": 624,
-        "_material": "Floor",
-        "_materialProperties": {
-          "IsWalkable": true,
-          "IsPassable": true,
-          "IsReplace": false,
-          "ImgPath": "file:resources/graphics/sprite/floor.png"
-        }
-      },
-      {
-        "_x": 432,
-        "_y": 672,
-        "_material": "Floor",
-        "_materialProperties": {
-          "IsWalkable": true,
-          "IsPassable": true,
-          "IsReplace": false,
-          "ImgPath": "file:resources/graphics/sprite/floor.png"
-        }
-      }
-    ],
-    [
-      {
-        "_x": 480,
-        "_y": 0,
-        "_material": "Floor",
-        "_materialProperties": {
-          "IsWalkable": true,
-          "IsPassable": true,
-          "IsReplace": false,
-          "ImgPath": "file:resources/graphics/sprite/floor.png"
-        }
-      },
-      {
-        "_x": 480,
-        "_y": 48,
-        "_material": "Floor",
-        "_materialProperties": {
-          "IsWalkable": true,
-          "IsPassable": true,
-          "IsReplace": false,
-          "ImgPath": "file:resources/graphics/sprite/floor.png"
-        }
-      },
-      {
-        "_x": 480,
-        "_y": 96,
-        "_material": "Floor",
-        "_materialProperties": {
-          "IsWalkable": true,
-          "IsPassable": true,
-          "IsReplace": false,
-          "ImgPath": "file:resources/graphics/sprite/floor.png"
-        }
-      },
-      {
-        "_x": 480,
-        "_y": 144,
-        "_material": "Door",
-        "_materialProperties": {
-          "IsWalkable": false,
-          "IsPassable": true,
-          "IsReplace": false,
-          "ImgPath": "file:resources/graphics/sprite/door.png"
-        }
-      },
-      {
-        "_x": 480,
-        "_y": 192,
-        "_material": "Floor",
-        "_materialProperties": {
-          "IsWalkable": true,
-          "IsPassable": true,
-          "IsReplace": false,
-          "ImgPath": "file:resources/graphics/sprite/floor.png"
-        }
-      },
-      {
-        "_x": 480,
-        "_y": 240,
-        "_material": "Floor",
-        "_materialProperties": {
-          "IsWalkable": true,
-          "IsPassable": true,
-          "IsReplace": false,
-          "ImgPath": "file:resources/graphics/sprite/floor.png"
-        }
-      },
-      {
-        "_x": 480,
-        "_y": 288,
-        "_material": "Floor",
-        "_materialProperties": {
-          "IsWalkable": true,
-          "IsPassable": true,
-          "IsReplace": false,
-          "ImgPath": "file:resources/graphics/sprite/floor.png"
-        }
-      },
-      {
-        "_x": 480,
         "_y": 336,
         "_material": "Door",
         "_materialProperties": {
@@ -1760,7 +257,7 @@
         }
       },
       {
-        "_x": 480,
+        "_x": 48,
         "_y": 384,
         "_material": "Floor",
         "_materialProperties": {
@@ -1771,7 +268,7 @@
         }
       },
       {
-        "_x": 480,
+        "_x": 48,
         "_y": 432,
         "_material": "Floor",
         "_materialProperties": {
@@ -1782,7 +279,7 @@
         }
       },
       {
-        "_x": 480,
+        "_x": 48,
         "_y": 480,
         "_material": "Floor",
         "_materialProperties": {
@@ -1793,7 +290,7 @@
         }
       },
       {
-        "_x": 480,
+        "_x": 48,
         "_y": 528,
         "_material": "Floor",
         "_materialProperties": {
@@ -1804,7 +301,7 @@
         }
       },
       {
-        "_x": 480,
+        "_x": 48,
         "_y": 576,
         "_material": "Floor",
         "_materialProperties": {
@@ -1815,18 +312,18 @@
         }
       },
       {
-        "_x": 480,
+        "_x": 48,
         "_y": 624,
-        "_material": "Floor",
+        "_material": "Wall",
         "_materialProperties": {
-          "IsWalkable": true,
-          "IsPassable": true,
+          "IsWalkable": false,
+          "IsPassable": false,
           "IsReplace": false,
-          "ImgPath": "file:resources/graphics/sprite/floor.png"
+          "ImgPath": "file:resources/graphics/sprite/wall.png"
         }
       },
       {
-        "_x": 480,
+        "_x": 48,
         "_y": 672,
         "_material": "Floor",
         "_materialProperties": {
@@ -1839,7 +336,7 @@
     ],
     [
       {
-        "_x": 528,
+        "_x": 96,
         "_y": 0,
         "_material": "Floor",
         "_materialProperties": {
@@ -1850,18 +347,18 @@
         }
       },
       {
-        "_x": 528,
+        "_x": 96,
         "_y": 48,
-        "_material": "Floor",
+        "_material": "Wall",
         "_materialProperties": {
-          "IsWalkable": true,
-          "IsPassable": true,
+          "IsWalkable": false,
+          "IsPassable": false,
           "IsReplace": false,
-          "ImgPath": "file:resources/graphics/sprite/floor.png"
+          "ImgPath": "file:resources/graphics/sprite/wall.png"
         }
       },
       {
-        "_x": 528,
+        "_x": 96,
         "_y": 96,
         "_material": "Floor",
         "_materialProperties": {
@@ -1872,7 +369,7 @@
         }
       },
       {
-        "_x": 528,
+        "_x": 96,
         "_y": 144,
         "_material": "Floor",
         "_materialProperties": {
@@ -1883,40 +380,40 @@
         }
       },
       {
-        "_x": 528,
+        "_x": 96,
         "_y": 192,
-        "_material": "Wall",
+        "_material": "Floor",
         "_materialProperties": {
-          "IsWalkable": false,
-          "IsPassable": false,
+          "IsWalkable": true,
+          "IsPassable": true,
           "IsReplace": false,
-          "ImgPath": "file:resources/graphics/sprite/wall.png"
+          "ImgPath": "file:resources/graphics/sprite/floor.png"
         }
       },
       {
-        "_x": 528,
+        "_x": 96,
         "_y": 240,
-        "_material": "Wall",
+        "_material": "Floor",
         "_materialProperties": {
-          "IsWalkable": false,
-          "IsPassable": false,
+          "IsWalkable": true,
+          "IsPassable": true,
           "IsReplace": false,
-          "ImgPath": "file:resources/graphics/sprite/wall.png"
+          "ImgPath": "file:resources/graphics/sprite/floor.png"
         }
       },
       {
-        "_x": 528,
+        "_x": 96,
         "_y": 288,
-        "_material": "Wall",
+        "_material": "Floor",
         "_materialProperties": {
-          "IsWalkable": false,
-          "IsPassable": false,
+          "IsWalkable": true,
+          "IsPassable": true,
           "IsReplace": false,
-          "ImgPath": "file:resources/graphics/sprite/wall.png"
+          "ImgPath": "file:resources/graphics/sprite/floor.png"
         }
       },
       {
-        "_x": 528,
+        "_x": 96,
         "_y": 336,
         "_material": "Floor",
         "_materialProperties": {
@@ -1927,7 +424,7 @@
         }
       },
       {
-        "_x": 528,
+        "_x": 96,
         "_y": 384,
         "_material": "Floor",
         "_materialProperties": {
@@ -1938,7 +435,7 @@
         }
       },
       {
-        "_x": 528,
+        "_x": 96,
         "_y": 432,
         "_material": "Floor",
         "_materialProperties": {
@@ -1949,7 +446,7 @@
         }
       },
       {
-        "_x": 528,
+        "_x": 96,
         "_y": 480,
         "_material": "Floor",
         "_materialProperties": {
@@ -1960,18 +457,18 @@
         }
       },
       {
-        "_x": 528,
+        "_x": 96,
         "_y": 528,
-        "_material": "Wall",
+        "_material": "Floor",
         "_materialProperties": {
-          "IsWalkable": false,
-          "IsPassable": false,
+          "IsWalkable": true,
+          "IsPassable": true,
           "IsReplace": false,
-          "ImgPath": "file:resources/graphics/sprite/wall.png"
+          "ImgPath": "file:resources/graphics/sprite/floor.png"
         }
       },
       {
-        "_x": 528,
+        "_x": 96,
         "_y": 576,
         "_material": "Floor",
         "_materialProperties": {
@@ -1982,18 +479,18 @@
         }
       },
       {
-        "_x": 528,
+        "_x": 96,
         "_y": 624,
-        "_material": "Wall",
+        "_material": "Floor",
         "_materialProperties": {
-          "IsWalkable": false,
-          "IsPassable": false,
+          "IsWalkable": true,
+          "IsPassable": true,
           "IsReplace": false,
-          "ImgPath": "file:resources/graphics/sprite/wall.png"
+          "ImgPath": "file:resources/graphics/sprite/floor.png"
         }
       },
       {
-        "_x": 528,
+        "_x": 96,
         "_y": 672,
         "_material": "Floor",
         "_materialProperties": {
@@ -2006,18 +503,18 @@
     ],
     [
       {
-        "_x": 576,
+        "_x": 144,
         "_y": 0,
-        "_material": "Wall",
+        "_material": "Floor",
         "_materialProperties": {
-          "IsWalkable": false,
-          "IsPassable": false,
+          "IsWalkable": true,
+          "IsPassable": true,
           "IsReplace": false,
-          "ImgPath": "file:resources/graphics/sprite/wall.png"
+          "ImgPath": "file:resources/graphics/sprite/floor.png"
         }
       },
       {
-        "_x": 576,
+        "_x": 144,
         "_y": 48,
         "_material": "Floor",
         "_materialProperties": {
@@ -2028,7 +525,7 @@
         }
       },
       {
-        "_x": 576,
+        "_x": 144,
         "_y": 96,
         "_material": "Floor",
         "_materialProperties": {
@@ -2039,7 +536,7 @@
         }
       },
       {
-        "_x": 576,
+        "_x": 144,
         "_y": 144,
         "_material": "Floor",
         "_materialProperties": {
@@ -2050,7 +547,7 @@
         }
       },
       {
-        "_x": 576,
+        "_x": 144,
         "_y": 192,
         "_material": "Floor",
         "_materialProperties": {
@@ -2061,18 +558,18 @@
         }
       },
       {
-        "_x": 576,
+        "_x": 144,
         "_y": 240,
-        "_material": "Floor",
+        "_material": "Wall",
         "_materialProperties": {
-          "IsWalkable": true,
-          "IsPassable": true,
+          "IsWalkable": false,
+          "IsPassable": false,
           "IsReplace": false,
-          "ImgPath": "file:resources/graphics/sprite/floor.png"
+          "ImgPath": "file:resources/graphics/sprite/wall.png"
         }
       },
       {
-        "_x": 576,
+        "_x": 144,
         "_y": 288,
         "_material": "Floor",
         "_materialProperties": {
@@ -2083,7 +580,7 @@
         }
       },
       {
-        "_x": 576,
+        "_x": 144,
         "_y": 336,
         "_material": "Floor",
         "_materialProperties": {
@@ -2094,18 +591,18 @@
         }
       },
       {
-        "_x": 576,
+        "_x": 144,
         "_y": 384,
-        "_material": "Floor",
+        "_material": "Wall",
         "_materialProperties": {
-          "IsWalkable": true,
-          "IsPassable": true,
+          "IsWalkable": false,
+          "IsPassable": false,
           "IsReplace": false,
-          "ImgPath": "file:resources/graphics/sprite/floor.png"
+          "ImgPath": "file:resources/graphics/sprite/wall.png"
         }
       },
       {
-        "_x": 576,
+        "_x": 144,
         "_y": 432,
         "_material": "Floor",
         "_materialProperties": {
@@ -2116,7 +613,7 @@
         }
       },
       {
-        "_x": 576,
+        "_x": 144,
         "_y": 480,
         "_material": "Floor",
         "_materialProperties": {
@@ -2127,18 +624,18 @@
         }
       },
       {
-        "_x": 576,
+        "_x": 144,
         "_y": 528,
-        "_material": "Wall",
+        "_material": "Floor",
         "_materialProperties": {
-          "IsWalkable": false,
-          "IsPassable": false,
+          "IsWalkable": true,
+          "IsPassable": true,
           "IsReplace": false,
-          "ImgPath": "file:resources/graphics/sprite/wall.png"
+          "ImgPath": "file:resources/graphics/sprite/floor.png"
         }
       },
       {
-        "_x": 576,
+        "_x": 144,
         "_y": 576,
         "_material": "Floor",
         "_materialProperties": {
@@ -2149,7 +646,7 @@
         }
       },
       {
-        "_x": 576,
+        "_x": 144,
         "_y": 624,
         "_material": "Floor",
         "_materialProperties": {
@@ -2160,7 +657,174 @@
         }
       },
       {
-        "_x": 576,
+        "_x": 144,
+        "_y": 672,
+        "_material": "Wall",
+        "_materialProperties": {
+          "IsWalkable": false,
+          "IsPassable": false,
+          "IsReplace": false,
+          "ImgPath": "file:resources/graphics/sprite/wall.png"
+        }
+      }
+    ],
+    [
+      {
+        "_x": 192,
+        "_y": 0,
+        "_material": "Floor",
+        "_materialProperties": {
+          "IsWalkable": true,
+          "IsPassable": true,
+          "IsReplace": false,
+          "ImgPath": "file:resources/graphics/sprite/floor.png"
+        }
+      },
+      {
+        "_x": 192,
+        "_y": 48,
+        "_material": "Floor",
+        "_materialProperties": {
+          "IsWalkable": true,
+          "IsPassable": true,
+          "IsReplace": false,
+          "ImgPath": "file:resources/graphics/sprite/floor.png"
+        }
+      },
+      {
+        "_x": 192,
+        "_y": 96,
+        "_material": "Floor",
+        "_materialProperties": {
+          "IsWalkable": true,
+          "IsPassable": true,
+          "IsReplace": false,
+          "ImgPath": "file:resources/graphics/sprite/floor.png"
+        }
+      },
+      {
+        "_x": 192,
+        "_y": 144,
+        "_material": "Wall",
+        "_materialProperties": {
+          "IsWalkable": false,
+          "IsPassable": false,
+          "IsReplace": false,
+          "ImgPath": "file:resources/graphics/sprite/wall.png"
+        }
+      },
+      {
+        "_x": 192,
+        "_y": 192,
+        "_material": "Floor",
+        "_materialProperties": {
+          "IsWalkable": true,
+          "IsPassable": true,
+          "IsReplace": false,
+          "ImgPath": "file:resources/graphics/sprite/floor.png"
+        }
+      },
+      {
+        "_x": 192,
+        "_y": 240,
+        "_material": "Floor",
+        "_materialProperties": {
+          "IsWalkable": true,
+          "IsPassable": true,
+          "IsReplace": false,
+          "ImgPath": "file:resources/graphics/sprite/floor.png"
+        }
+      },
+      {
+        "_x": 192,
+        "_y": 288,
+        "_material": "Floor",
+        "_materialProperties": {
+          "IsWalkable": true,
+          "IsPassable": true,
+          "IsReplace": false,
+          "ImgPath": "file:resources/graphics/sprite/floor.png"
+        }
+      },
+      {
+        "_x": 192,
+        "_y": 336,
+        "_material": "Floor",
+        "_materialProperties": {
+          "IsWalkable": true,
+          "IsPassable": true,
+          "IsReplace": false,
+          "ImgPath": "file:resources/graphics/sprite/floor.png"
+        }
+      },
+      {
+        "_x": 192,
+        "_y": 384,
+        "_material": "Floor",
+        "_materialProperties": {
+          "IsWalkable": true,
+          "IsPassable": true,
+          "IsReplace": false,
+          "ImgPath": "file:resources/graphics/sprite/floor.png"
+        }
+      },
+      {
+        "_x": 192,
+        "_y": 432,
+        "_material": "Floor",
+        "_materialProperties": {
+          "IsWalkable": true,
+          "IsPassable": true,
+          "IsReplace": false,
+          "ImgPath": "file:resources/graphics/sprite/floor.png"
+        }
+      },
+      {
+        "_x": 192,
+        "_y": 480,
+        "_material": "Wall",
+        "_materialProperties": {
+          "IsWalkable": false,
+          "IsPassable": false,
+          "IsReplace": false,
+          "ImgPath": "file:resources/graphics/sprite/wall.png"
+        }
+      },
+      {
+        "_x": 192,
+        "_y": 528,
+        "_material": "Floor",
+        "_materialProperties": {
+          "IsWalkable": true,
+          "IsPassable": true,
+          "IsReplace": false,
+          "ImgPath": "file:resources/graphics/sprite/floor.png"
+        }
+      },
+      {
+        "_x": 192,
+        "_y": 576,
+        "_material": "Wall",
+        "_materialProperties": {
+          "IsWalkable": false,
+          "IsPassable": false,
+          "IsReplace": false,
+          "ImgPath": "file:resources/graphics/sprite/wall.png"
+        }
+      },
+      {
+        "_x": 192,
+        "_y": 624,
+        "_material": "Floor",
+        "_materialProperties": {
+          "IsWalkable": true,
+          "IsPassable": true,
+          "IsReplace": false,
+          "ImgPath": "file:resources/graphics/sprite/floor.png"
+        }
+      },
+      {
+        "_x": 192,
         "_y": 672,
         "_material": "Floor",
         "_materialProperties": {
@@ -2173,7 +837,7 @@
     ],
     [
       {
-        "_x": 624,
+        "_x": 240,
         "_y": 0,
         "_material": "Floor",
         "_materialProperties": {
@@ -2184,18 +848,18 @@
         }
       },
       {
-        "_x": 624,
+        "_x": 240,
         "_y": 48,
-        "_material": "Floor",
+        "_material": "Wall",
         "_materialProperties": {
-          "IsWalkable": true,
-          "IsPassable": true,
+          "IsWalkable": false,
+          "IsPassable": false,
           "IsReplace": false,
-          "ImgPath": "file:resources/graphics/sprite/floor.png"
+          "ImgPath": "file:resources/graphics/sprite/wall.png"
         }
       },
       {
-        "_x": 624,
+        "_x": 240,
         "_y": 96,
         "_material": "Floor",
         "_materialProperties": {
@@ -2206,7 +870,7 @@
         }
       },
       {
-        "_x": 624,
+        "_x": 240,
         "_y": 144,
         "_material": "Floor",
         "_materialProperties": {
@@ -2217,7 +881,7 @@
         }
       },
       {
-        "_x": 624,
+        "_x": 240,
         "_y": 192,
         "_material": "Floor",
         "_materialProperties": {
@@ -2228,7 +892,7 @@
         }
       },
       {
-        "_x": 624,
+        "_x": 240,
         "_y": 240,
         "_material": "Floor",
         "_materialProperties": {
@@ -2239,8 +903,643 @@
         }
       },
       {
-        "_x": 624,
+        "_x": 240,
         "_y": 288,
+        "_material": "Floor",
+        "_materialProperties": {
+          "IsWalkable": true,
+          "IsPassable": true,
+          "IsReplace": false,
+          "ImgPath": "file:resources/graphics/sprite/floor.png"
+        }
+      },
+      {
+        "_x": 240,
+        "_y": 336,
+        "_material": "Floor",
+        "_materialProperties": {
+          "IsWalkable": true,
+          "IsPassable": true,
+          "IsReplace": false,
+          "ImgPath": "file:resources/graphics/sprite/floor.png"
+        }
+      },
+      {
+        "_x": 240,
+        "_y": 384,
+        "_material": "Floor",
+        "_materialProperties": {
+          "IsWalkable": true,
+          "IsPassable": true,
+          "IsReplace": false,
+          "ImgPath": "file:resources/graphics/sprite/floor.png"
+        }
+      },
+      {
+        "_x": 240,
+        "_y": 432,
+        "_material": "Floor",
+        "_materialProperties": {
+          "IsWalkable": true,
+          "IsPassable": true,
+          "IsReplace": false,
+          "ImgPath": "file:resources/graphics/sprite/floor.png"
+        }
+      },
+      {
+        "_x": 240,
+        "_y": 480,
+        "_material": "Floor",
+        "_materialProperties": {
+          "IsWalkable": true,
+          "IsPassable": true,
+          "IsReplace": false,
+          "ImgPath": "file:resources/graphics/sprite/floor.png"
+        }
+      },
+      {
+        "_x": 240,
+        "_y": 528,
+        "_material": "Floor",
+        "_materialProperties": {
+          "IsWalkable": true,
+          "IsPassable": true,
+          "IsReplace": false,
+          "ImgPath": "file:resources/graphics/sprite/floor.png"
+        }
+      },
+      {
+        "_x": 240,
+        "_y": 576,
+        "_material": "Floor",
+        "_materialProperties": {
+          "IsWalkable": true,
+          "IsPassable": true,
+          "IsReplace": false,
+          "ImgPath": "file:resources/graphics/sprite/floor.png"
+        }
+      },
+      {
+        "_x": 240,
+        "_y": 624,
+        "_material": "Floor",
+        "_materialProperties": {
+          "IsWalkable": true,
+          "IsPassable": true,
+          "IsReplace": false,
+          "ImgPath": "file:resources/graphics/sprite/floor.png"
+        }
+      },
+      {
+        "_x": 240,
+        "_y": 672,
+        "_material": "Floor",
+        "_materialProperties": {
+          "IsWalkable": true,
+          "IsPassable": true,
+          "IsReplace": false,
+          "ImgPath": "file:resources/graphics/sprite/floor.png"
+        }
+      }
+    ],
+    [
+      {
+        "_x": 288,
+        "_y": 0,
+        "_material": "Floor",
+        "_materialProperties": {
+          "IsWalkable": true,
+          "IsPassable": true,
+          "IsReplace": false,
+          "ImgPath": "file:resources/graphics/sprite/floor.png"
+        }
+      },
+      {
+        "_x": 288,
+        "_y": 48,
+        "_material": "Floor",
+        "_materialProperties": {
+          "IsWalkable": true,
+          "IsPassable": true,
+          "IsReplace": false,
+          "ImgPath": "file:resources/graphics/sprite/floor.png"
+        }
+      },
+      {
+        "_x": 288,
+        "_y": 96,
+        "_material": "Floor",
+        "_materialProperties": {
+          "IsWalkable": true,
+          "IsPassable": true,
+          "IsReplace": false,
+          "ImgPath": "file:resources/graphics/sprite/floor.png"
+        }
+      },
+      {
+        "_x": 288,
+        "_y": 144,
+        "_material": "Floor",
+        "_materialProperties": {
+          "IsWalkable": true,
+          "IsPassable": true,
+          "IsReplace": false,
+          "ImgPath": "file:resources/graphics/sprite/floor.png"
+        }
+      },
+      {
+        "_x": 288,
+        "_y": 192,
+        "_material": "Floor",
+        "_materialProperties": {
+          "IsWalkable": true,
+          "IsPassable": true,
+          "IsReplace": false,
+          "ImgPath": "file:resources/graphics/sprite/floor.png"
+        }
+      },
+      {
+        "_x": 288,
+        "_y": 240,
+        "_material": "Floor",
+        "_materialProperties": {
+          "IsWalkable": true,
+          "IsPassable": true,
+          "IsReplace": false,
+          "ImgPath": "file:resources/graphics/sprite/floor.png"
+        }
+      },
+      {
+        "_x": 288,
+        "_y": 288,
+        "_material": "Wall",
+        "_materialProperties": {
+          "IsWalkable": false,
+          "IsPassable": false,
+          "IsReplace": false,
+          "ImgPath": "file:resources/graphics/sprite/wall.png"
+        }
+      },
+      {
+        "_x": 288,
+        "_y": 336,
+        "_material": "Floor",
+        "_materialProperties": {
+          "IsWalkable": true,
+          "IsPassable": true,
+          "IsReplace": false,
+          "ImgPath": "file:resources/graphics/sprite/floor.png"
+        }
+      },
+      {
+        "_x": 288,
+        "_y": 384,
+        "_material": "Floor",
+        "_materialProperties": {
+          "IsWalkable": true,
+          "IsPassable": true,
+          "IsReplace": false,
+          "ImgPath": "file:resources/graphics/sprite/floor.png"
+        }
+      },
+      {
+        "_x": 288,
+        "_y": 432,
+        "_material": "Wall",
+        "_materialProperties": {
+          "IsWalkable": false,
+          "IsPassable": false,
+          "IsReplace": false,
+          "ImgPath": "file:resources/graphics/sprite/wall.png"
+        }
+      },
+      {
+        "_x": 288,
+        "_y": 480,
+        "_material": "Floor",
+        "_materialProperties": {
+          "IsWalkable": true,
+          "IsPassable": true,
+          "IsReplace": false,
+          "ImgPath": "file:resources/graphics/sprite/floor.png"
+        }
+      },
+      {
+        "_x": 288,
+        "_y": 528,
+        "_material": "Floor",
+        "_materialProperties": {
+          "IsWalkable": true,
+          "IsPassable": true,
+          "IsReplace": false,
+          "ImgPath": "file:resources/graphics/sprite/floor.png"
+        }
+      },
+      {
+        "_x": 288,
+        "_y": 576,
+        "_material": "Floor",
+        "_materialProperties": {
+          "IsWalkable": true,
+          "IsPassable": true,
+          "IsReplace": false,
+          "ImgPath": "file:resources/graphics/sprite/floor.png"
+        }
+      },
+      {
+        "_x": 288,
+        "_y": 624,
+        "_material": "Floor",
+        "_materialProperties": {
+          "IsWalkable": true,
+          "IsPassable": true,
+          "IsReplace": false,
+          "ImgPath": "file:resources/graphics/sprite/floor.png"
+        }
+      },
+      {
+        "_x": 288,
+        "_y": 672,
+        "_material": "Wall",
+        "_materialProperties": {
+          "IsWalkable": false,
+          "IsPassable": false,
+          "IsReplace": false,
+          "ImgPath": "file:resources/graphics/sprite/wall.png"
+        }
+      }
+    ],
+    [
+      {
+        "_x": 336,
+        "_y": 0,
+        "_material": "Wall",
+        "_materialProperties": {
+          "IsWalkable": false,
+          "IsPassable": false,
+          "IsReplace": false,
+          "ImgPath": "file:resources/graphics/sprite/wall.png"
+        }
+      },
+      {
+        "_x": 336,
+        "_y": 48,
+        "_material": "Floor",
+        "_materialProperties": {
+          "IsWalkable": true,
+          "IsPassable": true,
+          "IsReplace": false,
+          "ImgPath": "file:resources/graphics/sprite/floor.png"
+        }
+      },
+      {
+        "_x": 336,
+        "_y": 96,
+        "_material": "Floor",
+        "_materialProperties": {
+          "IsWalkable": true,
+          "IsPassable": true,
+          "IsReplace": false,
+          "ImgPath": "file:resources/graphics/sprite/floor.png"
+        }
+      },
+      {
+        "_x": 336,
+        "_y": 144,
+        "_material": "Floor",
+        "_materialProperties": {
+          "IsWalkable": true,
+          "IsPassable": true,
+          "IsReplace": false,
+          "ImgPath": "file:resources/graphics/sprite/floor.png"
+        }
+      },
+      {
+        "_x": 336,
+        "_y": 192,
+        "_material": "Wall",
+        "_materialProperties": {
+          "IsWalkable": false,
+          "IsPassable": false,
+          "IsReplace": false,
+          "ImgPath": "file:resources/graphics/sprite/wall.png"
+        }
+      },
+      {
+        "_x": 336,
+        "_y": 240,
+        "_material": "Floor",
+        "_materialProperties": {
+          "IsWalkable": true,
+          "IsPassable": true,
+          "IsReplace": false,
+          "ImgPath": "file:resources/graphics/sprite/floor.png"
+        }
+      },
+      {
+        "_x": 336,
+        "_y": 288,
+        "_material": "Floor",
+        "_materialProperties": {
+          "IsWalkable": true,
+          "IsPassable": true,
+          "IsReplace": false,
+          "ImgPath": "file:resources/graphics/sprite/floor.png"
+        }
+      },
+      {
+        "_x": 336,
+        "_y": 336,
+        "_material": "Floor",
+        "_materialProperties": {
+          "IsWalkable": true,
+          "IsPassable": true,
+          "IsReplace": false,
+          "ImgPath": "file:resources/graphics/sprite/floor.png"
+        }
+      },
+      {
+        "_x": 336,
+        "_y": 384,
+        "_material": "Floor",
+        "_materialProperties": {
+          "IsWalkable": true,
+          "IsPassable": true,
+          "IsReplace": false,
+          "ImgPath": "file:resources/graphics/sprite/floor.png"
+        }
+      },
+      {
+        "_x": 336,
+        "_y": 432,
+        "_material": "Floor",
+        "_materialProperties": {
+          "IsWalkable": true,
+          "IsPassable": true,
+          "IsReplace": false,
+          "ImgPath": "file:resources/graphics/sprite/floor.png"
+        }
+      },
+      {
+        "_x": 336,
+        "_y": 480,
+        "_material": "Floor",
+        "_materialProperties": {
+          "IsWalkable": true,
+          "IsPassable": true,
+          "IsReplace": false,
+          "ImgPath": "file:resources/graphics/sprite/floor.png"
+        }
+      },
+      {
+        "_x": 336,
+        "_y": 528,
+        "_material": "Floor",
+        "_materialProperties": {
+          "IsWalkable": true,
+          "IsPassable": true,
+          "IsReplace": false,
+          "ImgPath": "file:resources/graphics/sprite/floor.png"
+        }
+      },
+      {
+        "_x": 336,
+        "_y": 576,
+        "_material": "Floor",
+        "_materialProperties": {
+          "IsWalkable": true,
+          "IsPassable": true,
+          "IsReplace": false,
+          "ImgPath": "file:resources/graphics/sprite/floor.png"
+        }
+      },
+      {
+        "_x": 336,
+        "_y": 624,
+        "_material": "Floor",
+        "_materialProperties": {
+          "IsWalkable": true,
+          "IsPassable": true,
+          "IsReplace": false,
+          "ImgPath": "file:resources/graphics/sprite/floor.png"
+        }
+      },
+      {
+        "_x": 336,
+        "_y": 672,
+        "_material": "Floor",
+        "_materialProperties": {
+          "IsWalkable": true,
+          "IsPassable": true,
+          "IsReplace": false,
+          "ImgPath": "file:resources/graphics/sprite/floor.png"
+        }
+      }
+    ],
+    [
+      {
+        "_x": 384,
+        "_y": 0,
+        "_material": "Floor",
+        "_materialProperties": {
+          "IsWalkable": true,
+          "IsPassable": true,
+          "IsReplace": false,
+          "ImgPath": "file:resources/graphics/sprite/floor.png"
+        }
+      },
+      {
+        "_x": 384,
+        "_y": 48,
+        "_material": "Floor",
+        "_materialProperties": {
+          "IsWalkable": true,
+          "IsPassable": true,
+          "IsReplace": false,
+          "ImgPath": "file:resources/graphics/sprite/floor.png"
+        }
+      },
+      {
+        "_x": 384,
+        "_y": 96,
+        "_material": "Floor",
+        "_materialProperties": {
+          "IsWalkable": true,
+          "IsPassable": true,
+          "IsReplace": false,
+          "ImgPath": "file:resources/graphics/sprite/floor.png"
+        }
+      },
+      {
+        "_x": 384,
+        "_y": 144,
+        "_material": "Floor",
+        "_materialProperties": {
+          "IsWalkable": true,
+          "IsPassable": true,
+          "IsReplace": false,
+          "ImgPath": "file:resources/graphics/sprite/floor.png"
+        }
+      },
+      {
+        "_x": 384,
+        "_y": 192,
+        "_material": "Floor",
+        "_materialProperties": {
+          "IsWalkable": true,
+          "IsPassable": true,
+          "IsReplace": false,
+          "ImgPath": "file:resources/graphics/sprite/floor.png"
+        }
+      },
+      {
+        "_x": 384,
+        "_y": 240,
+        "_material": "Floor",
+        "_materialProperties": {
+          "IsWalkable": true,
+          "IsPassable": true,
+          "IsReplace": false,
+          "ImgPath": "file:resources/graphics/sprite/floor.png"
+        }
+      },
+      {
+        "_x": 384,
+        "_y": 288,
+        "_material": "Floor",
+        "_materialProperties": {
+          "IsWalkable": true,
+          "IsPassable": true,
+          "IsReplace": false,
+          "ImgPath": "file:resources/graphics/sprite/floor.png"
+        }
+      },
+      {
+        "_x": 384,
+        "_y": 336,
+        "_material": "Floor",
+        "_materialProperties": {
+          "IsWalkable": true,
+          "IsPassable": true,
+          "IsReplace": false,
+          "ImgPath": "file:resources/graphics/sprite/floor.png"
+        }
+      },
+      {
+        "_x": 384,
+        "_y": 384,
+        "_material": "Wall",
+        "_materialProperties": {
+          "IsWalkable": false,
+          "IsPassable": false,
+          "IsReplace": false,
+          "ImgPath": "file:resources/graphics/sprite/wall.png"
+        }
+      },
+      {
+        "_x": 384,
+        "_y": 432,
+        "_material": "Floor",
+        "_materialProperties": {
+          "IsWalkable": true,
+          "IsPassable": true,
+          "IsReplace": false,
+          "ImgPath": "file:resources/graphics/sprite/floor.png"
+        }
+      },
+      {
+        "_x": 384,
+        "_y": 480,
+        "_material": "Floor",
+        "_materialProperties": {
+          "IsWalkable": true,
+          "IsPassable": true,
+          "IsReplace": false,
+          "ImgPath": "file:resources/graphics/sprite/floor.png"
+        }
+      },
+      {
+        "_x": 384,
+        "_y": 528,
+        "_material": "Floor",
+        "_materialProperties": {
+          "IsWalkable": true,
+          "IsPassable": true,
+          "IsReplace": false,
+          "ImgPath": "file:resources/graphics/sprite/floor.png"
+        }
+      },
+      {
+        "_x": 384,
+        "_y": 576,
+        "_material": "Floor",
+        "_materialProperties": {
+          "IsWalkable": true,
+          "IsPassable": true,
+          "IsReplace": false,
+          "ImgPath": "file:resources/graphics/sprite/floor.png"
+        }
+      },
+      {
+        "_x": 384,
+        "_y": 624,
+        "_material": "Floor",
+        "_materialProperties": {
+          "IsWalkable": true,
+          "IsPassable": true,
+          "IsReplace": false,
+          "ImgPath": "file:resources/graphics/sprite/floor.png"
+        }
+      },
+      {
+        "_x": 384,
+        "_y": 672,
+        "_material": "Floor",
+        "_materialProperties": {
+          "IsWalkable": true,
+          "IsPassable": true,
+          "IsReplace": false,
+          "ImgPath": "file:resources/graphics/sprite/floor.png"
+        }
+      }
+    ],
+    [
+      {
+        "_x": 432,
+        "_y": 0,
+        "_material": "Floor",
+        "_materialProperties": {
+          "IsWalkable": true,
+          "IsPassable": true,
+          "IsReplace": false,
+          "ImgPath": "file:resources/graphics/sprite/floor.png"
+        }
+      },
+      {
+        "_x": 432,
+        "_y": 48,
+        "_material": "Floor",
+        "_materialProperties": {
+          "IsWalkable": true,
+          "IsPassable": true,
+          "IsReplace": false,
+          "ImgPath": "file:resources/graphics/sprite/floor.png"
+        }
+      },
+      {
+        "_x": 432,
+        "_y": 96,
+        "_material": "Floor",
+        "_materialProperties": {
+          "IsWalkable": true,
+          "IsPassable": true,
+          "IsReplace": false,
+          "ImgPath": "file:resources/graphics/sprite/floor.png"
+        }
+      },
+      {
+        "_x": 432,
+        "_y": 144,
         "_material": "Door",
         "_materialProperties": {
           "IsWalkable": false,
@@ -2250,141 +1549,7 @@
         }
       },
       {
-        "_x": 624,
-        "_y": 336,
-        "_material": "Wall",
-        "_materialProperties": {
-          "IsWalkable": false,
-          "IsPassable": false,
-          "IsReplace": false,
-          "ImgPath": "file:resources/graphics/sprite/wall.png"
-        }
-      },
-      {
-        "_x": 624,
-        "_y": 384,
-        "_material": "Floor",
-        "_materialProperties": {
-          "IsWalkable": true,
-          "IsPassable": true,
-          "IsReplace": false,
-          "ImgPath": "file:resources/graphics/sprite/floor.png"
-        }
-      },
-      {
-        "_x": 624,
-        "_y": 432,
-        "_material": "Floor",
-        "_materialProperties": {
-          "IsWalkable": true,
-          "IsPassable": true,
-          "IsReplace": false,
-          "ImgPath": "file:resources/graphics/sprite/floor.png"
-        }
-      },
-      {
-        "_x": 624,
-        "_y": 480,
-        "_material": "Floor",
-        "_materialProperties": {
-          "IsWalkable": true,
-          "IsPassable": true,
-          "IsReplace": false,
-          "ImgPath": "file:resources/graphics/sprite/floor.png"
-        }
-      },
-      {
-        "_x": 624,
-        "_y": 528,
-        "_material": "Floor",
-        "_materialProperties": {
-          "IsWalkable": true,
-          "IsPassable": true,
-          "IsReplace": false,
-          "ImgPath": "file:resources/graphics/sprite/floor.png"
-        }
-      },
-      {
-        "_x": 624,
-        "_y": 576,
-        "_material": "Floor",
-        "_materialProperties": {
-          "IsWalkable": true,
-          "IsPassable": true,
-          "IsReplace": false,
-          "ImgPath": "file:resources/graphics/sprite/floor.png"
-        }
-      },
-      {
-        "_x": 624,
-        "_y": 624,
-        "_material": "Floor",
-        "_materialProperties": {
-          "IsWalkable": true,
-          "IsPassable": true,
-          "IsReplace": false,
-          "ImgPath": "file:resources/graphics/sprite/floor.png"
-        }
-      },
-      {
-        "_x": 624,
-        "_y": 672,
-        "_material": "Floor",
-        "_materialProperties": {
-          "IsWalkable": true,
-          "IsPassable": true,
-          "IsReplace": false,
-          "ImgPath": "file:resources/graphics/sprite/floor.png"
-        }
-      }
-    ],
-    [
-      {
-        "_x": 672,
-        "_y": 0,
-        "_material": "Floor",
-        "_materialProperties": {
-          "IsWalkable": true,
-          "IsPassable": true,
-          "IsReplace": false,
-          "ImgPath": "file:resources/graphics/sprite/floor.png"
-        }
-      },
-      {
-        "_x": 672,
-        "_y": 48,
-        "_material": "Floor",
-        "_materialProperties": {
-          "IsWalkable": true,
-          "IsPassable": true,
-          "IsReplace": false,
-          "ImgPath": "file:resources/graphics/sprite/floor.png"
-        }
-      },
-      {
-        "_x": 672,
-        "_y": 96,
-        "_material": "Floor",
-        "_materialProperties": {
-          "IsWalkable": true,
-          "IsPassable": true,
-          "IsReplace": false,
-          "ImgPath": "file:resources/graphics/sprite/floor.png"
-        }
-      },
-      {
-        "_x": 672,
-        "_y": 144,
-        "_material": "Floor",
-        "_materialProperties": {
-          "IsWalkable": true,
-          "IsPassable": true,
-          "IsReplace": false,
-          "ImgPath": "file:resources/graphics/sprite/floor.png"
-        }
-      },
-      {
-        "_x": 672,
+        "_x": 432,
         "_y": 192,
         "_material": "Floor",
         "_materialProperties": {
@@ -2395,7 +1560,7 @@
         }
       },
       {
-        "_x": 672,
+        "_x": 432,
         "_y": 240,
         "_material": "Floor",
         "_materialProperties": {
@@ -2406,7 +1571,7 @@
         }
       },
       {
-        "_x": 672,
+        "_x": 432,
         "_y": 288,
         "_material": "Floor",
         "_materialProperties": {
@@ -2417,7 +1582,7 @@
         }
       },
       {
-        "_x": 672,
+        "_x": 432,
         "_y": 336,
         "_material": "Floor",
         "_materialProperties": {
@@ -2428,7 +1593,7 @@
         }
       },
       {
-        "_x": 672,
+        "_x": 432,
         "_y": 384,
         "_material": "Floor",
         "_materialProperties": {
@@ -2439,7 +1604,7 @@
         }
       },
       {
-        "_x": 672,
+        "_x": 432,
         "_y": 432,
         "_material": "Floor",
         "_materialProperties": {
@@ -2450,7 +1615,7 @@
         }
       },
       {
-        "_x": 672,
+        "_x": 432,
         "_y": 480,
         "_material": "Floor",
         "_materialProperties": {
@@ -2461,7 +1626,7 @@
         }
       },
       {
-        "_x": 672,
+        "_x": 432,
         "_y": 528,
         "_material": "Floor",
         "_materialProperties": {
@@ -2472,7 +1637,7 @@
         }
       },
       {
-        "_x": 672,
+        "_x": 432,
         "_y": 576,
         "_material": "Wall",
         "_materialProperties": {
@@ -2483,7 +1648,7 @@
         }
       },
       {
-        "_x": 672,
+        "_x": 432,
         "_y": 624,
         "_material": "Floor",
         "_materialProperties": {
@@ -2494,7 +1659,7 @@
         }
       },
       {
-        "_x": 672,
+        "_x": 432,
         "_y": 672,
         "_material": "Floor",
         "_materialProperties": {
@@ -2507,18 +1672,18 @@
     ],
     [
       {
-        "_x": 720,
+        "_x": 480,
         "_y": 0,
-        "_material": "Wall",
+        "_material": "Floor",
         "_materialProperties": {
-          "IsWalkable": false,
-          "IsPassable": false,
+          "IsWalkable": true,
+          "IsPassable": true,
           "IsReplace": false,
-          "ImgPath": "file:resources/graphics/sprite/wall.png"
+          "ImgPath": "file:resources/graphics/sprite/floor.png"
         }
       },
       {
-        "_x": 720,
+        "_x": 480,
         "_y": 48,
         "_material": "Floor",
         "_materialProperties": {
@@ -2529,7 +1694,7 @@
         }
       },
       {
-        "_x": 720,
+        "_x": 480,
         "_y": 96,
         "_material": "Floor",
         "_materialProperties": {
@@ -2540,7 +1705,7 @@
         }
       },
       {
-        "_x": 720,
+        "_x": 480,
         "_y": 144,
         "_material": "Floor",
         "_materialProperties": {
@@ -2551,7 +1716,7 @@
         }
       },
       {
-        "_x": 720,
+        "_x": 480,
         "_y": 192,
         "_material": "Floor",
         "_materialProperties": {
@@ -2562,18 +1727,18 @@
         }
       },
       {
-        "_x": 720,
+        "_x": 480,
         "_y": 240,
-        "_material": "Wall",
+        "_material": "Floor",
         "_materialProperties": {
-          "IsWalkable": false,
-          "IsPassable": false,
+          "IsWalkable": true,
+          "IsPassable": true,
           "IsReplace": false,
-          "ImgPath": "file:resources/graphics/sprite/wall.png"
+          "ImgPath": "file:resources/graphics/sprite/floor.png"
         }
       },
       {
-        "_x": 720,
+        "_x": 480,
         "_y": 288,
         "_material": "Floor",
         "_materialProperties": {
@@ -2584,7 +1749,7 @@
         }
       },
       {
-        "_x": 720,
+        "_x": 480,
         "_y": 336,
         "_material": "Floor",
         "_materialProperties": {
@@ -2595,109 +1760,8 @@
         }
       },
       {
-        "_x": 720,
+        "_x": 480,
         "_y": 384,
-        "_material": "Floor",
-        "_materialProperties": {
-          "IsWalkable": true,
-          "IsPassable": true,
-          "IsReplace": false,
-          "ImgPath": "file:resources/graphics/sprite/floor.png"
-        }
-      },
-      {
-        "_x": 720,
-        "_y": 432,
-        "_material": "Wall",
-        "_materialProperties": {
-          "IsWalkable": false,
-          "IsPassable": false,
-          "IsReplace": false,
-          "ImgPath": "file:resources/graphics/sprite/wall.png"
-        }
-      },
-      {
-        "_x": 720,
-        "_y": 480,
-        "_material": "Floor",
-        "_materialProperties": {
-          "IsWalkable": true,
-          "IsPassable": true,
-          "IsReplace": false,
-          "ImgPath": "file:resources/graphics/sprite/floor.png"
-        }
-      },
-      {
-        "_x": 720,
-        "_y": 528,
-        "_material": "Floor",
-        "_materialProperties": {
-          "IsWalkable": true,
-          "IsPassable": true,
-          "IsReplace": false,
-          "ImgPath": "file:resources/graphics/sprite/floor.png"
-        }
-      },
-      {
-        "_x": 720,
-        "_y": 576,
-        "_material": "Floor",
-        "_materialProperties": {
-          "IsWalkable": true,
-          "IsPassable": true,
-          "IsReplace": false,
-          "ImgPath": "file:resources/graphics/sprite/floor.png"
-        }
-      },
-      {
-        "_x": 720,
-        "_y": 624,
-        "_material": "Wall",
-        "_materialProperties": {
-          "IsWalkable": false,
-          "IsPassable": false,
-          "IsReplace": false,
-          "ImgPath": "file:resources/graphics/sprite/wall.png"
-        }
-      },
-      {
-        "_x": 720,
-        "_y": 672,
-        "_material": "Door",
-        "_materialProperties": {
-          "IsWalkable": false,
-          "IsPassable": true,
-          "IsReplace": false,
-          "ImgPath": "file:resources/graphics/sprite/door.png"
-        }
-      }
-    ],
-    [
-      {
-        "_x": 768,
-        "_y": 0,
-        "_material": "Floor",
-        "_materialProperties": {
-          "IsWalkable": true,
-          "IsPassable": true,
-          "IsReplace": false,
-          "ImgPath": "file:resources/graphics/sprite/floor.png"
-        }
-      },
-      {
-        "_x": 768,
-        "_y": 48,
-        "_material": "Floor",
-        "_materialProperties": {
-          "IsWalkable": true,
-          "IsPassable": true,
-          "IsReplace": false,
-          "ImgPath": "file:resources/graphics/sprite/floor.png"
-        }
-      },
-      {
-        "_x": 768,
-        "_y": 96,
         "_material": "Door",
         "_materialProperties": {
           "IsWalkable": false,
@@ -2707,84 +1771,18 @@
         }
       },
       {
-        "_x": 768,
-        "_y": 144,
-        "_material": "Floor",
-        "_materialProperties": {
-          "IsWalkable": true,
-          "IsPassable": true,
-          "IsReplace": false,
-          "ImgPath": "file:resources/graphics/sprite/floor.png"
-        }
-      },
-      {
-        "_x": 768,
-        "_y": 192,
-        "_material": "Floor",
-        "_materialProperties": {
-          "IsWalkable": true,
-          "IsPassable": true,
-          "IsReplace": false,
-          "ImgPath": "file:resources/graphics/sprite/floor.png"
-        }
-      },
-      {
-        "_x": 768,
-        "_y": 240,
-        "_material": "Wall",
-        "_materialProperties": {
-          "IsWalkable": false,
-          "IsPassable": false,
-          "IsReplace": false,
-          "ImgPath": "file:resources/graphics/sprite/wall.png"
-        }
-      },
-      {
-        "_x": 768,
-        "_y": 288,
-        "_material": "Floor",
-        "_materialProperties": {
-          "IsWalkable": true,
-          "IsPassable": true,
-          "IsReplace": false,
-          "ImgPath": "file:resources/graphics/sprite/floor.png"
-        }
-      },
-      {
-        "_x": 768,
-        "_y": 336,
-        "_material": "Floor",
-        "_materialProperties": {
-          "IsWalkable": true,
-          "IsPassable": true,
-          "IsReplace": false,
-          "ImgPath": "file:resources/graphics/sprite/floor.png"
-        }
-      },
-      {
-        "_x": 768,
-        "_y": 384,
-        "_material": "Floor",
-        "_materialProperties": {
-          "IsWalkable": true,
-          "IsPassable": true,
-          "IsReplace": false,
-          "ImgPath": "file:resources/graphics/sprite/floor.png"
-        }
-      },
-      {
-        "_x": 768,
+        "_x": 480,
         "_y": 432,
-        "_material": "Wall",
+        "_material": "Floor",
         "_materialProperties": {
-          "IsWalkable": false,
-          "IsPassable": false,
+          "IsWalkable": true,
+          "IsPassable": true,
           "IsReplace": false,
-          "ImgPath": "file:resources/graphics/sprite/wall.png"
+          "ImgPath": "file:resources/graphics/sprite/floor.png"
         }
       },
       {
-        "_x": 768,
+        "_x": 480,
         "_y": 480,
         "_material": "Floor",
         "_materialProperties": {
@@ -2795,18 +1793,18 @@
         }
       },
       {
-        "_x": 768,
+        "_x": 480,
         "_y": 528,
-        "_material": "Wall",
+        "_material": "Floor",
         "_materialProperties": {
-          "IsWalkable": false,
-          "IsPassable": false,
+          "IsWalkable": true,
+          "IsPassable": true,
           "IsReplace": false,
-          "ImgPath": "file:resources/graphics/sprite/wall.png"
+          "ImgPath": "file:resources/graphics/sprite/floor.png"
         }
       },
       {
-        "_x": 768,
+        "_x": 480,
         "_y": 576,
         "_material": "Floor",
         "_materialProperties": {
@@ -2817,18 +1815,18 @@
         }
       },
       {
-        "_x": 768,
+        "_x": 480,
         "_y": 624,
-        "_material": "Wall",
+        "_material": "Floor",
         "_materialProperties": {
-          "IsWalkable": false,
-          "IsPassable": false,
+          "IsWalkable": true,
+          "IsPassable": true,
           "IsReplace": false,
-          "ImgPath": "file:resources/graphics/sprite/wall.png"
+          "ImgPath": "file:resources/graphics/sprite/floor.png"
         }
       },
       {
-        "_x": 768,
+        "_x": 480,
         "_y": 672,
         "_material": "Floor",
         "_materialProperties": {
@@ -2841,18 +1839,18 @@
     ],
     [
       {
-        "_x": 816,
+        "_x": 528,
         "_y": 0,
-        "_material": "Floor",
+        "_material": "Wall",
         "_materialProperties": {
-          "IsWalkable": true,
-          "IsPassable": true,
+          "IsWalkable": false,
+          "IsPassable": false,
           "IsReplace": false,
-          "ImgPath": "file:resources/graphics/sprite/floor.png"
+          "ImgPath": "file:resources/graphics/sprite/wall.png"
         }
       },
       {
-        "_x": 816,
+        "_x": 528,
         "_y": 48,
         "_material": "Floor",
         "_materialProperties": {
@@ -2863,18 +1861,18 @@
         }
       },
       {
-        "_x": 816,
+        "_x": 528,
         "_y": 96,
-        "_material": "Wall",
+        "_material": "Floor",
         "_materialProperties": {
-          "IsWalkable": false,
-          "IsPassable": false,
+          "IsWalkable": true,
+          "IsPassable": true,
           "IsReplace": false,
-          "ImgPath": "file:resources/graphics/sprite/wall.png"
+          "ImgPath": "file:resources/graphics/sprite/floor.png"
         }
       },
       {
-        "_x": 816,
+        "_x": 528,
         "_y": 144,
         "_material": "Floor",
         "_materialProperties": {
@@ -2885,7 +1883,7 @@
         }
       },
       {
-        "_x": 816,
+        "_x": 528,
         "_y": 192,
         "_material": "Floor",
         "_materialProperties": {
@@ -2896,7 +1894,7 @@
         }
       },
       {
-        "_x": 816,
+        "_x": 528,
         "_y": 240,
         "_material": "Floor",
         "_materialProperties": {
@@ -2907,7 +1905,7 @@
         }
       },
       {
-        "_x": 816,
+        "_x": 528,
         "_y": 288,
         "_material": "Floor",
         "_materialProperties": {
@@ -2918,7 +1916,7 @@
         }
       },
       {
-        "_x": 816,
+        "_x": 528,
         "_y": 336,
         "_material": "Floor",
         "_materialProperties": {
@@ -2929,7 +1927,7 @@
         }
       },
       {
-        "_x": 816,
+        "_x": 528,
         "_y": 384,
         "_material": "Floor",
         "_materialProperties": {
@@ -2940,7 +1938,7 @@
         }
       },
       {
-        "_x": 816,
+        "_x": 528,
         "_y": 432,
         "_material": "Floor",
         "_materialProperties": {
@@ -2951,7 +1949,7 @@
         }
       },
       {
-        "_x": 816,
+        "_x": 528,
         "_y": 480,
         "_material": "Floor",
         "_materialProperties": {
@@ -2962,7 +1960,7 @@
         }
       },
       {
-        "_x": 816,
+        "_x": 528,
         "_y": 528,
         "_material": "Floor",
         "_materialProperties": {
@@ -2973,7 +1971,7 @@
         }
       },
       {
-        "_x": 816,
+        "_x": 528,
         "_y": 576,
         "_material": "Floor",
         "_materialProperties": {
@@ -2984,7 +1982,7 @@
         }
       },
       {
-        "_x": 816,
+        "_x": 528,
         "_y": 624,
         "_material": "Floor",
         "_materialProperties": {
@@ -2995,7 +1993,7 @@
         }
       },
       {
-        "_x": 816,
+        "_x": 528,
         "_y": 672,
         "_material": "Floor",
         "_materialProperties": {
@@ -3008,8 +2006,520 @@
     ],
     [
       {
-        "_x": 864,
+        "_x": 576,
         "_y": 0,
+        "_material": "Floor",
+        "_materialProperties": {
+          "IsWalkable": true,
+          "IsPassable": true,
+          "IsReplace": false,
+          "ImgPath": "file:resources/graphics/sprite/floor.png"
+        }
+      },
+      {
+        "_x": 576,
+        "_y": 48,
+        "_material": "Floor",
+        "_materialProperties": {
+          "IsWalkable": true,
+          "IsPassable": true,
+          "IsReplace": false,
+          "ImgPath": "file:resources/graphics/sprite/floor.png"
+        }
+      },
+      {
+        "_x": 576,
+        "_y": 96,
+        "_material": "Wall",
+        "_materialProperties": {
+          "IsWalkable": false,
+          "IsPassable": false,
+          "IsReplace": false,
+          "ImgPath": "file:resources/graphics/sprite/wall.png"
+        }
+      },
+      {
+        "_x": 576,
+        "_y": 144,
+        "_material": "Floor",
+        "_materialProperties": {
+          "IsWalkable": true,
+          "IsPassable": true,
+          "IsReplace": false,
+          "ImgPath": "file:resources/graphics/sprite/floor.png"
+        }
+      },
+      {
+        "_x": 576,
+        "_y": 192,
+        "_material": "Floor",
+        "_materialProperties": {
+          "IsWalkable": true,
+          "IsPassable": true,
+          "IsReplace": false,
+          "ImgPath": "file:resources/graphics/sprite/floor.png"
+        }
+      },
+      {
+        "_x": 576,
+        "_y": 240,
+        "_material": "Floor",
+        "_materialProperties": {
+          "IsWalkable": true,
+          "IsPassable": true,
+          "IsReplace": false,
+          "ImgPath": "file:resources/graphics/sprite/floor.png"
+        }
+      },
+      {
+        "_x": 576,
+        "_y": 288,
+        "_material": "Floor",
+        "_materialProperties": {
+          "IsWalkable": true,
+          "IsPassable": true,
+          "IsReplace": false,
+          "ImgPath": "file:resources/graphics/sprite/floor.png"
+        }
+      },
+      {
+        "_x": 576,
+        "_y": 336,
+        "_material": "Floor",
+        "_materialProperties": {
+          "IsWalkable": true,
+          "IsPassable": true,
+          "IsReplace": false,
+          "ImgPath": "file:resources/graphics/sprite/floor.png"
+        }
+      },
+      {
+        "_x": 576,
+        "_y": 384,
+        "_material": "Floor",
+        "_materialProperties": {
+          "IsWalkable": true,
+          "IsPassable": true,
+          "IsReplace": false,
+          "ImgPath": "file:resources/graphics/sprite/floor.png"
+        }
+      },
+      {
+        "_x": 576,
+        "_y": 432,
+        "_material": "Floor",
+        "_materialProperties": {
+          "IsWalkable": true,
+          "IsPassable": true,
+          "IsReplace": false,
+          "ImgPath": "file:resources/graphics/sprite/floor.png"
+        }
+      },
+      {
+        "_x": 576,
+        "_y": 480,
+        "_material": "Floor",
+        "_materialProperties": {
+          "IsWalkable": true,
+          "IsPassable": true,
+          "IsReplace": false,
+          "ImgPath": "file:resources/graphics/sprite/floor.png"
+        }
+      },
+      {
+        "_x": 576,
+        "_y": 528,
+        "_material": "Floor",
+        "_materialProperties": {
+          "IsWalkable": true,
+          "IsPassable": true,
+          "IsReplace": false,
+          "ImgPath": "file:resources/graphics/sprite/floor.png"
+        }
+      },
+      {
+        "_x": 576,
+        "_y": 576,
+        "_material": "Wall",
+        "_materialProperties": {
+          "IsWalkable": false,
+          "IsPassable": false,
+          "IsReplace": false,
+          "ImgPath": "file:resources/graphics/sprite/wall.png"
+        }
+      },
+      {
+        "_x": 576,
+        "_y": 624,
+        "_material": "Floor",
+        "_materialProperties": {
+          "IsWalkable": true,
+          "IsPassable": true,
+          "IsReplace": false,
+          "ImgPath": "file:resources/graphics/sprite/floor.png"
+        }
+      },
+      {
+        "_x": 576,
+        "_y": 672,
+        "_material": "Floor",
+        "_materialProperties": {
+          "IsWalkable": true,
+          "IsPassable": true,
+          "IsReplace": false,
+          "ImgPath": "file:resources/graphics/sprite/floor.png"
+        }
+      }
+    ],
+    [
+      {
+        "_x": 624,
+        "_y": 0,
+        "_material": "Floor",
+        "_materialProperties": {
+          "IsWalkable": true,
+          "IsPassable": true,
+          "IsReplace": false,
+          "ImgPath": "file:resources/graphics/sprite/floor.png"
+        }
+      },
+      {
+        "_x": 624,
+        "_y": 48,
+        "_material": "Wall",
+        "_materialProperties": {
+          "IsWalkable": false,
+          "IsPassable": false,
+          "IsReplace": false,
+          "ImgPath": "file:resources/graphics/sprite/wall.png"
+        }
+      },
+      {
+        "_x": 624,
+        "_y": 96,
+        "_material": "Floor",
+        "_materialProperties": {
+          "IsWalkable": true,
+          "IsPassable": true,
+          "IsReplace": false,
+          "ImgPath": "file:resources/graphics/sprite/floor.png"
+        }
+      },
+      {
+        "_x": 624,
+        "_y": 144,
+        "_material": "Floor",
+        "_materialProperties": {
+          "IsWalkable": true,
+          "IsPassable": true,
+          "IsReplace": false,
+          "ImgPath": "file:resources/graphics/sprite/floor.png"
+        }
+      },
+      {
+        "_x": 624,
+        "_y": 192,
+        "_material": "Floor",
+        "_materialProperties": {
+          "IsWalkable": true,
+          "IsPassable": true,
+          "IsReplace": false,
+          "ImgPath": "file:resources/graphics/sprite/floor.png"
+        }
+      },
+      {
+        "_x": 624,
+        "_y": 240,
+        "_material": "Floor",
+        "_materialProperties": {
+          "IsWalkable": true,
+          "IsPassable": true,
+          "IsReplace": false,
+          "ImgPath": "file:resources/graphics/sprite/floor.png"
+        }
+      },
+      {
+        "_x": 624,
+        "_y": 288,
+        "_material": "Floor",
+        "_materialProperties": {
+          "IsWalkable": true,
+          "IsPassable": true,
+          "IsReplace": false,
+          "ImgPath": "file:resources/graphics/sprite/floor.png"
+        }
+      },
+      {
+        "_x": 624,
+        "_y": 336,
+        "_material": "Wall",
+        "_materialProperties": {
+          "IsWalkable": false,
+          "IsPassable": false,
+          "IsReplace": false,
+          "ImgPath": "file:resources/graphics/sprite/wall.png"
+        }
+      },
+      {
+        "_x": 624,
+        "_y": 384,
+        "_material": "Floor",
+        "_materialProperties": {
+          "IsWalkable": true,
+          "IsPassable": true,
+          "IsReplace": false,
+          "ImgPath": "file:resources/graphics/sprite/floor.png"
+        }
+      },
+      {
+        "_x": 624,
+        "_y": 432,
+        "_material": "Floor",
+        "_materialProperties": {
+          "IsWalkable": true,
+          "IsPassable": true,
+          "IsReplace": false,
+          "ImgPath": "file:resources/graphics/sprite/floor.png"
+        }
+      },
+      {
+        "_x": 624,
+        "_y": 480,
+        "_material": "Floor",
+        "_materialProperties": {
+          "IsWalkable": true,
+          "IsPassable": true,
+          "IsReplace": false,
+          "ImgPath": "file:resources/graphics/sprite/floor.png"
+        }
+      },
+      {
+        "_x": 624,
+        "_y": 528,
+        "_material": "Floor",
+        "_materialProperties": {
+          "IsWalkable": true,
+          "IsPassable": true,
+          "IsReplace": false,
+          "ImgPath": "file:resources/graphics/sprite/floor.png"
+        }
+      },
+      {
+        "_x": 624,
+        "_y": 576,
+        "_material": "Floor",
+        "_materialProperties": {
+          "IsWalkable": true,
+          "IsPassable": true,
+          "IsReplace": false,
+          "ImgPath": "file:resources/graphics/sprite/floor.png"
+        }
+      },
+      {
+        "_x": 624,
+        "_y": 624,
+        "_material": "Floor",
+        "_materialProperties": {
+          "IsWalkable": true,
+          "IsPassable": true,
+          "IsReplace": false,
+          "ImgPath": "file:resources/graphics/sprite/floor.png"
+        }
+      },
+      {
+        "_x": 624,
+        "_y": 672,
+        "_material": "Wall",
+        "_materialProperties": {
+          "IsWalkable": false,
+          "IsPassable": false,
+          "IsReplace": false,
+          "ImgPath": "file:resources/graphics/sprite/wall.png"
+        }
+      }
+    ],
+    [
+      {
+        "_x": 672,
+        "_y": 0,
+        "_material": "Floor",
+        "_materialProperties": {
+          "IsWalkable": true,
+          "IsPassable": true,
+          "IsReplace": false,
+          "ImgPath": "file:resources/graphics/sprite/floor.png"
+        }
+      },
+      {
+        "_x": 672,
+        "_y": 48,
+        "_material": "Floor",
+        "_materialProperties": {
+          "IsWalkable": true,
+          "IsPassable": true,
+          "IsReplace": false,
+          "ImgPath": "file:resources/graphics/sprite/floor.png"
+        }
+      },
+      {
+        "_x": 672,
+        "_y": 96,
+        "_material": "Floor",
+        "_materialProperties": {
+          "IsWalkable": true,
+          "IsPassable": true,
+          "IsReplace": false,
+          "ImgPath": "file:resources/graphics/sprite/floor.png"
+        }
+      },
+      {
+        "_x": 672,
+        "_y": 144,
+        "_material": "Floor",
+        "_materialProperties": {
+          "IsWalkable": true,
+          "IsPassable": true,
+          "IsReplace": false,
+          "ImgPath": "file:resources/graphics/sprite/floor.png"
+        }
+      },
+      {
+        "_x": 672,
+        "_y": 192,
+        "_material": "Floor",
+        "_materialProperties": {
+          "IsWalkable": true,
+          "IsPassable": true,
+          "IsReplace": false,
+          "ImgPath": "file:resources/graphics/sprite/floor.png"
+        }
+      },
+      {
+        "_x": 672,
+        "_y": 240,
+        "_material": "Floor",
+        "_materialProperties": {
+          "IsWalkable": true,
+          "IsPassable": true,
+          "IsReplace": false,
+          "ImgPath": "file:resources/graphics/sprite/floor.png"
+        }
+      },
+      {
+        "_x": 672,
+        "_y": 288,
+        "_material": "Floor",
+        "_materialProperties": {
+          "IsWalkable": true,
+          "IsPassable": true,
+          "IsReplace": false,
+          "ImgPath": "file:resources/graphics/sprite/floor.png"
+        }
+      },
+      {
+        "_x": 672,
+        "_y": 336,
+        "_material": "Wall",
+        "_materialProperties": {
+          "IsWalkable": false,
+          "IsPassable": false,
+          "IsReplace": false,
+          "ImgPath": "file:resources/graphics/sprite/wall.png"
+        }
+      },
+      {
+        "_x": 672,
+        "_y": 384,
+        "_material": "Floor",
+        "_materialProperties": {
+          "IsWalkable": true,
+          "IsPassable": true,
+          "IsReplace": false,
+          "ImgPath": "file:resources/graphics/sprite/floor.png"
+        }
+      },
+      {
+        "_x": 672,
+        "_y": 432,
+        "_material": "Floor",
+        "_materialProperties": {
+          "IsWalkable": true,
+          "IsPassable": true,
+          "IsReplace": false,
+          "ImgPath": "file:resources/graphics/sprite/floor.png"
+        }
+      },
+      {
+        "_x": 672,
+        "_y": 480,
+        "_material": "Floor",
+        "_materialProperties": {
+          "IsWalkable": true,
+          "IsPassable": true,
+          "IsReplace": false,
+          "ImgPath": "file:resources/graphics/sprite/floor.png"
+        }
+      },
+      {
+        "_x": 672,
+        "_y": 528,
+        "_material": "Floor",
+        "_materialProperties": {
+          "IsWalkable": true,
+          "IsPassable": true,
+          "IsReplace": false,
+          "ImgPath": "file:resources/graphics/sprite/floor.png"
+        }
+      },
+      {
+        "_x": 672,
+        "_y": 576,
+        "_material": "Floor",
+        "_materialProperties": {
+          "IsWalkable": true,
+          "IsPassable": true,
+          "IsReplace": false,
+          "ImgPath": "file:resources/graphics/sprite/floor.png"
+        }
+      },
+      {
+        "_x": 672,
+        "_y": 624,
+        "_material": "Wall",
+        "_materialProperties": {
+          "IsWalkable": false,
+          "IsPassable": false,
+          "IsReplace": false,
+          "ImgPath": "file:resources/graphics/sprite/wall.png"
+        }
+      },
+      {
+        "_x": 672,
+        "_y": 672,
+        "_material": "Floor",
+        "_materialProperties": {
+          "IsWalkable": true,
+          "IsPassable": true,
+          "IsReplace": false,
+          "ImgPath": "file:resources/graphics/sprite/floor.png"
+        }
+      }
+    ],
+    [
+      {
+        "_x": 720,
+        "_y": 0,
+        "_material": "Floor",
+        "_materialProperties": {
+          "IsWalkable": true,
+          "IsPassable": true,
+          "IsReplace": false,
+          "ImgPath": "file:resources/graphics/sprite/floor.png"
+        }
+      },
+      {
+        "_x": 720,
+        "_y": 48,
         "_material": "Door",
         "_materialProperties": {
           "IsWalkable": false,
@@ -3019,6 +2529,496 @@
         }
       },
       {
+        "_x": 720,
+        "_y": 96,
+        "_material": "Floor",
+        "_materialProperties": {
+          "IsWalkable": true,
+          "IsPassable": true,
+          "IsReplace": false,
+          "ImgPath": "file:resources/graphics/sprite/floor.png"
+        }
+      },
+      {
+        "_x": 720,
+        "_y": 144,
+        "_material": "Floor",
+        "_materialProperties": {
+          "IsWalkable": true,
+          "IsPassable": true,
+          "IsReplace": false,
+          "ImgPath": "file:resources/graphics/sprite/floor.png"
+        }
+      },
+      {
+        "_x": 720,
+        "_y": 192,
+        "_material": "Floor",
+        "_materialProperties": {
+          "IsWalkable": true,
+          "IsPassable": true,
+          "IsReplace": false,
+          "ImgPath": "file:resources/graphics/sprite/floor.png"
+        }
+      },
+      {
+        "_x": 720,
+        "_y": 240,
+        "_material": "Floor",
+        "_materialProperties": {
+          "IsWalkable": true,
+          "IsPassable": true,
+          "IsReplace": false,
+          "ImgPath": "file:resources/graphics/sprite/floor.png"
+        }
+      },
+      {
+        "_x": 720,
+        "_y": 288,
+        "_material": "Floor",
+        "_materialProperties": {
+          "IsWalkable": true,
+          "IsPassable": true,
+          "IsReplace": false,
+          "ImgPath": "file:resources/graphics/sprite/floor.png"
+        }
+      },
+      {
+        "_x": 720,
+        "_y": 336,
+        "_material": "Floor",
+        "_materialProperties": {
+          "IsWalkable": true,
+          "IsPassable": true,
+          "IsReplace": false,
+          "ImgPath": "file:resources/graphics/sprite/floor.png"
+        }
+      },
+      {
+        "_x": 720,
+        "_y": 384,
+        "_material": "Floor",
+        "_materialProperties": {
+          "IsWalkable": true,
+          "IsPassable": true,
+          "IsReplace": false,
+          "ImgPath": "file:resources/graphics/sprite/floor.png"
+        }
+      },
+      {
+        "_x": 720,
+        "_y": 432,
+        "_material": "Floor",
+        "_materialProperties": {
+          "IsWalkable": true,
+          "IsPassable": true,
+          "IsReplace": false,
+          "ImgPath": "file:resources/graphics/sprite/floor.png"
+        }
+      },
+      {
+        "_x": 720,
+        "_y": 480,
+        "_material": "Floor",
+        "_materialProperties": {
+          "IsWalkable": true,
+          "IsPassable": true,
+          "IsReplace": false,
+          "ImgPath": "file:resources/graphics/sprite/floor.png"
+        }
+      },
+      {
+        "_x": 720,
+        "_y": 528,
+        "_material": "Floor",
+        "_materialProperties": {
+          "IsWalkable": true,
+          "IsPassable": true,
+          "IsReplace": false,
+          "ImgPath": "file:resources/graphics/sprite/floor.png"
+        }
+      },
+      {
+        "_x": 720,
+        "_y": 576,
+        "_material": "Floor",
+        "_materialProperties": {
+          "IsWalkable": true,
+          "IsPassable": true,
+          "IsReplace": false,
+          "ImgPath": "file:resources/graphics/sprite/floor.png"
+        }
+      },
+      {
+        "_x": 720,
+        "_y": 624,
+        "_material": "Floor",
+        "_materialProperties": {
+          "IsWalkable": true,
+          "IsPassable": true,
+          "IsReplace": false,
+          "ImgPath": "file:resources/graphics/sprite/floor.png"
+        }
+      },
+      {
+        "_x": 720,
+        "_y": 672,
+        "_material": "Wall",
+        "_materialProperties": {
+          "IsWalkable": false,
+          "IsPassable": false,
+          "IsReplace": false,
+          "ImgPath": "file:resources/graphics/sprite/wall.png"
+        }
+      }
+    ],
+    [
+      {
+        "_x": 768,
+        "_y": 0,
+        "_material": "Floor",
+        "_materialProperties": {
+          "IsWalkable": true,
+          "IsPassable": true,
+          "IsReplace": false,
+          "ImgPath": "file:resources/graphics/sprite/floor.png"
+        }
+      },
+      {
+        "_x": 768,
+        "_y": 48,
+        "_material": "Floor",
+        "_materialProperties": {
+          "IsWalkable": true,
+          "IsPassable": true,
+          "IsReplace": false,
+          "ImgPath": "file:resources/graphics/sprite/floor.png"
+        }
+      },
+      {
+        "_x": 768,
+        "_y": 96,
+        "_material": "Floor",
+        "_materialProperties": {
+          "IsWalkable": true,
+          "IsPassable": true,
+          "IsReplace": false,
+          "ImgPath": "file:resources/graphics/sprite/floor.png"
+        }
+      },
+      {
+        "_x": 768,
+        "_y": 144,
+        "_material": "Wall",
+        "_materialProperties": {
+          "IsWalkable": false,
+          "IsPassable": false,
+          "IsReplace": false,
+          "ImgPath": "file:resources/graphics/sprite/wall.png"
+        }
+      },
+      {
+        "_x": 768,
+        "_y": 192,
+        "_material": "Floor",
+        "_materialProperties": {
+          "IsWalkable": true,
+          "IsPassable": true,
+          "IsReplace": false,
+          "ImgPath": "file:resources/graphics/sprite/floor.png"
+        }
+      },
+      {
+        "_x": 768,
+        "_y": 240,
+        "_material": "Floor",
+        "_materialProperties": {
+          "IsWalkable": true,
+          "IsPassable": true,
+          "IsReplace": false,
+          "ImgPath": "file:resources/graphics/sprite/floor.png"
+        }
+      },
+      {
+        "_x": 768,
+        "_y": 288,
+        "_material": "Floor",
+        "_materialProperties": {
+          "IsWalkable": true,
+          "IsPassable": true,
+          "IsReplace": false,
+          "ImgPath": "file:resources/graphics/sprite/floor.png"
+        }
+      },
+      {
+        "_x": 768,
+        "_y": 336,
+        "_material": "Floor",
+        "_materialProperties": {
+          "IsWalkable": true,
+          "IsPassable": true,
+          "IsReplace": false,
+          "ImgPath": "file:resources/graphics/sprite/floor.png"
+        }
+      },
+      {
+        "_x": 768,
+        "_y": 384,
+        "_material": "Floor",
+        "_materialProperties": {
+          "IsWalkable": true,
+          "IsPassable": true,
+          "IsReplace": false,
+          "ImgPath": "file:resources/graphics/sprite/floor.png"
+        }
+      },
+      {
+        "_x": 768,
+        "_y": 432,
+        "_material": "Wall",
+        "_materialProperties": {
+          "IsWalkable": false,
+          "IsPassable": false,
+          "IsReplace": false,
+          "ImgPath": "file:resources/graphics/sprite/wall.png"
+        }
+      },
+      {
+        "_x": 768,
+        "_y": 480,
+        "_material": "Floor",
+        "_materialProperties": {
+          "IsWalkable": true,
+          "IsPassable": true,
+          "IsReplace": false,
+          "ImgPath": "file:resources/graphics/sprite/floor.png"
+        }
+      },
+      {
+        "_x": 768,
+        "_y": 528,
+        "_material": "Wall",
+        "_materialProperties": {
+          "IsWalkable": false,
+          "IsPassable": false,
+          "IsReplace": false,
+          "ImgPath": "file:resources/graphics/sprite/wall.png"
+        }
+      },
+      {
+        "_x": 768,
+        "_y": 576,
+        "_material": "Floor",
+        "_materialProperties": {
+          "IsWalkable": true,
+          "IsPassable": true,
+          "IsReplace": false,
+          "ImgPath": "file:resources/graphics/sprite/floor.png"
+        }
+      },
+      {
+        "_x": 768,
+        "_y": 624,
+        "_material": "Floor",
+        "_materialProperties": {
+          "IsWalkable": true,
+          "IsPassable": true,
+          "IsReplace": false,
+          "ImgPath": "file:resources/graphics/sprite/floor.png"
+        }
+      },
+      {
+        "_x": 768,
+        "_y": 672,
+        "_material": "Wall",
+        "_materialProperties": {
+          "IsWalkable": false,
+          "IsPassable": false,
+          "IsReplace": false,
+          "ImgPath": "file:resources/graphics/sprite/wall.png"
+        }
+      }
+    ],
+    [
+      {
+        "_x": 816,
+        "_y": 0,
+        "_material": "Floor",
+        "_materialProperties": {
+          "IsWalkable": true,
+          "IsPassable": true,
+          "IsReplace": false,
+          "ImgPath": "file:resources/graphics/sprite/floor.png"
+        }
+      },
+      {
+        "_x": 816,
+        "_y": 48,
+        "_material": "Floor",
+        "_materialProperties": {
+          "IsWalkable": true,
+          "IsPassable": true,
+          "IsReplace": false,
+          "ImgPath": "file:resources/graphics/sprite/floor.png"
+        }
+      },
+      {
+        "_x": 816,
+        "_y": 96,
+        "_material": "Floor",
+        "_materialProperties": {
+          "IsWalkable": true,
+          "IsPassable": true,
+          "IsReplace": false,
+          "ImgPath": "file:resources/graphics/sprite/floor.png"
+        }
+      },
+      {
+        "_x": 816,
+        "_y": 144,
+        "_material": "Wall",
+        "_materialProperties": {
+          "IsWalkable": false,
+          "IsPassable": false,
+          "IsReplace": false,
+          "ImgPath": "file:resources/graphics/sprite/wall.png"
+        }
+      },
+      {
+        "_x": 816,
+        "_y": 192,
+        "_material": "Floor",
+        "_materialProperties": {
+          "IsWalkable": true,
+          "IsPassable": true,
+          "IsReplace": false,
+          "ImgPath": "file:resources/graphics/sprite/floor.png"
+        }
+      },
+      {
+        "_x": 816,
+        "_y": 240,
+        "_material": "Floor",
+        "_materialProperties": {
+          "IsWalkable": true,
+          "IsPassable": true,
+          "IsReplace": false,
+          "ImgPath": "file:resources/graphics/sprite/floor.png"
+        }
+      },
+      {
+        "_x": 816,
+        "_y": 288,
+        "_material": "Floor",
+        "_materialProperties": {
+          "IsWalkable": true,
+          "IsPassable": true,
+          "IsReplace": false,
+          "ImgPath": "file:resources/graphics/sprite/floor.png"
+        }
+      },
+      {
+        "_x": 816,
+        "_y": 336,
+        "_material": "Floor",
+        "_materialProperties": {
+          "IsWalkable": true,
+          "IsPassable": true,
+          "IsReplace": false,
+          "ImgPath": "file:resources/graphics/sprite/floor.png"
+        }
+      },
+      {
+        "_x": 816,
+        "_y": 384,
+        "_material": "Floor",
+        "_materialProperties": {
+          "IsWalkable": true,
+          "IsPassable": true,
+          "IsReplace": false,
+          "ImgPath": "file:resources/graphics/sprite/floor.png"
+        }
+      },
+      {
+        "_x": 816,
+        "_y": 432,
+        "_material": "Floor",
+        "_materialProperties": {
+          "IsWalkable": true,
+          "IsPassable": true,
+          "IsReplace": false,
+          "ImgPath": "file:resources/graphics/sprite/floor.png"
+        }
+      },
+      {
+        "_x": 816,
+        "_y": 480,
+        "_material": "Floor",
+        "_materialProperties": {
+          "IsWalkable": true,
+          "IsPassable": true,
+          "IsReplace": false,
+          "ImgPath": "file:resources/graphics/sprite/floor.png"
+        }
+      },
+      {
+        "_x": 816,
+        "_y": 528,
+        "_material": "Floor",
+        "_materialProperties": {
+          "IsWalkable": true,
+          "IsPassable": true,
+          "IsReplace": false,
+          "ImgPath": "file:resources/graphics/sprite/floor.png"
+        }
+      },
+      {
+        "_x": 816,
+        "_y": 576,
+        "_material": "Floor",
+        "_materialProperties": {
+          "IsWalkable": true,
+          "IsPassable": true,
+          "IsReplace": false,
+          "ImgPath": "file:resources/graphics/sprite/floor.png"
+        }
+      },
+      {
+        "_x": 816,
+        "_y": 624,
+        "_material": "Floor",
+        "_materialProperties": {
+          "IsWalkable": true,
+          "IsPassable": true,
+          "IsReplace": false,
+          "ImgPath": "file:resources/graphics/sprite/floor.png"
+        }
+      },
+      {
+        "_x": 816,
+        "_y": 672,
+        "_material": "Floor",
+        "_materialProperties": {
+          "IsWalkable": true,
+          "IsPassable": true,
+          "IsReplace": false,
+          "ImgPath": "file:resources/graphics/sprite/floor.png"
+        }
+      }
+    ],
+    [
+      {
+        "_x": 864,
+        "_y": 0,
+        "_material": "Floor",
+        "_materialProperties": {
+          "IsWalkable": true,
+          "IsPassable": true,
+          "IsReplace": false,
+          "ImgPath": "file:resources/graphics/sprite/floor.png"
+        }
+      },
+      {
         "_x": 864,
         "_y": 48,
         "_material": "Floor",
@@ -3131,12 +3131,12 @@
       {
         "_x": 864,
         "_y": 528,
-        "_material": "Floor",
+        "_material": "Wall",
         "_materialProperties": {
-          "IsWalkable": true,
-          "IsPassable": true,
+          "IsWalkable": false,
+          "IsPassable": false,
           "IsReplace": false,
-          "ImgPath": "file:resources/graphics/sprite/floor.png"
+          "ImgPath": "file:resources/graphics/sprite/wall.png"
         }
       },
       {
@@ -3188,12 +3188,12 @@
       {
         "_x": 912,
         "_y": 48,
-        "_material": "Floor",
+        "_material": "Wall",
         "_materialProperties": {
-          "IsWalkable": true,
-          "IsPassable": true,
+          "IsWalkable": false,
+          "IsPassable": false,
           "IsReplace": false,
-          "ImgPath": "file:resources/graphics/sprite/floor.png"
+          "ImgPath": "file:resources/graphics/sprite/wall.png"
         }
       },
       {
@@ -3388,23 +3388,23 @@
       {
         "_x": 960,
         "_y": 192,
-        "_material": "Floor",
-        "_materialProperties": {
-          "IsWalkable": true,
-          "IsPassable": true,
-          "IsReplace": false,
-          "ImgPath": "file:resources/graphics/sprite/floor.png"
-        }
-      },
-      {
-        "_x": 960,
-        "_y": 240,
         "_material": "Wall",
         "_materialProperties": {
           "IsWalkable": false,
           "IsPassable": false,
           "IsReplace": false,
           "ImgPath": "file:resources/graphics/sprite/wall.png"
+        }
+      },
+      {
+        "_x": 960,
+        "_y": 240,
+        "_material": "Floor",
+        "_materialProperties": {
+          "IsWalkable": true,
+          "IsPassable": true,
+          "IsReplace": false,
+          "ImgPath": "file:resources/graphics/sprite/floor.png"
         }
       },
       {
@@ -3432,12 +3432,12 @@
       {
         "_x": 960,
         "_y": 384,
-        "_material": "Floor",
+        "_material": "Door",
         "_materialProperties": {
-          "IsWalkable": true,
+          "IsWalkable": false,
           "IsPassable": true,
           "IsReplace": false,
-          "ImgPath": "file:resources/graphics/sprite/floor.png"
+          "ImgPath": "file:resources/graphics/sprite/door.png"
         }
       },
       {
@@ -3454,12 +3454,12 @@
       {
         "_x": 960,
         "_y": 480,
-        "_material": "Floor",
+        "_material": "Wall",
         "_materialProperties": {
-          "IsWalkable": true,
-          "IsPassable": true,
+          "IsWalkable": false,
+          "IsPassable": false,
           "IsReplace": false,
-          "ImgPath": "file:resources/graphics/sprite/floor.png"
+          "ImgPath": "file:resources/graphics/sprite/wall.png"
         }
       },
       {
@@ -3476,23 +3476,23 @@
       {
         "_x": 960,
         "_y": 576,
-        "_material": "Floor",
+        "_material": "Door",
         "_materialProperties": {
-          "IsWalkable": true,
+          "IsWalkable": false,
           "IsPassable": true,
           "IsReplace": false,
-          "ImgPath": "file:resources/graphics/sprite/floor.png"
+          "ImgPath": "file:resources/graphics/sprite/door.png"
         }
       },
       {
         "_x": 960,
         "_y": 624,
-        "_material": "Floor",
+        "_material": "Wall",
         "_materialProperties": {
-          "IsWalkable": true,
-          "IsPassable": true,
+          "IsWalkable": false,
+          "IsPassable": false,
           "IsReplace": false,
-          "ImgPath": "file:resources/graphics/sprite/floor.png"
+          "ImgPath": "file:resources/graphics/sprite/wall.png"
         }
       },
       {
@@ -3522,12 +3522,12 @@
       {
         "_x": 1008,
         "_y": 48,
-        "_material": "Floor",
+        "_material": "Wall",
         "_materialProperties": {
-          "IsWalkable": true,
-          "IsPassable": true,
+          "IsWalkable": false,
+          "IsPassable": false,
           "IsReplace": false,
-          "ImgPath": "file:resources/graphics/sprite/floor.png"
+          "ImgPath": "file:resources/graphics/sprite/wall.png"
         }
       },
       {
@@ -3632,12 +3632,12 @@
       {
         "_x": 1008,
         "_y": 528,
-        "_material": "Floor",
+        "_material": "Wall",
         "_materialProperties": {
-          "IsWalkable": true,
-          "IsPassable": true,
+          "IsWalkable": false,
+          "IsPassable": false,
           "IsReplace": false,
-          "ImgPath": "file:resources/graphics/sprite/floor.png"
+          "ImgPath": "file:resources/graphics/sprite/wall.png"
         }
       },
       {
@@ -3678,12 +3678,12 @@
       {
         "_x": 1056,
         "_y": 0,
-        "_material": "Wall",
+        "_material": "Floor",
         "_materialProperties": {
-          "IsWalkable": false,
-          "IsPassable": false,
+          "IsWalkable": true,
+          "IsPassable": true,
           "IsReplace": false,
-          "ImgPath": "file:resources/graphics/sprite/wall.png"
+          "ImgPath": "file:resources/graphics/sprite/floor.png"
         }
       },
       {
@@ -3733,12 +3733,12 @@
       {
         "_x": 1056,
         "_y": 240,
-        "_material": "Wall",
+        "_material": "Floor",
         "_materialProperties": {
-          "IsWalkable": false,
-          "IsPassable": false,
+          "IsWalkable": true,
+          "IsPassable": true,
           "IsReplace": false,
-          "ImgPath": "file:resources/graphics/sprite/wall.png"
+          "ImgPath": "file:resources/graphics/sprite/floor.png"
         }
       },
       {
@@ -3878,12 +3878,12 @@
       {
         "_x": 1104,
         "_y": 144,
-        "_material": "Wall",
+        "_material": "Floor",
         "_materialProperties": {
-          "IsWalkable": false,
-          "IsPassable": false,
+          "IsWalkable": true,
+          "IsPassable": true,
           "IsReplace": false,
-          "ImgPath": "file:resources/graphics/sprite/wall.png"
+          "ImgPath": "file:resources/graphics/sprite/floor.png"
         }
       },
       {
@@ -3911,12 +3911,12 @@
       {
         "_x": 1104,
         "_y": 288,
-        "_material": "Wall",
+        "_material": "Floor",
         "_materialProperties": {
-          "IsWalkable": false,
-          "IsPassable": false,
+          "IsWalkable": true,
+          "IsPassable": true,
           "IsReplace": false,
-          "ImgPath": "file:resources/graphics/sprite/wall.png"
+          "ImgPath": "file:resources/graphics/sprite/floor.png"
         }
       },
       {
@@ -3988,12 +3988,12 @@
       {
         "_x": 1104,
         "_y": 624,
-        "_material": "Floor",
+        "_material": "Wall",
         "_materialProperties": {
-          "IsWalkable": true,
-          "IsPassable": true,
+          "IsWalkable": false,
+          "IsPassable": false,
           "IsReplace": false,
-          "ImgPath": "file:resources/graphics/sprite/floor.png"
+          "ImgPath": "file:resources/graphics/sprite/wall.png"
         }
       },
       {
@@ -4012,12 +4012,12 @@
       {
         "_x": 1152,
         "_y": 0,
-        "_material": "Floor",
+        "_material": "Wall",
         "_materialProperties": {
-          "IsWalkable": true,
-          "IsPassable": true,
+          "IsWalkable": false,
+          "IsPassable": false,
           "IsReplace": false,
-          "ImgPath": "file:resources/graphics/sprite/floor.png"
+          "ImgPath": "file:resources/graphics/sprite/wall.png"
         }
       },
       {
@@ -4089,12 +4089,12 @@
       {
         "_x": 1152,
         "_y": 336,
-        "_material": "Wall",
+        "_material": "Floor",
         "_materialProperties": {
-          "IsWalkable": false,
-          "IsPassable": false,
+          "IsWalkable": true,
+          "IsPassable": true,
           "IsReplace": false,
-          "ImgPath": "file:resources/graphics/sprite/wall.png"
+          "ImgPath": "file:resources/graphics/sprite/floor.png"
         }
       },
       {
@@ -4111,12 +4111,12 @@
       {
         "_x": 1152,
         "_y": 432,
-        "_material": "Floor",
+        "_material": "Wall",
         "_materialProperties": {
-          "IsWalkable": true,
-          "IsPassable": true,
+          "IsWalkable": false,
+          "IsPassable": false,
           "IsReplace": false,
-          "ImgPath": "file:resources/graphics/sprite/floor.png"
+          "ImgPath": "file:resources/graphics/sprite/wall.png"
         }
       },
       {
@@ -4166,12 +4166,12 @@
       {
         "_x": 1152,
         "_y": 672,
-        "_material": "Floor",
+        "_material": "Wall",
         "_materialProperties": {
-          "IsWalkable": true,
-          "IsPassable": true,
+          "IsWalkable": false,
+          "IsPassable": false,
           "IsReplace": false,
-          "ImgPath": "file:resources/graphics/sprite/floor.png"
+          "ImgPath": "file:resources/graphics/sprite/wall.png"
         }
       }
     ]
@@ -4179,12 +4179,14 @@
   "_caracter": {
     "x": 1,
     "y": 1,
-    "ImgPath": "file:resources/graphics/sprite/character.png"
+    "ImgPath": "file:resources/graphics/sprite/character.png",
+    "caracteristics": {}
   },
   "entities": [
     {}
   ],
   "Items": [
+    {},
     {},
     {}
   ]

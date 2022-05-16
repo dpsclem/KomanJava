@@ -10,9 +10,11 @@ import javafx.scene.control.Button;
 import javafx.scene.image.Image;
 import javafx.scene.image.ImageView;
 import javafx.scene.input.KeyEvent;
+import javafx.scene.input.MouseEvent;
 import javafx.scene.paint.Color;
 import javafx.scene.paint.ImagePattern;
 import javafx.scene.shape.Rectangle;
+import javafx.scene.text.Font;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -40,6 +42,8 @@ public class SceneManager {
         FillSceneWithMap(Root, Map);
         AddButtons();
         addEntities();
+        addInterface();
+
 
         Scene.addEventFilter(KeyEvent.KEY_PRESSED, e->{
             Root.getChildren().clear();
@@ -72,10 +76,46 @@ public class SceneManager {
                 }
             }
             finally {
+                addInterface();
                 addEntities();
                 AddButtons();
             }
         });
+    }
+
+    private void addInterface() {
+        Image heartImage = new Image("file:resources/graphics/interface/heart.png", 50, 50, true, false);
+        Image attackImage = new Image("file:resources/graphics/interface/attack.png", 50, 50, true, false);
+        Image armorImage = new Image("file:resources/graphics/interface/armor.png", 50, 50, true, false);
+
+        Canvas caracteristicsCanvas = new Canvas(700, 70);
+        caracteristicsCanvas.setLayoutX(50);
+        caracteristicsCanvas.setLayoutY(750);
+
+        GraphicsContext gc = caracteristicsCanvas.getGraphicsContext2D();
+        gc.setFont(new Font("Arial", 50));
+
+        gc.setFill(new ImagePattern(heartImage));
+        gc.fillRect(0, 0, 50, 50);
+
+        gc.setFill(Color.BLACK);
+        gc.fillText("" + Map.getCaracter().getCaracteristics().getHp(), 50, 50);
+
+        gc.setFill(new ImagePattern(attackImage));
+        gc.fillRect(250, 0, 50, 50);
+
+        gc.setFill(Color.BLACK);
+        gc.fillText("" + Map.getCaracter().getCaracteristics().getAttack(), 300, 50);
+
+        gc.setFill(new ImagePattern(armorImage));
+        gc.fillRect(500, 0, 50, 50);
+
+        gc.setFill(Color.BLACK);
+        gc.fillText("" + Map.getCaracter().getCaracteristics().getArmor(), 550, 50);
+
+
+        //gc.fillRect(0, 0, 700, 70);
+        Root.getChildren().add(caracteristicsCanvas);
     }
 
     private void addEntities()
@@ -110,8 +150,10 @@ public class SceneManager {
             Root.getChildren().clear();
             Map.UpdateWithRandomMap();
             var resetCaracter = new Caracter(1,1);
+            resetCaracter.setCaracteristics(new Caracteristics(20,5,5));
             Map.SetCaracter(resetCaracter);
             FillSceneWithMap(Root, Map);
+            addInterface();
             addEntities();
             AddButtons();
         });
@@ -135,6 +177,7 @@ public class SceneManager {
             Root.getChildren().clear();
 
             FillSceneWithMap(Root, Map);
+            addInterface();
             AddButtons();
             addEntities();
             if(!IsInventoryOpen) {
@@ -146,22 +189,65 @@ public class SceneManager {
                 GraphicsContext gc = inventoryCanvas.getGraphicsContext2D();
                 gc.setFill(Color.LIGHTCORAL);
                 gc.fillRect(0, 0, 830, 500);
+                Root.getChildren().add(inventoryCanvas);
 
                 //PETE MOI LE CUL MAT
                 var items = Map.getCaracter().getItems();
                 var itemsIterator = items.iterator();
                 for (int i = 0; i < 7; i++) {
                     for (int j =0; j < 7; j++) {
-                        System.out.println(items.size());
                         if (itemsIterator.hasNext()) {
                             var item = itemsIterator.next();
                             var itemImage = new Image(item.getImagePath(), 70, 70, true, false);
-                            gc.setFill(new ImagePattern(itemImage));
-                            gc.fillRect((j *70) + (j*40) + 30, (i * 70)+(i*40) + 30, 70, 70);
+
+                            Canvas currentCanva = new Canvas(70, 70);
+                            currentCanva.setLayoutX(185 + (j *70) + (j*40) + 30);
+                            currentCanva.setLayoutY(110 + (i * 70) + (i*40) + 30);
+
+                            GraphicsContext currentGc = currentCanva.getGraphicsContext2D();
+                            if(item instanceof Equipment){
+                                if(((Equipment) item).isEquiped()) {
+                                    currentGc.setFill(Color.RED);
+                                    currentGc.fillRect(0, 0, 70, 70);
+                                }
+                            }
+
+
+                            currentGc.setFill(new ImagePattern(itemImage));
+                            currentGc.fillRect(0, 0, 70, 70);
+
+                            currentCanva.addEventFilter(MouseEvent.MOUSE_CLICKED, event1 -> {
+                                System.out.println("Clicked on item");
+                                if(item instanceof Equipment){
+                                    if(!((Equipment) item).isEquiped()){
+                                        Map.getCaracter().EquipItem((Equipment) item);
+
+                                        currentGc.setFill(Color.RED);
+                                        currentGc.fillRect(0, 0, 70, 70);
+                                        currentGc.setFill(new ImagePattern(itemImage));
+                                        currentGc.fillRect(0, 0, 70, 70);
+                                    }
+                                    else
+                                    {
+                                        Map.getCaracter().UnequipItem((Equipment) item);
+                                        currentGc.setFill(Color.LIGHTCORAL);
+                                        currentGc.fillRect(0, 0, 70, 70);
+                                        currentGc.setFill(new ImagePattern(itemImage));
+                                        currentGc.fillRect(0, 0, 70, 70);
+                                    }
+                                }
+                                else
+                                {
+                                    Map.getCaracter().getItems().remove(item);
+                                    Root.getChildren().remove(currentCanva);
+                                }
+                            });
+                            Root.getChildren().add(currentCanva);
+
                         }
                     }
                 }
-                Root.getChildren().add(inventoryCanvas);
+
             }
             else IsInventoryOpen = false;
         });

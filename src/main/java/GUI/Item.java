@@ -3,8 +3,11 @@ package GUI;
 public class Item {
     private String Name;
     private int Price;
-
     private String imagePath;
+
+    public Item(){
+
+    }
 
     public Item(String name, int price, String imagePath) {
         Name = name;
