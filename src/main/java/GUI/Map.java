@@ -20,6 +20,10 @@ public class Map {
     @Expose
     private Caracter _caracter;
 
+    @Expose
+    private List<Entity> entities = new ArrayList<Entity>();
+
+    @Expose
     private List<MapItem> Items = new ArrayList<MapItem>();
     private static int MapWidth = 25;
     private static int MapHeight = 15;
@@ -43,7 +47,9 @@ public class Map {
         }
         var randomMap = new Map(table);
         randomMap.AddItemOnMap(new Item("key", 10, "file:resources/graphics/sprite/key.png"), 3, 3);
-        return new Map(table);
+        randomMap.AddEntityOnMap(new Entity(2,2,EntityStatus.INACTIVE,EntityType.MONSTER,"file:resources/graphics/sprite/monster1.gif" ));
+
+        return randomMap;
     }
 
     public void UpdateWithRandomMap(){
@@ -55,6 +61,7 @@ public class Map {
                 else _table[i][j] = new Cell(CellMaterial.Floor, i, j);
             }
         }
+        this.AddEntityOnMap(new Entity(5,5,EntityStatus.INACTIVE,EntityType.MONSTER,"file:resources/graphics/sprite/monster1.gif" ));
         this.AddItemOnMap(new Item("key", 10, "file:resources/graphics/sprite/key.png"), 3, 3);
     }
 
@@ -160,6 +167,10 @@ public class Map {
 
     public void AddItemOnMap(Item item,int x,int y){
         Items.add(new MapItem(item, x, y));
+    }
+
+    public void AddEntityOnMap(Entity entity){
+        entities.add(entity);
     }
 
     public List<Rectangle> GetItemRectangle(){
