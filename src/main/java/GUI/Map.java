@@ -43,7 +43,9 @@ public class Map {
         }
         var randomMap = new Map(table);
         randomMap.AddItemOnMap(new Item("key", 10, "file:resources/graphics/sprite/key.png"), 3, 3);
-        return new Map(table);
+        //Debug
+        randomMap.AddItemOnMap(new Item("Key2", 10, "file:resources/graphics/sprite/key.png"), 6, 1);
+        return randomMap;
     }
 
     public void UpdateWithRandomMap(){

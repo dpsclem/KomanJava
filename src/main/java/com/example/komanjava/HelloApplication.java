@@ -9,6 +9,10 @@ import javafx.scene.input.KeyEvent;
 import javafx.scene.paint.Color;
 import javafx.stage.Stage;
 
+import java.io.FileNotFoundException;
+import java.io.PrintWriter;
+import java.io.UnsupportedEncodingException;
+
 
 import java.io.IOException;
 import java.io.PrintWriter;
@@ -26,7 +30,10 @@ public class HelloApplication extends Application {
         randomMap.SetCaracter(caracter);
 
         String jsonSave = randomMap.GetSaveFormat();
-        PrintWriter writer = new PrintWriter("saves/save1.json", "UTF-8");
+        PrintWriter writer = null;
+
+        writer = new PrintWriter("saves/save1.json", "UTF-8");
+
         writer.println(jsonSave);
         writer.close();
         //Map randomMap = Map.CreateFromSave("saves/save1.json");
