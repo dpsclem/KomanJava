@@ -23,10 +23,6 @@ public class Map {
     @Expose
     private List<Entity> entities = new ArrayList<Entity>();
 
-    public List<MapItem> getItems() {
-        return Items;
-    }
-
     @Expose
     private List<MapItem> Items = new ArrayList<MapItem>();
     private static int MapWidth = 25;
@@ -51,9 +47,7 @@ public class Map {
         }
         var randomMap = new Map(table);
         randomMap.AddItemOnMap(new Item("key", 10, "file:resources/graphics/sprite/key.png"), 3, 3);
-        randomMap.AddItemOnMap(new Item("key", 10, "file:resources/graphics/sprite/key.png"), 5, 3);
-        randomMap.AddItemOnMap(new Item("key", 10, "file:resources/graphics/sprite/key.png"), 4, 3);
-        randomMap.AddItemOnMap(new Item("key", 10, "file:resources/graphics/sprite/key.png"), 3, 6);
+        randomMap.AddItemOnMap(new Item("pioche", 10, "file:resources/graphics/sprite/pioche.png"), 3, 5);
         randomMap.AddEntityOnMap(new Entity(2,2,EntityStatus.INACTIVE,EntityType.MONSTER,"file:resources/graphics/sprite/monster1.gif" ));
 
         return randomMap;
@@ -70,6 +64,7 @@ public class Map {
         }
         this.AddEntityOnMap(new Entity(5,5,EntityStatus.INACTIVE,EntityType.MONSTER,"file:resources/graphics/sprite/monster1.gif" ));
         this.AddItemOnMap(new Item("key", 10, "file:resources/graphics/sprite/key.png"), 3, 3);
+        this.AddItemOnMap(new Item("pioche", 10, "file:resources/graphics/sprite/pioche.png"), 3, 5);
     }
 
     public int GetTableSize(){
@@ -175,8 +170,6 @@ public class Map {
     public void AddItemOnMap(Item item,int x,int y){
         Items.add(new MapItem(item, x, y));
     }
-
-
 
     public void AddEntityOnMap(Entity entity){
         entities.add(entity);
