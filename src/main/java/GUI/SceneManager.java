@@ -36,37 +36,52 @@ public class SceneManager {
         Map = map;
         FillSceneWithMap(Root, Map);
         AddButtons();
+        addEntities();
 
         Scene.addEventFilter(KeyEvent.KEY_PRESSED, e->{
             Root.getChildren().clear();
-            AddButtons();
-            switch(e.getCode()) {
-                case LEFT:
-                    Map.MoveCaracterLeft();
-                    FillSceneWithMap(Root, Map);
-                    System.out.println("Go left");
-                    break;
-                case RIGHT:
-                    Map.MoveCaracterRight();
-                    FillSceneWithMap(Root, Map);
-                    System.out.println("Go right");
-                    break;
-                case UP:
-                    Map.MoveCaracterUp();
-                    FillSceneWithMap(Root, Map);
-                    System.out.println("Go up");
-                    break;
-                case DOWN:
-                    Map.MoveCaracterDown();
-                    FillSceneWithMap(Root, Map);
-                    System.out.println("Go down");
-                    break;
-                default:
-                    FillSceneWithMap(Root, Map);
-                    System.out.println("Other click detected");
-                    break;
+            try {
+                switch (e.getCode()) {
+                    case LEFT:
+                        Map.MoveCaracterLeft();
+                        FillSceneWithMap(Root, Map);
+                        System.out.println("Go left");
+                        break;
+                    case RIGHT:
+                        Map.MoveCaracterRight();
+                        FillSceneWithMap(Root, Map);
+                        System.out.println("Go right");
+                        break;
+                    case UP:
+                        Map.MoveCaracterUp();
+                        FillSceneWithMap(Root, Map);
+                        System.out.println("Go up");
+                        break;
+                    case DOWN:
+                        Map.MoveCaracterDown();
+                        FillSceneWithMap(Root, Map);
+                        System.out.println("Go down");
+                        break;
+                    default:
+                        FillSceneWithMap(Root, Map);
+                        System.out.println("Other click detected");
+                        break;
+                }
+            }
+            finally {
+                addEntities();
+                AddButtons();
             }
         });
+    }
+
+    private void addEntities()
+    {
+        var entities = Map.getEntities();
+        for(var entity : entities)
+        {
+            Root.getChildren().add(entity.getEntityRectangle());
+        }
     }
 
     private void AddButtons(){
@@ -94,6 +109,7 @@ public class SceneManager {
             var resetCaracter = new Caracter(1,1);
             Map.SetCaracter(resetCaracter);
             FillSceneWithMap(Root, Map);
+            addEntities();
             AddButtons();
         });
         return resetMapBtn;
@@ -117,7 +133,7 @@ public class SceneManager {
 
             FillSceneWithMap(Root, Map);
             AddButtons();
-
+            addEntities();
             if(!IsInventoryOpen) {
                 IsInventoryOpen = true;
                 Canvas inventoryCanvas = new Canvas(830, 500);

@@ -28,7 +28,6 @@ public class HelloApplication extends Application {
         Map randomMap = Map.CreateRandomMap();
         Caracter caracter = new Caracter(1,1);
         randomMap.SetCaracter(caracter);
-
         String jsonSave = randomMap.GetSaveFormat();
         PrintWriter writer = null;
 
