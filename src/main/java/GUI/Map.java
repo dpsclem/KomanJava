@@ -200,4 +200,8 @@ public class Map {
         return map;
     }
 
+    public List<Entity> getEntities(){
+        return this.entities;
+    }
+
 }
