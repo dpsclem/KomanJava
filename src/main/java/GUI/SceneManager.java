@@ -133,7 +133,7 @@ public class SceneManager {
 
             FillSceneWithMap(Root, Map);
             AddButtons();
-
+            addEntities();
             if(!IsInventoryOpen) {
                 IsInventoryOpen = true;
                 Canvas inventoryCanvas = new Canvas(830, 500);
