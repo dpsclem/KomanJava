@@ -1,5 +1,7 @@
 package GUI;
 
+import javafx.beans.value.ChangeListener;
+import javafx.geometry.Point2D;
 import javafx.print.Printer;
 import javafx.scene.Group;
 import javafx.scene.Scene;
@@ -7,14 +9,18 @@ import javafx.scene.canvas.Canvas;
 import javafx.scene.canvas.GraphicsContext;
 import javafx.scene.control.Alert;
 import javafx.scene.control.Button;
+import javafx.scene.control.Tooltip;
 import javafx.scene.image.Image;
 import javafx.scene.image.ImageView;
 import javafx.scene.input.KeyEvent;
 import javafx.scene.input.MouseEvent;
+import javafx.scene.layout.StackPane;
 import javafx.scene.paint.Color;
 import javafx.scene.paint.ImagePattern;
 import javafx.scene.shape.Rectangle;
 import javafx.scene.text.Font;
+import javafx.stage.Popup;
+import javafx.stage.Stage;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -209,7 +215,59 @@ public class SceneManager {
                                 if(((Equipment) item).isEquiped()) {
                                     currentGc.setFill(Color.RED);
                                     currentGc.fillRect(0, 0, 70, 70);
+
+                                    Tooltip.install(currentCanva, new Tooltip("HP: " + ((Equipment) item).getCaracteristics().getHp() + "\n"
+                                            + "Attack: " + ((Equipment) item).getCaracteristics().getAttack()
+                                            + "Armor: " + ((Equipment) item).getCaracteristics().getArmor() + "\n"));
                                 }
+                                Canvas hoverInformations = new Canvas(100, 150);
+                                hoverInformations.setLayoutX( currentCanva.getLayoutX() + currentCanva.getWidth() + 20);
+                                hoverInformations.setLayoutY(currentCanva.getLayoutY() - 20);
+
+                                GraphicsContext hoverGC = hoverInformations.getGraphicsContext2D();
+                                hoverGC.setFill(Color.LIGHTGRAY);
+                                hoverGC.fillRect(0, 0, 100, 150);
+
+
+                                hoverGC.setFont(new Font("Arial", 30));
+
+                                Image heartImage = new Image("file:resources/graphics/interface/heart.png", 20, 20, true, false);
+                                Image attackImage = new Image("file:resources/graphics/interface/attack.png", 20, 20, true, false);
+                                Image armorImage = new Image("file:resources/graphics/interface/armor.png", 20, 20, true, false);
+
+                                int marginWidth = 10;
+                                int marginHeight = 20;
+
+                                hoverGC.setFill(new ImagePattern(heartImage));
+                                hoverGC.fillRect(marginWidth, marginHeight, 30, 30);
+
+                                hoverGC.setFill(Color.BLACK);
+                                hoverGC.fillText("" + ((Equipment)item).getCaracteristics().getHp(), marginWidth + 50, marginHeight + 20);
+
+                                hoverGC.setFill(new ImagePattern(attackImage));
+                                hoverGC.fillRect(marginWidth, marginHeight + 40, 30, 30);
+
+                                hoverGC.setFill(Color.BLACK);
+                                hoverGC.fillText("" + ((Equipment)item).getCaracteristics().getAttack(), marginWidth + 50, marginHeight + 60);
+
+                                hoverGC.setFill(new ImagePattern(armorImage));
+                                hoverGC.fillRect(marginWidth, marginHeight + 80, 30, 30);
+
+                                hoverGC.setFill(Color.BLACK);
+                                hoverGC.fillText("" + ((Equipment)item).getCaracteristics().getArmor(), marginWidth + 50, marginHeight + 100);
+
+                                currentCanva.hoverProperty().addListener((ChangeListener<Boolean>) (observable, oldValue, newValue) -> {
+                                    if(newValue)
+                                    {
+                                        Root.getChildren().add(hoverInformations);
+                                    }
+                                    else
+                                    {
+                                        Root.getChildren().remove(hoverInformations);
+                                    }
+
+                                });
+
                             }
 
 
@@ -235,6 +293,7 @@ public class SceneManager {
                                         currentGc.setFill(new ImagePattern(itemImage));
                                         currentGc.fillRect(0, 0, 70, 70);
                                     }
+
                                 }
                                 else
                                 {
@@ -242,6 +301,8 @@ public class SceneManager {
                                     Root.getChildren().remove(currentCanva);
                                 }
                             });
+
+
                             Root.getChildren().add(currentCanva);
 
                         }
