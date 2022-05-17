@@ -18,6 +18,9 @@ public class Character {
     @Expose
     private Caracteristics caracteristics;
 
+    @Expose
+    private int money = 0;
+
     public List<Item> getItems() {
         return items;
     }
@@ -69,5 +72,17 @@ public class Character {
     public void unequipItem(Equipment item){
         caracteristics.substractCaracteristics(item.getCaracteristics());
         item.setEquiped(false);
+    }
+
+    public int getMoney() {
+        return money;
+    }
+
+    public void addMoney(int qty) {
+        this.money += qty ;
+    }
+
+    public void takeMoney(int qty) {
+        this.money -= qty ;
     }
 }

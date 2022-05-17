@@ -5,6 +5,7 @@ public class Caracteristics {
     private int armor;
     private int hp;
 
+
     public Caracteristics(int attack, int armor, int hp) {
         this.attack = attack;
         this.armor = armor;

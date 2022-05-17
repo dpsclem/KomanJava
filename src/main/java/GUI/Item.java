@@ -6,9 +6,6 @@ public class Item {
     private String imagePath;
     private UsableType type;
 
-    public Item(){
-
-    }
 
     public Item(String name, int price, String imagePath) {
         Name = name;
@@ -28,4 +25,7 @@ public class Item {
     public String getName() {
         return Name;
     }
+
+    public int getPrice() { return Price;}
+
 }

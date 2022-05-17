@@ -21,6 +21,7 @@ public class SceneInterface {
         Image heartImage = new Image("file:resources/graphics/interface/heart.png", 50, 50, true, false);
         Image attackImage = new Image("file:resources/graphics/interface/attack.png", 50, 50, true, false);
         Image armorImage = new Image("file:resources/graphics/interface/armor.png", 50, 50, true, false);
+        Image moneyImage = new Image("file:resources/graphics/interface/money.png", 50, 50, true, false);
 
         Canvas caracteristicsCanvas = new Canvas(700, 70);
         caracteristicsCanvas.setLayoutX(50);
@@ -33,19 +34,25 @@ public class SceneInterface {
         gc.fillRect(0, 0, 50, 50);
 
         gc.setFill(Color.BLACK);
-        gc.fillText("" + map.getCharacter().getCaracteristics().getHp(), 50, 50);
+        gc.fillText("" + map.getCharacter().getCaracteristics().getHp(), 55, 40);
 
         gc.setFill(new ImagePattern(attackImage));
-        gc.fillRect(250, 0, 50, 50);
+        gc.fillRect(150, 0, 50, 50);
 
         gc.setFill(Color.BLACK);
-        gc.fillText("" + map.getCharacter().getCaracteristics().getAttack(), 300, 50);
+        gc.fillText("" + map.getCharacter().getCaracteristics().getAttack(), 205, 40);
 
         gc.setFill(new ImagePattern(armorImage));
-        gc.fillRect(500, 0, 50, 50);
+        gc.fillRect(300, 0, 50, 50);
 
         gc.setFill(Color.BLACK);
-        gc.fillText("" + map.getCharacter().getCaracteristics().getArmor(), 550, 50);
+        gc.fillText("" + map.getCharacter().getCaracteristics().getArmor(), 355, 40);
+
+        gc.setFill( new ImagePattern(moneyImage));
+        gc.fillRect(450, 0,50,50);
+
+        gc.setFill(Color.BLACK);
+        gc.fillText("" + map.getCharacter().getMoney(), 505,40);
 
         nodes.add(caracteristicsCanvas);
         return nodes;

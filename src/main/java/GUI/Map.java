@@ -16,9 +16,9 @@ import java.util.concurrent.ThreadLocalRandom;
 
 public class Map {
     @Expose
-    private Cell[][] _table;
+    private Cell[][] table;
     @Expose
-    private Character _character;
+    private Character character;
 
     @Expose
     private List<Entity> entities = new ArrayList<Entity>();
@@ -28,12 +28,12 @@ public class Map {
     private static int MapWidth = 25;
     private static int MapHeight = 15;
     public Map(Cell[][] table) {
-        _table = table;
+        this.table = table;
     }
 
     public Map(Cell[][] table, Character character) {
-        _table = table;
-        _character = character;
+        this.table = table;
+        this.character = character;
     }
 
     public static Map CreateRandomMap(){
@@ -47,56 +47,59 @@ public class Map {
         var randomMap = new Map(table);
         randomMap.addItemOnMap(new Item("key", 10, "file:resources/graphics/sprite/key.png"), 3, 3);
         randomMap.addItemOnMap(new Item("pioche", 10, "file:resources/graphics/sprite/pioche.png"), 3, 5);
+        randomMap.addItemOnMap(new Usable("moneybag", 0, false, UsableType.MONEYBAG, null, 15, "file:resources/graphics/sprite/moneybag.png"), 8,2);
         randomMap.addEntityOnMap(new Entity(2,2,EntityStatus.INACTIVE,EntityType.MONSTER,"file:resources/graphics/sprite/monster1.gif" ));
 
         return randomMap;
     }
 
     public void UpdateWithRandomMap(){
-        _table = new Cell[Map.MapWidth][Map.MapHeight];
+        table = new Cell[Map.MapWidth][Map.MapHeight];
         for(int i = 0; i < Map.MapWidth; i++){
             for(int j = 0; j < Map.MapHeight; j++){
-                if (ThreadLocalRandom.current().nextInt(1, 11) == 1) _table[i][j] = new Cell(CellMaterial.Wall, i, j);
-                else _table[i][j] = new Cell(CellMaterial.Floor, i, j);
+                if (ThreadLocalRandom.current().nextInt(1, 11) == 1) table[i][j] = new Cell(CellMaterial.Wall, i, j);
+                else table[i][j] = new Cell(CellMaterial.Floor, i, j);
             }
         }
+
         this.addItemOnMap(new Item("key", 10, "file:resources/graphics/sprite/key.png"), 3, 3);
         this.addItemOnMap(new Item("pioche", 10, "file:resources/graphics/sprite/pioche.png"), 3, 5);
+        this.addItemOnMap(new Item("coin", 10, "file:resources/graphics/sprite/moneybag.png"), 8, 5);
         this.addEntityOnMap(new Entity(5,5,EntityStatus.INACTIVE,EntityType.MONSTER,"file:resources/graphics/sprite/monster1.gif" ));
     }
 
 
     public int getTableWidth(){
-        return _table[0].length;
+        return table[0].length;
     }
 
     public int getTableHeight(){
-        return _table.length;
+        return table.length;
     }
 
     public Cell getCellFromCoordinate(int x, int y){
-        return _table[y][x];
+        return table[y][x];
     }
 
     public Cell getCharacterCell(){
-        return new Cell(_character.getImgPath(), _character.getX(), _character.getY());
+        return new Cell(character.getImgPath(), character.getX(), character.getY());
     }
     
     public Character getCharacter() {
-        return _character;
+        return character;
     }
 
     public Coordinates getCharacterCoordinates(){
-        return new Coordinates(_character.getX(), _character.getY());
+        return new Coordinates(character.getX(), character.getY());
     }
 
     public void updatePlayerPosition(Coordinates coord) {
-        _character.setX(coord.X);
-        _character.setY(coord.Y);
+        character.setX(coord.X);
+        character.setY(coord.Y);
     }
 
     public void setCaracter(Character character) {
-        _character = character;
+        this.character = character;
     }
 
     public void moveCaracterUp() {
@@ -120,8 +123,8 @@ public class Map {
     }
 
     private Coordinates getFutureCoordinatesForMovingInto(int x, int y) {
-        int newX = _character.getX() + x;
-        int newY = _character.getY() + y;
+        int newX = character.getX() + x;
+        int newY = character.getY() + y;
         System.out.println(newX + ":" + newY);
         if (newX < 0 || newX >= getTableHeight() || newY < 0 || newY >= getTableWidth())
         {
@@ -140,7 +143,7 @@ public class Map {
             for (MapItem mapItem: Items) {
                 if (mapItem.getX() == newX && mapItem.getY() == newY){
                     itemtoDelete.add(mapItem);
-                    _character.addItem(mapItem.getItem());
+                    character.addItem(mapItem.getItem());
                 }
             }
             Items.removeAll(itemtoDelete);

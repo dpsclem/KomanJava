@@ -49,6 +49,10 @@ public class SceneButtons {
             map.UpdateWithRandomMap();
             var resetCaracter = new Character(1,1);
             resetCaracter.setCaracteristics(new Caracteristics(20,5,5));
+            var shield = new Equipment("Shield", 8,  EquipmentType.SHIELD,new Caracteristics(0,20,0), "file:resources/graphics/sprite/equipements/shield1.png");
+            resetCaracter.addItem(shield);
+            var chestplate = new Equipment("Chestplate", 10,  EquipmentType.CHESTPLATE,new Caracteristics(0,10,10), "file:resources/graphics/sprite/equipements/chestplate1.png");
+            resetCaracter.addItem(chestplate);
             map.setCaracter(resetCaracter);
             sceneManager.addAll();
         });
@@ -105,13 +109,13 @@ public class SceneButtons {
                                             + "Attack: " + ((Equipment) item).getCaracteristics().getAttack()
                                             + "Armor: " + ((Equipment) item).getCaracteristics().getArmor() + "\n"));
                                 }
-                                Canvas hoverInformations = new Canvas(100, 150);
+                                Canvas hoverInformations = new Canvas(100, 180);
                                 hoverInformations.setLayoutX( currentCanva.getLayoutX() + currentCanva.getWidth() + 20);
                                 hoverInformations.setLayoutY(currentCanva.getLayoutY() - 20);
 
                                 GraphicsContext hoverGC = hoverInformations.getGraphicsContext2D();
                                 hoverGC.setFill(Color.LIGHTGRAY);
-                                hoverGC.fillRect(0, 0, 100, 150);
+                                hoverGC.fillRect(0, 0, 100, 180);
 
 
                                 hoverGC.setFont(new Font("Arial", 30));
@@ -119,6 +123,7 @@ public class SceneButtons {
                                 Image heartImage = new Image("file:resources/graphics/interface/heart.png", 20, 20, true, false);
                                 Image attackImage = new Image("file:resources/graphics/interface/attack.png", 20, 20, true, false);
                                 Image armorImage = new Image("file:resources/graphics/interface/armor.png", 20, 20, true, false);
+                                Image moneyImage = new Image("file:resources/graphics/interface/money.png", 20, 20, true, false);
 
                                 int marginWidth = 10;
                                 int marginHeight = 20;
@@ -140,6 +145,12 @@ public class SceneButtons {
 
                                 hoverGC.setFill(Color.BLACK);
                                 hoverGC.fillText("" + ((Equipment)item).getCaracteristics().getArmor(), marginWidth + 50, marginHeight + 100);
+
+                                hoverGC.setFill(new ImagePattern(moneyImage));
+                                hoverGC.fillRect(marginWidth, marginHeight + 120, 30, 30);
+
+                                hoverGC.setFill(Color.BLACK);
+                                hoverGC.fillText("" + ((Equipment)item).getPrice(), marginWidth + 50, marginHeight + 140);
 
                                 currentCanva.hoverProperty().addListener((ChangeListener<Boolean>) (observable, oldValue, newValue) -> {
                                     if(newValue)
@@ -175,6 +186,12 @@ public class SceneButtons {
                                         currentGc.setFill(new ImagePattern(itemImage));
                                         currentGc.fillRect(0, 0, 70, 70);
                                     }
+                                }
+                                else if (item instanceof Usable){
+                                    ((Usable) item).use(map);
+                                    map.getCharacter().getItems().remove(item);
+                                    root.getChildren().remove(currentCanva);
+
                                 }
                                 else
                                 {

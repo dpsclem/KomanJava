@@ -22,7 +22,7 @@ public class HelloApplication extends Application {
         Map randomMap = Map.CreateRandomMap();
         Character character = new Character(1,1);
         character.setCaracteristics(new Caracteristics(5,5,20));
-        var shield = new Equipment("Shield", 10,  EquipmentType.SHIELD,new Caracteristics(0,20,0), "file:resources/graphics/sprite/equipements/shield1.png");
+        var shield = new Equipment("Shield", 8,  EquipmentType.SHIELD,new Caracteristics(0,20,0), "file:resources/graphics/sprite/equipements/shield1.png");
         character.addItem(shield);
 
         var chestplate = new Equipment("Chestplate", 10,  EquipmentType.CHESTPLATE,new Caracteristics(0,10,10), "file:resources/graphics/sprite/equipements/chestplate1.png");
