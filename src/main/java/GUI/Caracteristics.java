@@ -11,13 +11,13 @@ public class Caracteristics {
         this.hp = hp;
     }
 
-    public void AddCaracteristics(Caracteristics carac) {
+    public void addCaracteristics(Caracteristics carac) {
         this.attack += carac.getAttack();
         this.armor += carac.getArmor();
         this.hp += carac.getHp();
     }
 
-    public void SubstractCaracteristics(Caracteristics carac) {
+    public void substractCaracteristics(Caracteristics carac) {
         this.attack -= carac.getAttack();
         this.armor -= carac.getArmor();
         this.hp -= carac.getHp();

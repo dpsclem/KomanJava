@@ -1,5 +1,6 @@
 package com.example.komanjava;
 import GUI.*;
+import GUI.Character;
 import SceneManager.SceneManager;
 import javafx.application.Application;
 import javafx.scene.Group;
@@ -19,19 +20,22 @@ public class HelloApplication extends Application {
 
         var sceneManager = new SceneManager(root, 1350, 850, Color.WHITE);
         Map randomMap = Map.CreateRandomMap();
-        Caracter caracter = new Caracter(1,1);
-        caracter.setCaracteristics(new Caracteristics(5,5,20));
+        Character character = new Character(1,1);
+        character.setCaracteristics(new Caracteristics(5,5,20));
         var shield = new Equipment("Shield", 10,  EquipmentType.SHIELD,new Caracteristics(0,20,0), "file:resources/graphics/sprite/equipements/shield1.png");
-        caracter.addItem(shield);
+        character.addItem(shield);
 
         var chestplate = new Equipment("Chestplate", 10,  EquipmentType.CHESTPLATE,new Caracteristics(0,10,10), "file:resources/graphics/sprite/equipements/chestplate1.png");
-        caracter.addItem(chestplate);
+        character.addItem(chestplate);
 
         var sword = new Equipment("Sword", 10,  EquipmentType.CHESTPLATE,new Caracteristics(15,0,0), "file:resources/graphics/sprite/equipements/attack.png");
-        randomMap.AddItemOnMap(sword, 4,2);
+        randomMap.addItemOnMap(sword, 4,2);
 
-        randomMap.SetCaracter(caracter);
-        String jsonSave = randomMap.GetSaveFormat();
+        var chest = new Entity(0,0,EntityStatus.INACTIVE, EntityType.CHEST, "file:resources/graphics/sprite/chest.png");
+        randomMap.addEntityOnMap(chest);
+
+        randomMap.setCaracter(character);
+        String jsonSave = randomMap.getSaveFormat();
         PrintWriter writer = null;
 
         writer = new PrintWriter("saves/save1.json", "UTF-8");
@@ -40,11 +44,11 @@ public class HelloApplication extends Application {
         writer.close();
         //Map randomMap = Map.CreateFromSave("saves/save1.json");
 
-        sceneManager.Initialize(randomMap);
+        sceneManager.initialize(randomMap);
 
 
         System.out.println("Launching");
-        stage.setScene(sceneManager.GetScene());
+        stage.setScene(sceneManager.getScene());
         stage.show();
     }
 

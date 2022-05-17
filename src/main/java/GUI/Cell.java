@@ -2,11 +2,8 @@ package GUI;
 
 import com.google.gson.annotations.Expose;
 import javafx.scene.image.Image;
-import javafx.scene.paint.Color;
 import javafx.scene.paint.ImagePattern;
-import javafx.scene.paint.Paint;
 import javafx.scene.shape.Rectangle;
-import com.google.gson.Gson;
 
 public class Cell {
     @Expose
@@ -27,7 +24,7 @@ public class Cell {
 
     public Cell(CellMaterial material, int x, int y) {
         _material = material;
-        _materialProperties = CellMaterialProperties.GetCellMaterialProperties(material);
+        _materialProperties = CellMaterialProperties.getCellMaterialProperties(material);
         _x = x*Width;
         _y = y*Height;
     }
@@ -40,11 +37,11 @@ public class Cell {
         rectangle.setFill(new ImagePattern(imgCharacter));
     }
 
-    public Rectangle GetRectangle() {
+    public Rectangle getRectangle() {
         if (rectangle != null) return rectangle; //Rectangle is already created for character
 
         if (_materialProperties == null) {
-            _materialProperties = CellMaterialProperties.GetCellMaterialProperties(_material);
+            _materialProperties = CellMaterialProperties.getCellMaterialProperties(_material);
         }
         rectangle = new Rectangle(_x, _y, Height, Width);
         Image img = new Image(_materialProperties.ImgPath, Width, Height, true, false);

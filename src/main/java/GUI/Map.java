@@ -18,7 +18,7 @@ public class Map {
     @Expose
     private Cell[][] _table;
     @Expose
-    private Caracter _caracter;
+    private Character _character;
 
     @Expose
     private List<Entity> entities = new ArrayList<Entity>();
@@ -31,9 +31,9 @@ public class Map {
         _table = table;
     }
 
-    public Map(Cell[][] table, Caracter caracter) {
+    public Map(Cell[][] table, Character character) {
         _table = table;
-        _caracter = caracter;
+        _character = character;
     }
 
     public static Map CreateRandomMap(){
@@ -46,9 +46,9 @@ public class Map {
             }
         }
         var randomMap = new Map(table);
-        randomMap.AddItemOnMap(new Item("key", 10, "file:resources/graphics/sprite/key.png"), 3, 3);
-        randomMap.AddItemOnMap(new Item("pioche", 10, "file:resources/graphics/sprite/pioche.png"), 3, 5);
-        randomMap.AddEntityOnMap(new Entity(2,2,EntityStatus.INACTIVE,EntityType.MONSTER,"file:resources/graphics/sprite/monster1.gif" ));
+        randomMap.addItemOnMap(new Item("key", 10, "file:resources/graphics/sprite/key.png"), 3, 3);
+        randomMap.addItemOnMap(new Item("pioche", 10, "file:resources/graphics/sprite/pioche.png"), 3, 5);
+        randomMap.addEntityOnMap(new Entity(2,2,EntityStatus.INACTIVE,EntityType.MONSTER,"file:resources/graphics/sprite/monster1.gif" ));
 
         return randomMap;
     }
@@ -62,78 +62,75 @@ public class Map {
                 else _table[i][j] = new Cell(CellMaterial.Floor, i, j);
             }
         }
-        this.AddItemOnMap(new Item("key", 10, "file:resources/graphics/sprite/key.png"), 3, 3);
-        this.AddItemOnMap(new Item("pioche", 10, "file:resources/graphics/sprite/pioche.png"), 3, 5);
-        this.AddEntityOnMap(new Entity(5,5,EntityStatus.INACTIVE,EntityType.MONSTER,"file:resources/graphics/sprite/monster1.gif" ));
+        this.addItemOnMap(new Item("key", 10, "file:resources/graphics/sprite/key.png"), 3, 3);
+        this.addItemOnMap(new Item("pioche", 10, "file:resources/graphics/sprite/pioche.png"), 3, 5);
+        this.addEntityOnMap(new Entity(5,5,EntityStatus.INACTIVE,EntityType.MONSTER,"file:resources/graphics/sprite/monster1.gif" ));
     }
 
-    public int GetTableSize(){
-        return _table.length * _table[0].length;
-    }
 
-    public int GetTableWidth(){
+    public int getTableWidth(){
         return _table[0].length;
     }
 
-    public int GetTableHeight(){
+    public int getTableHeight(){
         return _table.length;
     }
 
-    public Cell GetCellFromCoordinate(int x, int y){
+    public Cell getCellFromCoordinate(int x, int y){
         return _table[y][x];
     }
 
-    public Cell GetCaracterCell(){
-        return new Cell(_caracter.getImgPath(), _caracter.getX(), _caracter.getY());
+    public Cell getCharacterCell(){
+        return new Cell(_character.getImgPath(), _character.getX(), _character.getY());
     }
     
-    public Caracter getCaracter() {
-        return _caracter;
+    public Character getCharacter() {
+        return _character;
     }
 
-    public Coordinates GetCaracterCoordinates(){
-        return new Coordinates(_caracter.getX(), _caracter.getY());
+    public Coordinates getCharacterCoordinates(){
+        return new Coordinates(_character.getX(), _character.getY());
     }
 
-    public void UpdatePlayerPosition(Coordinates coord) {
-        _caracter.setX(coord.X);
-        _caracter.setY(coord.Y);
+    public void updatePlayerPosition(Coordinates coord) {
+        _character.setX(coord.X);
+        _character.setY(coord.Y);
     }
 
-    public void SetCaracter(Caracter caracter) {
-        _caracter = caracter;
+    public void setCaracter(Character character) {
+        _character = character;
     }
 
-    public void MoveCaracterUp() {
-        Coordinates futureCoord = GetFutureCoordinatesForMovingInto(0,-1);
-        UpdatePlayerPosition(futureCoord);
+    public void moveCaracterUp() {
+        Coordinates futureCoord = getFutureCoordinatesForMovingInto(0,-1);
+        updatePlayerPosition(futureCoord);
     }
 
-    public void MoveCaracterDown() {
-        Coordinates futureCoord = GetFutureCoordinatesForMovingInto(0,1);
-        UpdatePlayerPosition(futureCoord);
+    public void moveCaracterDown() {
+        Coordinates futureCoord = getFutureCoordinatesForMovingInto(0,1);
+        updatePlayerPosition(futureCoord);
     }
 
-    public void MoveCaracterLeft() {
-        Coordinates futureCoord = GetFutureCoordinatesForMovingInto(-1,0);
-        UpdatePlayerPosition(futureCoord);
+    public void moveCaracterLeft() {
+        Coordinates futureCoord = getFutureCoordinatesForMovingInto(-1,0);
+        updatePlayerPosition(futureCoord);
     }
 
-    public void MoveCaracterRight() {
-        Coordinates futureCoord = GetFutureCoordinatesForMovingInto(1,0);
-        UpdatePlayerPosition(futureCoord);
+    public void moveCaracterRight() {
+        Coordinates futureCoord = getFutureCoordinatesForMovingInto(1,0);
+        updatePlayerPosition(futureCoord);
     }
 
-    private Coordinates GetFutureCoordinatesForMovingInto(int x, int y) {
-        int newX = _caracter.getX() + x;
-        int newY = _caracter.getY() + y;
+    private Coordinates getFutureCoordinatesForMovingInto(int x, int y) {
+        int newX = _character.getX() + x;
+        int newY = _character.getY() + y;
         System.out.println(newX + ":" + newY);
-        if (newX < 0 || newX >= GetTableHeight() || newY < 0 || newY >= GetTableWidth())
+        if (newX < 0 || newX >= getTableHeight() || newY < 0 || newY >= getTableWidth())
         {
             System.out.println("Going out of table");
-            return GetCaracterCoordinates();
+            return getCharacterCoordinates();
         }
-        var futureCell = GetCellFromCoordinate(newY, newX);
+        var futureCell = getCellFromCoordinate(newY, newX);
         System.out.println(futureCell.getMaterialProperties());
 
         if (futureCell.getMaterialProperties().IsWalkable  //Moving on floor
@@ -142,7 +139,7 @@ public class Map {
             for (MapItem mapItem: Items) {
                 if (mapItem.getX() == newX && mapItem.getY() == newY){
                     itemtoDelete.add(mapItem);
-                    _caracter.addItem(mapItem.getItem());
+                    _character.addItem(mapItem.getItem());
                 }
             }
             Items.removeAll(itemtoDelete);
@@ -150,16 +147,16 @@ public class Map {
         }
         if (!futureCell.getMaterialProperties().IsWalkable //Moving through door
                 && futureCell.getMaterialProperties().IsPassable
-                && CanMoveCaracterAt(new Coordinates(newX+x, newY+y))) {
+                && canMoveCaracterAt(new Coordinates(newX+x, newY+y))) {
             return new Coordinates(newX+x, newY+y); //Go through the door, so 1 more cell on the same direction
         }
-        return GetCaracterCoordinates();
+        return getCharacterCoordinates();
     }
 
-    private boolean CanMoveCaracterAt(Coordinates newCoords){
-        if (newCoords.X < 0 || newCoords.X >= GetTableHeight() || newCoords.Y < 0 || newCoords.Y >= GetTableWidth()) return false;
+    private boolean canMoveCaracterAt(Coordinates newCoords){
+        if (newCoords.X < 0 || newCoords.X >= getTableHeight() || newCoords.Y < 0 || newCoords.Y >= getTableWidth()) return false;
 
-        var futureCell = GetCellFromCoordinate(newCoords.Y, newCoords.X);
+        var futureCell = getCellFromCoordinate(newCoords.Y, newCoords.X);
         if (futureCell.getMaterialProperties().IsWalkable
                 && futureCell.getMaterialProperties().IsPassable) {
             return true;
@@ -167,15 +164,15 @@ public class Map {
         return false;
     }
 
-    public void AddItemOnMap(Item item,int x,int y){
+    public void addItemOnMap(Item item, int x, int y){
         Items.add(new MapItem(item, x, y));
     }
 
-    public void AddEntityOnMap(Entity entity){
+    public void addEntityOnMap(Entity entity){
         entities.add(entity);
     }
 
-    public List<Rectangle> GetItemRectangle(){
+    public List<Rectangle> getItemRectangle(){
         var rectangles = new ArrayList<Rectangle>();
 
         for (MapItem mapItem: Items) {
@@ -189,13 +186,13 @@ public class Map {
         return rectangles;
     }
 
-    public String GetSaveFormat() {
+    public String getSaveFormat() {
         Gson gson = new GsonBuilder().excludeFieldsWithoutExposeAnnotation().setPrettyPrinting().create();;
         //var mapDto = new MapDTO(_table, _caracter);
         return gson.toJson(this);
     }
 
-    public static Map CreateFromSave(String filePath) throws FileNotFoundException {
+    public static Map createFromSave(String filePath) throws FileNotFoundException {
         Gson gson = new GsonBuilder().excludeFieldsWithoutExposeAnnotation().setPrettyPrinting().create();
         JsonReader reader = new JsonReader(new FileReader(filePath));
         Map map = gson.fromJson(reader, Map.class);

@@ -1,12 +1,11 @@
 package GUI;
 
 import com.google.gson.annotations.Expose;
-import javafx.scene.paint.Color;
 
 import java.util.ArrayList;
 import java.util.List;
 
-public class Caracter {
+public class Character {
     @Expose
     private int x;
 
@@ -24,7 +23,7 @@ public class Caracter {
     }
 
 
-    public Caracter(int x, int y) {
+    public Character(int x, int y) {
         this.x = x;
         this.y = y;
     }
@@ -62,13 +61,13 @@ public class Caracter {
         this.caracteristics = caracteristics;
     }
 
-    public void EquipItem(Equipment item){
-        caracteristics.AddCaracteristics(item.getCaracteristics());
+    public void equipItem(Equipment item){
+        caracteristics.addCaracteristics(item.getCaracteristics());
         item.setEquiped(true);
     }
 
-    public void UnequipItem(Equipment item){
-        caracteristics.SubstractCaracteristics(item.getCaracteristics());
+    public void unequipItem(Equipment item){
+        caracteristics.substractCaracteristics(item.getCaracteristics());
         item.setEquiped(false);
     }
 }

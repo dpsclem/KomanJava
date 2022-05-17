@@ -30,18 +30,18 @@ public class SceneManager {
         sceneEntities = new SceneEntities();
     }
 
-    public Scene GetScene() {
+    public Scene getScene() {
         return Scene;
     }
 
     public void addAll(){
-        FillSceneWithMap(Root, Map);
+        fillSceneWithMap(Root, Map);
         addButtons();
         addEntities();
         addInterface();
     }
 
-    public void Initialize(Map map) {
+    public void initialize(Map map) {
         Map = map;
         addAll();
 
@@ -51,19 +51,19 @@ public class SceneManager {
             try {
                 switch (e.getCode()) {
                     case LEFT:
-                        Map.MoveCaracterLeft();
+                        Map.moveCaracterLeft();
                         System.out.println("Go left");
                         break;
                     case RIGHT:
-                        Map.MoveCaracterRight();
+                        Map.moveCaracterRight();
                         System.out.println("Go right");
                         break;
                     case UP:
-                        Map.MoveCaracterUp();
+                        Map.moveCaracterUp();
                         System.out.println("Go up");
                         break;
                     case DOWN:
-                        Map.MoveCaracterDown();
+                        Map.moveCaracterDown();
                         System.out.println("Go down");
                         break;
                     default:
@@ -72,11 +72,15 @@ public class SceneManager {
                 }
             }
             finally {
+                checkNearInteractions();
                 addAll();
             }
         });
     }
 
+    private void checkNearInteractions() {
+        var characterX = Map.getCharacter();
+    }
 
 
     private void addEntities()
@@ -92,19 +96,19 @@ public class SceneManager {
         Root.getChildren().addAll(sceneInterface.getInterface(Root, Map));
     }
 
-    private void FillSceneWithMap(Group root, Map randomMap) {
-        for (int i = 0; i < randomMap.GetTableWidth(); i++) {
-            for (int j = 0; j < randomMap.GetTableHeight(); j++) {
-                Cell cell = randomMap.GetCellFromCoordinate(i, j);
-                var rectangle = cell.GetRectangle();
+    private void fillSceneWithMap(Group root, Map randomMap) {
+        for (int i = 0; i < randomMap.getTableWidth(); i++) {
+            for (int j = 0; j < randomMap.getTableHeight(); j++) {
+                Cell cell = randomMap.getCellFromCoordinate(i, j);
+                var rectangle = cell.getRectangle();
                 root.getChildren().add(rectangle);
             }
         }
-        Cell cell = randomMap.GetCaracterCell();
-        var rectangle = cell.GetRectangle();
+        Cell cell = randomMap.getCharacterCell();
+        var rectangle = cell.getRectangle();
         root.getChildren().add(rectangle);
 
-        for (Rectangle currentRectangle: randomMap.GetItemRectangle()) {
+        for (Rectangle currentRectangle: randomMap.getItemRectangle()) {
             root.getChildren().add(currentRectangle);
         }
     }

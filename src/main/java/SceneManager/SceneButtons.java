@@ -1,6 +1,6 @@
 package SceneManager;
 
-import GUI.Caracter;
+import GUI.Character;
 import GUI.Caracteristics;
 import GUI.Equipment;
 import GUI.Map;
@@ -28,8 +28,8 @@ public class SceneButtons {
 
     public List<Node> getButtons(Group root, Map map, SceneManager sceneManager){
         var buttons = new ArrayList<Node>();
-        buttons.add(GetResetMapButton(root, map, sceneManager));
-        buttons.add(GetInventoryButton(root, map, sceneManager));
+        buttons.add(getResetMapButton(root, map, sceneManager));
+        buttons.add(getInventoryButton(root, map, sceneManager));
         return buttons;
     }
 
@@ -37,7 +37,7 @@ public class SceneButtons {
         return IsInventoryOpen;
     }
 
-    private Button GetResetMapButton(Group root, Map map, SceneManager sceneManager){
+    private Button getResetMapButton(Group root, Map map, SceneManager sceneManager){
         Button resetMapBtn = new Button();
         resetMapBtn.setText("Reset Map");
         resetMapBtn.setLayoutX(1220);
@@ -47,15 +47,15 @@ public class SceneButtons {
         resetMapBtn.setOnAction(event -> {
             root.getChildren().clear();
             map.UpdateWithRandomMap();
-            var resetCaracter = new Caracter(1,1);
+            var resetCaracter = new Character(1,1);
             resetCaracter.setCaracteristics(new Caracteristics(20,5,5));
-            map.SetCaracter(resetCaracter);
+            map.setCaracter(resetCaracter);
             sceneManager.addAll();
         });
         return resetMapBtn;
     }
 
-    private Button GetInventoryButton(Group root, Map map, SceneManager sceneManager) {
+    private Button getInventoryButton(Group root, Map map, SceneManager sceneManager) {
         Button button = new Button();
 
         button.setLayoutX(1220);
@@ -83,7 +83,7 @@ public class SceneButtons {
                 root.getChildren().add(inventoryCanvas);
 
                 //PETE MOI LE CUL MAT
-                var items = map.getCaracter().getItems();
+                var items = map.getCharacter().getItems();
                 var itemsIterator = items.iterator();
                 for (int i = 0; i < 7; i++) {
                     for (int j =0; j < 7; j++) {
@@ -163,7 +163,7 @@ public class SceneButtons {
                                 System.out.println("Clicked on item");
                                 if(item instanceof Equipment){
                                     if(!((Equipment) item).isEquiped()){
-                                        map.getCaracter().EquipItem((Equipment) item);
+                                        map.getCharacter().equipItem((Equipment) item);
 
                                         currentGc.setFill(Color.RED);
                                         currentGc.fillRect(0, 0, 70, 70);
@@ -172,7 +172,7 @@ public class SceneButtons {
                                     }
                                     else
                                     {
-                                        map.getCaracter().UnequipItem((Equipment) item);
+                                        map.getCharacter().unequipItem((Equipment) item);
                                         currentGc.setFill(Color.LIGHTCORAL);
                                         currentGc.fillRect(0, 0, 70, 70);
                                         currentGc.setFill(new ImagePattern(itemImage));
@@ -182,7 +182,7 @@ public class SceneButtons {
                                 }
                                 else
                                 {
-                                    map.getCaracter().getItems().remove(item);
+                                    map.getCharacter().getItems().remove(item);
                                     root.getChildren().remove(currentCanva);
                                 }
                             });

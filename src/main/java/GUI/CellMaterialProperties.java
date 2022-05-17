@@ -1,9 +1,6 @@
 package GUI;
 
 import com.google.gson.annotations.Expose;
-import javafx.scene.paint.Color;
-
-import java.util.jar.Attributes;
 
 public class CellMaterialProperties {
     @Expose
@@ -26,7 +23,7 @@ public class CellMaterialProperties {
         this.ImgPath = imgPath;
     }
 
-    public static CellMaterialProperties GetCellMaterialProperties(CellMaterial cellMaterial) {
+    public static CellMaterialProperties getCellMaterialProperties(CellMaterial cellMaterial) {
         switch (cellMaterial) {
             case Wall:
                 return new CellMaterialProperties(false, false, ImgPathWall);
