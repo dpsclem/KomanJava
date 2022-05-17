@@ -1,22 +1,15 @@
 package com.example.komanjava;
 import GUI.*;
-import com.google.gson.Gson;
+import SceneManager.SceneManager;
 import javafx.application.Application;
 import javafx.scene.Group;
-import javafx.scene.Scene;
-import javafx.scene.control.Button;
-import javafx.scene.input.KeyEvent;
 import javafx.scene.paint.Color;
 import javafx.stage.Stage;
 
-import java.io.FileNotFoundException;
 import java.io.PrintWriter;
-import java.io.UnsupportedEncodingException;
 
 
 import java.io.IOException;
-import java.io.PrintWriter;
-import java.util.List;
 
 public class HelloApplication extends Application {
     @Override

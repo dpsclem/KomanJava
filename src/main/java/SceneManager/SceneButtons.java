@@ -1,151 +1,43 @@
-package GUI;
+package SceneManager;
 
+import GUI.Caracter;
+import GUI.Caracteristics;
+import GUI.Equipment;
+import GUI.Map;
 import javafx.beans.value.ChangeListener;
-import javafx.geometry.Point2D;
-import javafx.print.Printer;
 import javafx.scene.Group;
-import javafx.scene.Scene;
+import javafx.scene.Node;
 import javafx.scene.canvas.Canvas;
 import javafx.scene.canvas.GraphicsContext;
-import javafx.scene.control.Alert;
 import javafx.scene.control.Button;
 import javafx.scene.control.Tooltip;
 import javafx.scene.image.Image;
 import javafx.scene.image.ImageView;
-import javafx.scene.input.KeyEvent;
 import javafx.scene.input.MouseEvent;
-import javafx.scene.layout.StackPane;
 import javafx.scene.paint.Color;
 import javafx.scene.paint.ImagePattern;
-import javafx.scene.shape.Rectangle;
 import javafx.scene.text.Font;
-import javafx.stage.Popup;
-import javafx.stage.Stage;
 
 import java.util.ArrayList;
 import java.util.List;
 
-public class SceneManager {
-
-    private Scene Scene;
-    private List<Button> Buttons;
-    private Group Root;
-    private Map Map;
+public class SceneButtons {
 
     private boolean IsInventoryOpen = false;
 
-    public SceneManager(Group root, int width, int height, Color color) {
-        Scene = new Scene(root, width, height, color);
-        Root = root;
-    }
 
-    public Scene GetScene() {
-        return Scene;
-    }
-
-    public void Initialize(Map map) {
-        Map = map;
-        FillSceneWithMap(Root, Map);
-        AddButtons();
-        addEntities();
-        addInterface();
-
-
-        Scene.addEventFilter(KeyEvent.KEY_PRESSED, e->{
-            Root.getChildren().clear();
-            try {
-                switch (e.getCode()) {
-                    case LEFT:
-                        Map.MoveCaracterLeft();
-                        FillSceneWithMap(Root, Map);
-                        System.out.println("Go left");
-                        break;
-                    case RIGHT:
-                        Map.MoveCaracterRight();
-                        FillSceneWithMap(Root, Map);
-                        System.out.println("Go right");
-                        break;
-                    case UP:
-                        Map.MoveCaracterUp();
-                        FillSceneWithMap(Root, Map);
-                        System.out.println("Go up");
-                        break;
-                    case DOWN:
-                        Map.MoveCaracterDown();
-                        FillSceneWithMap(Root, Map);
-                        System.out.println("Go down");
-                        break;
-                    default:
-                        FillSceneWithMap(Root, Map);
-                        System.out.println("Other click detected");
-                        break;
-                }
-            }
-            finally {
-                addInterface();
-                addEntities();
-                AddButtons();
-            }
-        });
-    }
-
-    private void addInterface() {
-        Image heartImage = new Image("file:resources/graphics/interface/heart.png", 50, 50, true, false);
-        Image attackImage = new Image("file:resources/graphics/interface/attack.png", 50, 50, true, false);
-        Image armorImage = new Image("file:resources/graphics/interface/armor.png", 50, 50, true, false);
-
-        Canvas caracteristicsCanvas = new Canvas(700, 70);
-        caracteristicsCanvas.setLayoutX(50);
-        caracteristicsCanvas.setLayoutY(750);
-
-        GraphicsContext gc = caracteristicsCanvas.getGraphicsContext2D();
-        gc.setFont(new Font("Arial", 50));
-
-        gc.setFill(new ImagePattern(heartImage));
-        gc.fillRect(0, 0, 50, 50);
-
-        gc.setFill(Color.BLACK);
-        gc.fillText("" + Map.getCaracter().getCaracteristics().getHp(), 50, 50);
-
-        gc.setFill(new ImagePattern(attackImage));
-        gc.fillRect(250, 0, 50, 50);
-
-        gc.setFill(Color.BLACK);
-        gc.fillText("" + Map.getCaracter().getCaracteristics().getAttack(), 300, 50);
-
-        gc.setFill(new ImagePattern(armorImage));
-        gc.fillRect(500, 0, 50, 50);
-
-        gc.setFill(Color.BLACK);
-        gc.fillText("" + Map.getCaracter().getCaracteristics().getArmor(), 550, 50);
-
-
-        //gc.fillRect(0, 0, 700, 70);
-        Root.getChildren().add(caracteristicsCanvas);
-    }
-
-    private void addEntities()
-    {
-        var entities = Map.getEntities();
-        for(var entity : entities)
-        {
-            Root.getChildren().add(entity.getEntityRectangle());
-        }
-    }
-
-    private void AddButtons(){
-        Buttons = GetButtons();
-        Root.getChildren().addAll(Buttons);
-    }
-
-    private List<Button> GetButtons(){
-        var buttons = new ArrayList<Button>();
-        buttons.add(GetResetMapButton());
-        buttons.add(GetInventoryButton());
+    public List<Node> getButtons(Group root, Map map, SceneManager sceneManager){
+        var buttons = new ArrayList<Node>();
+        buttons.add(GetResetMapButton(root, map, sceneManager));
+        buttons.add(GetInventoryButton(root, map, sceneManager));
         return buttons;
     }
 
-    private Button GetResetMapButton() {
+    public boolean isInventoryOpen() {
+        return IsInventoryOpen;
+    }
+
+    private Button GetResetMapButton(Group root, Map map, SceneManager sceneManager){
         Button resetMapBtn = new Button();
         resetMapBtn.setText("Reset Map");
         resetMapBtn.setLayoutX(1220);
@@ -153,20 +45,17 @@ public class SceneManager {
         resetMapBtn.setPrefSize(80, 30);
 
         resetMapBtn.setOnAction(event -> {
-            Root.getChildren().clear();
-            Map.UpdateWithRandomMap();
+            root.getChildren().clear();
+            map.UpdateWithRandomMap();
             var resetCaracter = new Caracter(1,1);
             resetCaracter.setCaracteristics(new Caracteristics(20,5,5));
-            Map.SetCaracter(resetCaracter);
-            FillSceneWithMap(Root, Map);
-            addInterface();
-            addEntities();
-            AddButtons();
+            map.SetCaracter(resetCaracter);
+            sceneManager.addAll();
         });
         return resetMapBtn;
     }
 
-    private Button GetInventoryButton() {
+    private Button GetInventoryButton(Group root, Map map, SceneManager sceneManager) {
         Button button = new Button();
 
         button.setLayoutX(1220);
@@ -180,12 +69,8 @@ public class SceneManager {
         button.setOnAction(event -> {
             System.out.println("Open inventory");
 
-            Root.getChildren().clear();
-
-            FillSceneWithMap(Root, Map);
-            addInterface();
-            AddButtons();
-            addEntities();
+            root.getChildren().clear();
+            sceneManager.addAll();
             if(!IsInventoryOpen) {
                 IsInventoryOpen = true;
 
@@ -195,10 +80,10 @@ public class SceneManager {
                 GraphicsContext gc = inventoryCanvas.getGraphicsContext2D();
                 gc.setFill(Color.LIGHTCORAL);
                 gc.fillRect(0, 0, 830, 500);
-                Root.getChildren().add(inventoryCanvas);
+                root.getChildren().add(inventoryCanvas);
 
                 //PETE MOI LE CUL MAT
-                var items = Map.getCaracter().getItems();
+                var items = map.getCaracter().getItems();
                 var itemsIterator = items.iterator();
                 for (int i = 0; i < 7; i++) {
                     for (int j =0; j < 7; j++) {
@@ -259,11 +144,11 @@ public class SceneManager {
                                 currentCanva.hoverProperty().addListener((ChangeListener<Boolean>) (observable, oldValue, newValue) -> {
                                     if(newValue)
                                     {
-                                        Root.getChildren().add(hoverInformations);
+                                        root.getChildren().add(hoverInformations);
                                     }
                                     else
                                     {
-                                        Root.getChildren().remove(hoverInformations);
+                                        root.getChildren().remove(hoverInformations);
                                     }
 
                                 });
@@ -278,7 +163,7 @@ public class SceneManager {
                                 System.out.println("Clicked on item");
                                 if(item instanceof Equipment){
                                     if(!((Equipment) item).isEquiped()){
-                                        Map.getCaracter().EquipItem((Equipment) item);
+                                        map.getCaracter().EquipItem((Equipment) item);
 
                                         currentGc.setFill(Color.RED);
                                         currentGc.fillRect(0, 0, 70, 70);
@@ -287,7 +172,7 @@ public class SceneManager {
                                     }
                                     else
                                     {
-                                        Map.getCaracter().UnequipItem((Equipment) item);
+                                        map.getCaracter().UnequipItem((Equipment) item);
                                         currentGc.setFill(Color.LIGHTCORAL);
                                         currentGc.fillRect(0, 0, 70, 70);
                                         currentGc.setFill(new ImagePattern(itemImage));
@@ -297,13 +182,13 @@ public class SceneManager {
                                 }
                                 else
                                 {
-                                    Map.getCaracter().getItems().remove(item);
-                                    Root.getChildren().remove(currentCanva);
+                                    map.getCaracter().getItems().remove(item);
+                                    root.getChildren().remove(currentCanva);
                                 }
                             });
 
 
-                            Root.getChildren().add(currentCanva);
+                            root.getChildren().add(currentCanva);
 
                         }
                     }
@@ -313,22 +198,5 @@ public class SceneManager {
             else IsInventoryOpen = false;
         });
         return button;
-    }
-
-    private void FillSceneWithMap(Group root, Map randomMap) {
-        for (int i = 0; i < randomMap.GetTableWidth(); i++) {
-            for (int j = 0; j < randomMap.GetTableHeight(); j++) {
-                Cell cell = randomMap.GetCellFromCoordinate(i, j);
-                var rectangle = cell.GetRectangle();
-                root.getChildren().add(rectangle);
-            }
-        }
-        Cell cell = randomMap.GetCaracterCell();
-        var rectangle = cell.GetRectangle();
-        root.getChildren().add(rectangle);
-
-        for (Rectangle currentRectangle: randomMap.GetItemRectangle()) {
-            root.getChildren().add(currentRectangle);
-        }
     }
 }

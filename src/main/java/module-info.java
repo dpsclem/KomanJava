@@ -11,4 +11,6 @@ module com.example.komanjava {
     exports com.example.komanjava;
     exports GUI to com.google.gson;
     opens GUI to com.google.gson;
+    exports SceneManager to com.google.gson;
+    opens SceneManager to com.google.gson;
 }
