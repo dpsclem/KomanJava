@@ -1,12 +1,11 @@
 package SceneManager;
 
+import GUI.*;
 import GUI.Character;
-import GUI.Caracteristics;
-import GUI.Equipment;
-import GUI.Map;
 import javafx.beans.value.ChangeListener;
 import javafx.scene.Group;
 import javafx.scene.Node;
+import javafx.scene.Scene;
 import javafx.scene.canvas.Canvas;
 import javafx.scene.canvas.GraphicsContext;
 import javafx.scene.control.Button;
@@ -30,6 +29,7 @@ public class SceneButtons {
         var buttons = new ArrayList<Node>();
         buttons.add(getResetMapButton(root, map, sceneManager));
         buttons.add(getInventoryButton(root, map, sceneManager));
+        buttons.addAll(getNearInteractions(root, map, sceneManager));
         return buttons;
     }
 
@@ -152,10 +152,7 @@ public class SceneButtons {
                                     }
 
                                 });
-
                             }
-
-
                             currentGc.setFill(new ImagePattern(itemImage));
                             currentGc.fillRect(0, 0, 70, 70);
 
@@ -178,7 +175,6 @@ public class SceneButtons {
                                         currentGc.setFill(new ImagePattern(itemImage));
                                         currentGc.fillRect(0, 0, 70, 70);
                                     }
-
                                 }
                                 else
                                 {
@@ -186,17 +182,42 @@ public class SceneButtons {
                                     root.getChildren().remove(currentCanva);
                                 }
                             });
-
-
                             root.getChildren().add(currentCanva);
-
                         }
                     }
                 }
-
             }
             else IsInventoryOpen = false;
         });
         return button;
+    }
+    
+    private List<Button> getNearInteractions(Group root, Map map, SceneManager sceneManager)
+    {
+        List<Button> buttons = new ArrayList<>();
+
+        var characterX = map.getCharacter().getX();
+        var characterY = map.getCharacter().getY();
+
+        var nearEntities = map.getNearEntities(characterX, characterY);
+
+        for (var entity : nearEntities) {
+            Button button = new Button();
+
+            button.setLayoutX(1220);
+            button.setLayoutY(180 + (nearEntities.indexOf(entity) * 50) + (nearEntities.indexOf(entity) * 10));
+            button.setPrefSize(140, 50);
+
+            button.setText("Interact with " + entity.getType());
+
+            button.setOnAction(event -> {
+                root.getChildren().clear();
+                entity.interact(map, entity);
+                sceneManager.addAll();
+            });
+
+            buttons.add(button);
+        }
+        return buttons;
     }
 }

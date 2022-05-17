@@ -72,14 +72,9 @@ public class SceneManager {
                 }
             }
             finally {
-                checkNearInteractions();
                 addAll();
             }
         });
-    }
-
-    private void checkNearInteractions() {
-        var characterX = Map.getCharacter();
     }
 
 

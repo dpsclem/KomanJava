@@ -12,7 +12,6 @@ public class CellMaterialProperties {
     @Expose
     public String  ImgPath;
 
-    private static String ImgPathDoor = "file:resources/graphics/sprite/door.png";
     private static String ImgPathWall = "file:resources/graphics/sprite/wall.png";
     private static String ImgPathFloor = "file:resources/graphics/sprite/floor.png";
 
@@ -29,8 +28,6 @@ public class CellMaterialProperties {
                 return new CellMaterialProperties(false, false, ImgPathWall);
             case Floor:
                 return new CellMaterialProperties(true, true, ImgPathFloor);
-            case Door:
-                return new CellMaterialProperties(false, true, ImgPathDoor);
             default:
                 return new CellMaterialProperties(true, true, ImgPathFloor);
         }

@@ -41,7 +41,6 @@ public class Map {
         for(int i = 0; i < Map.MapWidth; i++){
             for(int j = 0; j < Map.MapHeight; j++){
                 if (ThreadLocalRandom.current().nextInt(1, 11) == 1) table[i][j] = new Cell(CellMaterial.Wall, i, j);
-                else if (ThreadLocalRandom.current().nextInt(1, 51) == 1) table[i][j] = new Cell(CellMaterial.Door, i, j);
                 else table[i][j] = new Cell(CellMaterial.Floor, i, j);
             }
         }
@@ -58,7 +57,6 @@ public class Map {
         for(int i = 0; i < Map.MapWidth; i++){
             for(int j = 0; j < Map.MapHeight; j++){
                 if (ThreadLocalRandom.current().nextInt(1, 11) == 1) _table[i][j] = new Cell(CellMaterial.Wall, i, j);
-                else if (ThreadLocalRandom.current().nextInt(1, 51) == 1) _table[i][j] = new Cell(CellMaterial.Door, i, j);
                 else _table[i][j] = new Cell(CellMaterial.Floor, i, j);
             }
         }
@@ -133,6 +131,9 @@ public class Map {
         var futureCell = getCellFromCoordinate(newY, newX);
         System.out.println(futureCell.getMaterialProperties());
 
+        if (entities.stream().filter(e -> e.getX() == newX && e.getY() == newY).count() > 0) { //Entity on future cell
+            return getCharacterCoordinates();
+        }
         if (futureCell.getMaterialProperties().IsWalkable  //Moving on floor
             && futureCell.getMaterialProperties().IsPassable) {
             var itemtoDelete = new ArrayList<MapItem>();
@@ -143,15 +144,13 @@ public class Map {
                 }
             }
             Items.removeAll(itemtoDelete);
+
             return new Coordinates(newX, newY);
         }
-        if (!futureCell.getMaterialProperties().IsWalkable //Moving through door
-                && futureCell.getMaterialProperties().IsPassable
-                && canMoveCaracterAt(new Coordinates(newX+x, newY+y))) {
-            return new Coordinates(newX+x, newY+y); //Go through the door, so 1 more cell on the same direction
-        }
+
         return getCharacterCoordinates();
     }
+
 
     private boolean canMoveCaracterAt(Coordinates newCoords){
         if (newCoords.X < 0 || newCoords.X >= getTableHeight() || newCoords.Y < 0 || newCoords.Y >= getTableWidth()) return false;
@@ -203,4 +202,22 @@ public class Map {
         return this.entities;
     }
 
+    public List<Entity> getNearEntities(int characterX, int characterY) {
+        var nearEntities = new ArrayList<Entity>();
+
+        for (Entity entity: entities) {
+            if ((entity.getX() - characterX == 0)  && (entity.getY() - characterY == -1)  ||
+                (entity.getX() - characterX == 0)  && (entity.getY() - characterY == 1) ||
+                (entity.getX() - characterX == 0)  &&  (entity.getY() - characterY == -1) ||
+                (entity.getX() - characterX == 0)  &&  (entity.getY() - characterY == 1)  ||
+                (entity.getY() - characterY == 0)  &&  (entity.getX() - characterX == -1) ||
+                (entity.getY() - characterY == 0)  &&  (entity.getX() - characterX == 1) ||
+                (entity.getY() - characterY == 0)  &&  (entity.getX() - characterX == -1)   ||
+                (entity.getY() - characterY == 0)   &&  (entity.getX() - characterX == 1)  )
+            {
+                nearEntities.add(entity);
+            }
+        }
+        return nearEntities;
+    }
 }

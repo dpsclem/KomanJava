@@ -4,6 +4,7 @@ public class Item {
     private String Name;
     private int Price;
     private String imagePath;
+    private UsableType type;
 
     public Item(){
 

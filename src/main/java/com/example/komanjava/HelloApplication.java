@@ -18,7 +18,7 @@ public class HelloApplication extends Application {
         Group root = new Group();
         stage.setTitle("Koman Java");
 
-        var sceneManager = new SceneManager(root, 1350, 850, Color.WHITE);
+        var sceneManager = new SceneManager(root, 1450, 850, Color.WHITE);
         Map randomMap = Map.CreateRandomMap();
         Character character = new Character(1,1);
         character.setCaracteristics(new Caracteristics(5,5,20));
@@ -33,6 +33,9 @@ public class HelloApplication extends Application {
 
         var chest = new Entity(0,0,EntityStatus.INACTIVE, EntityType.CHEST, "file:resources/graphics/sprite/chest.png");
         randomMap.addEntityOnMap(chest);
+
+        var door = new Entity(5,1,EntityStatus.CLOSE, EntityType.DOOR, "file:resources/graphics/sprite/door.png");
+        randomMap.addEntityOnMap(door);
 
         randomMap.setCaracter(character);
         String jsonSave = randomMap.getSaveFormat();
