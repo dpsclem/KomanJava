@@ -19,4 +19,13 @@ public class Item {
     public String getImagePath() {
         return imagePath;
     }
+
+
+    public UsableType getType() {
+        return type;
+    }
+
+    public String getName() {
+        return Name;
+    }
 }

@@ -78,7 +78,7 @@ public class SceneButtons {
                 inventoryCanvas.setLayoutX(185);
                 inventoryCanvas.setLayoutY(110);
                 GraphicsContext gc = inventoryCanvas.getGraphicsContext2D();
-                gc.setFill(Color.LIGHTCORAL);
+                gc.setFill(Color.DARKBLUE);
                 gc.fillRect(0, 0, 830, 500);
                 root.getChildren().add(inventoryCanvas);
 
