@@ -95,4 +95,9 @@ public class Character {
     public void takeMoney(int qty) {
         this.money -= qty ;
     }
+
+    public void sellItem(Item item) {
+        addMoney(item.getPrice());
+        removeItem(item);
+    }
 }
