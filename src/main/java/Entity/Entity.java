@@ -1,6 +1,8 @@
-package GUI;
+package Entity;
 
 
+import GUI.Cell;
+import GUI.Map;
 import javafx.scene.image.Image;
 import javafx.scene.paint.ImagePattern;
 import javafx.scene.shape.Rectangle;
@@ -44,7 +46,7 @@ public class Entity {
     }
 
     public Rectangle getEntityRectangle(){
-        var rectangle = new Rectangle(x*Cell.Width,y*Cell.Height,Cell.Width,Cell.Height);
+        var rectangle = new Rectangle(x* Cell.Width,y*Cell.Height,Cell.Width,Cell.Height);
         Image img = new Image(imgPath, Cell.Width, Cell.Height, true, false);
         rectangle.setFill(new ImagePattern(img));
         return rectangle;

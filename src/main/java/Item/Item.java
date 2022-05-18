@@ -1,4 +1,4 @@
-package GUI;
+package Item;
 
 public class Item {
     private String Name;

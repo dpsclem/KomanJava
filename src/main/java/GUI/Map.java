@@ -1,5 +1,7 @@
 package GUI;
 
+import Entity.*;
+import Item.*;
 import com.google.gson.Gson;
 import com.google.gson.GsonBuilder;
 import com.google.gson.annotations.Expose;
@@ -25,6 +27,7 @@ public class Map {
 
     @Expose
     private List<MapItem> Items = new ArrayList<MapItem>();
+
     private static int MapWidth = 25;
     private static int MapHeight = 15;
     public Map(Cell[][] table) {
@@ -48,7 +51,7 @@ public class Map {
         randomMap.addItemOnMap(new Item("key", 10, "file:resources/graphics/sprite/key.png"), 3, 3);
         randomMap.addItemOnMap(new Item("pioche", 10, "file:resources/graphics/sprite/pioche.png"), 3, 5);
         randomMap.addItemOnMap(new Usable("moneybag", 0, false, UsableType.MONEYBAG, null, 15, "file:resources/graphics/sprite/moneybag.png"), 8,2);
-        randomMap.addEntityOnMap(new Entity(2,2,EntityStatus.INACTIVE,EntityType.MONSTER,"file:resources/graphics/sprite/monster1.gif" ));
+        randomMap.addEntityOnMap(new Entity(2,2, EntityStatus.INACTIVE, EntityType.MONSTER,"file:resources/graphics/sprite/monster1.gif" ));
 
         return randomMap;
     }
@@ -65,7 +68,7 @@ public class Map {
         this.addItemOnMap(new Item("key", 10, "file:resources/graphics/sprite/key.png"), 3, 3);
         this.addItemOnMap(new Item("pioche", 10, "file:resources/graphics/sprite/pioche.png"), 3, 5);
         this.addItemOnMap(new Item("coin", 10, "file:resources/graphics/sprite/moneybag.png"), 8, 5);
-        this.addEntityOnMap(new Entity(5,5,EntityStatus.INACTIVE,EntityType.MONSTER,"file:resources/graphics/sprite/monster1.gif" ));
+        this.addEntityOnMap(new Entity(5,5, EntityStatus.INACTIVE, EntityType.MONSTER,"file:resources/graphics/sprite/monster1.gif" ));
     }
 
 

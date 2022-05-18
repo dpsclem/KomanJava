@@ -1,7 +1,8 @@
 package GUI;
 
+import Item.Item;
 import com.google.gson.annotations.Expose;
-
+import Item.*;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -23,6 +24,10 @@ public class Character {
 
     public List<Item> getItems() {
         return items;
+    }
+
+    public boolean hasItem(Item item){
+        return items.contains(item);
     }
 
 
@@ -54,6 +59,11 @@ public class Character {
     public void addItem(Item item){
         items.add(item);
     }
+
+    public void removeItem(Item item){
+        items.remove(item);
+    }
+
     private List<Item> items = new ArrayList<Item>();
 
     public Caracteristics getCaracteristics() {

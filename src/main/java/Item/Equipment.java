@@ -1,4 +1,6 @@
-package GUI;
+package Item;
+
+import GUI.Caracteristics;
 
 public class Equipment extends Item{
     private Caracteristics caracteristics;

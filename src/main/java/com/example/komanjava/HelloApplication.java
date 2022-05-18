@@ -1,6 +1,10 @@
 package com.example.komanjava;
+import Entity.*;
 import GUI.*;
 import GUI.Character;
+import Item.Equipment;
+import Item.EquipmentType;
+import Item.Item;
 import SceneManager.SceneManager;
 import javafx.application.Application;
 import javafx.scene.Group;
@@ -11,6 +15,7 @@ import java.io.PrintWriter;
 
 
 import java.io.IOException;
+import java.util.ArrayList;
 
 public class HelloApplication extends Application {
     @Override
@@ -31,10 +36,13 @@ public class HelloApplication extends Application {
         var sword = new Equipment("Sword", 10,  EquipmentType.CHESTPLATE,new Caracteristics(15,0,0), "file:resources/graphics/sprite/equipements/attack.png");
         randomMap.addItemOnMap(sword, 4,2);
 
-        var chest = new Entity(0,0,EntityStatus.INACTIVE, EntityType.CHEST, "file:resources/graphics/sprite/chest.png");
+        var itemsInChest = new ArrayList<Item>();
+        itemsInChest.add(new Equipment("Sword", 10,  EquipmentType.CHESTPLATE,new Caracteristics(15,0,0), "file:resources/graphics/sprite/equipements/attack.png"));
+        itemsInChest.add(new Equipment("Chestplate", 10,  EquipmentType.CHESTPLATE,new Caracteristics(0,10,10), "file:resources/graphics/sprite/equipements/chestplate1.png"));
+        var chest = new Chest(0,0, EntityStatus.INACTIVE, EntityType.CHEST,itemsInChest, "file:resources/graphics/sprite/chest.png");
         randomMap.addEntityOnMap(chest);
 
-        var door = new Entity(5,1,EntityStatus.CLOSE, EntityType.DOOR, "file:resources/graphics/sprite/door.png");
+        var door = new Entity(5,1, EntityStatus.CLOSE, EntityType.DOOR, "file:resources/graphics/sprite/door.png");
         randomMap.addEntityOnMap(door);
 
         randomMap.setCaracter(character);

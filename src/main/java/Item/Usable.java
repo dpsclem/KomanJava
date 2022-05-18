@@ -1,4 +1,6 @@
-package GUI;
+package Item;
+
+import GUI.Map;
 
 public class Usable extends Item {
     private boolean isPassive; //If usable can be used by player by clicking or not.

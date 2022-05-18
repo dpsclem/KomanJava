@@ -1,4 +1,4 @@
-package GUI;
+package Item;
 
 public class ItemEffects {
     private int effectDuration; // duration of effect in turns

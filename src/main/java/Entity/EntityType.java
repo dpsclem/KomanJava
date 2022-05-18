@@ -1,4 +1,4 @@
-package GUI;
+package Entity;
 
 public enum EntityType {
     MONSTER,

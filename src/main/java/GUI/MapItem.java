@@ -1,5 +1,7 @@
 package GUI;
 
+import Item.Item;
+
 public class MapItem {
 
     private Item item;

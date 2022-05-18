@@ -77,8 +77,11 @@ public class SceneManager {
         });
     }
 
+    public void clearChildrens(){
+        Root.getChildren().clear();
+    }
 
-    private void addEntities()
+    public void addEntities()
     {
         Root.getChildren().addAll(sceneEntities.getEntities(Root, Map));
     }
@@ -87,7 +90,7 @@ public class SceneManager {
         Root.getChildren().addAll(sceneButtons.getButtons(Root, Map, this));
     }
 
-    private void addInterface(){
+    public void addInterface(){
         Root.getChildren().addAll(sceneInterface.getInterface(Root, Map));
     }
 
