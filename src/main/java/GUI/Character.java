@@ -95,4 +95,11 @@ public class Character {
     public void takeMoney(int qty) {
         this.money -= qty ;
     }
+
+    public void takeDamages(int damages){
+        int currentHP = this.getCaracteristics().getHp();
+        double calculated = damages/(1 + 0.4*this.caracteristics.getArmor());
+        System.out.println("Damage calculated = "+calculated);
+        this.caracteristics.setHp(currentHP - (int) calculated);
+    }
 }

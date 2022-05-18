@@ -1,6 +1,10 @@
 package SceneManager;
 
+import CombatLogic.CombatManager;
+
 import Entity.Chest;
+import Entity.EntityType;
+import Entity.Monster;
 import GUI.*;
 import GUI.Character;
 import Item.Equipment;
@@ -22,6 +26,7 @@ import javafx.scene.text.Font;
 
 import java.util.ArrayList;
 import java.util.List;
+import java.util.concurrent.CountedCompleter;
 
 public class SceneButtons {
 
@@ -211,12 +216,18 @@ public class SceneButtons {
             button.setText("Interact with " + entity.getType());
 
             button.setOnAction(event -> {
-                if (entity instanceof Chest) {
+                if (entity instanceof Chest) { //When interacting with a chest
                     addChestInteractionDisplay(root, map, sceneManager, (Chest) entity);
-                } else {
+                } else if(entity instanceof Monster){
+                    CombatManager combatManager = new CombatManager(map.getCharacter(), (Monster) entity, root, map);
+                    //Display initialisation
+                    combatManager.enterCombatLoop();
+                }else {
+
                     root.getChildren().clear();
                     entity.interact(map, entity);
                     sceneManager.addAll();
+
                 }
             });
             buttons.add(button);

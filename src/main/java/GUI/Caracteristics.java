@@ -1,6 +1,8 @@
 package GUI;
 
 public class Caracteristics {
+
+
     private int attack;
     private int armor;
     private int hp;
@@ -34,5 +36,17 @@ public class Caracteristics {
 
     public int getHp() {
         return hp;
+    }
+
+    public void setAttack(int attack) {
+        this.attack = attack;
+    }
+
+    public void setArmor(int armor) {
+        this.armor = armor;
+    }
+
+    public void setHp(int hp) {
+        this.hp = hp;
     }
 }

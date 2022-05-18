@@ -1,6 +1,7 @@
 package Entity;
 
 
+import GUI.Caracteristics;
 import GUI.Cell;
 import GUI.Map;
 import javafx.scene.image.Image;
@@ -15,6 +16,14 @@ public class Entity {
 
     private EntityStatus status;
     private EntityType type;
+
+
+
+
+
+
+
+
     private String imgPath;
 
     public Entity(int x, int y, EntityStatus status, EntityType type, String imgPath) {
@@ -23,6 +32,7 @@ public class Entity {
         this.status = status;
         this.type = type;
         this.imgPath = imgPath;
+
     }
 
     public int getX() {
@@ -52,6 +62,11 @@ public class Entity {
         return rectangle;
     }
 
+    public String getImgPath() {
+        return this.imgPath;
+    }
+
+
     public void interact(Map map, Entity entity) {
         if (type == EntityType.DOOR ) {
             var caracter = map.getCharacter();
@@ -70,4 +85,5 @@ public class Entity {
             }
         }
     }
+
 }
