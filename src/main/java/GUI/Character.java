@@ -1,6 +1,6 @@
 package GUI;
 
-import Item.Item;
+
 import com.google.gson.annotations.Expose;
 import Item.*;
 import java.util.ArrayList;
