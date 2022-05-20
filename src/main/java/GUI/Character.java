@@ -1,6 +1,6 @@
 package GUI;
 
-import Item.Item;
+
 import com.google.gson.annotations.Expose;
 import Item.*;
 import java.util.ArrayList;
@@ -99,5 +99,12 @@ public class Character {
     public void sellItem(Item item) {
         addMoney(item.getPrice());
         removeItem(item);
+    }
+
+    public void takeDamages(int damages){
+        int currentHP = this.getCaracteristics().getHp();
+        double calculated = damages/(1 + 0.4*this.caracteristics.getArmor());
+        System.out.println("Damage calculated = "+calculated);
+        this.caracteristics.setHp(currentHP - (int) calculated);
     }
 }

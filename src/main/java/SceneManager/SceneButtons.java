@@ -23,6 +23,7 @@ import javafx.scene.text.Font;
 
 import java.util.ArrayList;
 import java.util.List;
+import java.util.concurrent.CountedCompleter;
 
 public class SceneButtons {
 
@@ -231,8 +232,12 @@ public class SceneButtons {
             button.setText("Interact with " + entity.getType());
 
             button.setOnAction(event -> {
-                if (entity instanceof Chest) {
+                if (entity instanceof Chest) { //When interacting with a chest
                     addChestInteractionDisplay(root, map, sceneManager, (Chest) entity);
+                } else if(entity instanceof Monster){
+                    CombatManager combatManager = new CombatManager(map.getCharacter(), (Monster) entity, root, map);
+                    //Display initialisation
+                    combatManager.enterCombatLoop();
                 }
                 else if (entity instanceof Merchant) {
                     addMerchantInteractionDisplay(root, map, sceneManager, (Merchant) entity);
@@ -241,6 +246,7 @@ public class SceneButtons {
                     root.getChildren().clear();
                     entity.interact(map, entity);
                     sceneManager.addAll();
+
                 }
             });
             buttons.add(button);
