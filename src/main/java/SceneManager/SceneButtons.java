@@ -1,7 +1,9 @@
 package SceneManager;
 
+import CombatLogic.CombatManager;
 import Entity.Chest;
 import Entity.Merchant;
+import Entity.Monster;
 import GUI.*;
 import GUI.Character;
 import Item.Equipment;
