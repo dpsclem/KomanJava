@@ -11,8 +11,8 @@ public class Merchant extends Entity {
     private String dialog="Bonjour, koman java ? De quoi avez-vous besoin ?";
 
 
-    public Merchant(int x, int y, List<Item> items, EntityStatus status, EntityType type, String imgPath) {
-        super(x, y, status, type, imgPath);
+    public Merchant(int x, int y, List<Item> items, EntityStatus status, EntityType type, String imgPath, TrapType trap) {
+        super(x, y, status, type, trap, imgPath);
         this.items=items;
 
     }
