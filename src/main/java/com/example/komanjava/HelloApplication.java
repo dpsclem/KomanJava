@@ -36,11 +36,11 @@ public class HelloApplication extends Application {
         var chestplate = new Equipment("Chestplate", 10,  EquipmentType.CHESTPLATE,new Caracteristics(0,10,10), "file:resources/graphics/sprite/equipements/chestplate1.png");
         character.addItem(chestplate);
 
-        var sword = new Equipment("Sword", 10,  EquipmentType.CHESTPLATE,new Caracteristics(15,0,0), "file:resources/graphics/sprite/equipements/attack.png");
+        var sword = new Equipment("Sword", 10,  EquipmentType.SWORD,new Caracteristics(15,0,0), "file:resources/graphics/sprite/equipements/attack.png");
         randomMap.addItemOnMap(sword, 4,2);
 
         var itemsInChest = new ArrayList<Item>();
-        itemsInChest.add(new Equipment("Sword", 10,  EquipmentType.CHESTPLATE,new Caracteristics(15,0,0), "file:resources/graphics/sprite/equipements/attack.png"));
+        itemsInChest.add(new Equipment("Sword", 10,  EquipmentType.SWORD,new Caracteristics(15,0,0), "file:resources/graphics/sprite/equipements/attack.png"));
         itemsInChest.add(new Equipment("Chestplate", 10,  EquipmentType.CHESTPLATE,new Caracteristics(0,10,10), "file:resources/graphics/sprite/equipements/chestplate1.png"));
         var chest = new Chest(0,0, EntityStatus.INACTIVE, EntityType.CHEST,itemsInChest, "file:resources/graphics/sprite/chest.png");
         randomMap.addEntityOnMap(chest);
