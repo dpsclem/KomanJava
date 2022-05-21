@@ -12,7 +12,7 @@ public class Trap extends Entity{
 
     public void triggerTrap(Character character){
         if (type == TrapType.BLACKHOLE) {
-            character.takeDamages(400);
+            character.takeDamages(1000);
         }
         else if (type == TrapType.DART) {
             character.takeDamages(10);
