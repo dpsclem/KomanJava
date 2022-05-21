@@ -110,12 +110,7 @@ public class SceneButtons {
                         });
 
                     }
-                    else if (item instanceof Usable) {
-                        if (((Usable) item).getUsableType() == UsableType.POTION) {
-                            map.getCharacter().heal(((Usable) item).getUsablePower());
-                            map.getCharacter().removeItem(item); ;
-                        }
-                    }
+
                     currentGc.setFill(new ImagePattern(itemImage));
                     currentGc.fillRect(0, 0, 70, 70);
 
@@ -131,7 +126,12 @@ public class SceneButtons {
                         else if (item instanceof Usable) {
                             ((Usable) item).use(map);
                             map.getCharacter().getItems().remove(item);
-                            root.getChildren().remove(currentCanva);
+                            if (((Usable) item).getUsableType() == UsableType.POTION) {
+                                map.getCharacter().heal(((Usable) item).getUsablePower());
+                                map.getCharacter().removeItem(item);
+                                root.getChildren().remove(currentCanva);
+                            }
+
                         }
 
                         root.getChildren().clear();
