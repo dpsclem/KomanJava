@@ -57,7 +57,7 @@ public class SceneButtons {
 
         resetMapBtn.setOnAction(event -> {
             root.getChildren().clear();
-            map.UpdateWithRandomMap();
+            //map.UpdateWithRandomMap();
             var resetCaracter = new Character(1, 1);
             resetCaracter.setCaracteristics(new Caracteristics(20, 5, 5,5));
             var shield = new Equipment("Shield", 8, EquipmentType.SHIELD, new Caracteristics(0, 20, 0,0), "file:resources/graphics/sprite/equipements/shield1.png");
@@ -142,14 +142,11 @@ public class SceneButtons {
                                 map.getCharacter().equipItem((Equipment) item);
                         }
                         else if (item instanceof Usable) {
-                            /*((Usable) item).use(map);
-                            map.getCharacter().getItems().remove(item);
-                            root.getChildren().remove(currentCanva);*/
-                        }
-                        else {
+                            ((Usable) item).use(map);
                             map.getCharacter().getItems().remove(item);
                             root.getChildren().remove(currentCanva);
                         }
+
                         root.getChildren().clear();
                         sceneManager.addAll();
                         addInventoryDisplay(root, map, sceneManager);
@@ -267,7 +264,7 @@ public class SceneButtons {
                 return buttons;
             }
 
-            else {
+            else if(!(entity instanceof Trap)){
                 Button button = new Button();
 
                 button.setLayoutX(1220);
