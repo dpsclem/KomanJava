@@ -287,8 +287,6 @@ public class SceneButtons {
                         root.getChildren().clear();
                         entity.interact(map, entity);
                         sceneManager.addAll();
-
-
                     }
                 });
                 buttons.add(button);
