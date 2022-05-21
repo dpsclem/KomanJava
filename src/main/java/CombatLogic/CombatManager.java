@@ -47,12 +47,15 @@ public class CombatManager {
     }
 
     public void createDisplay(Group root){
+
         //Group creation:
         displayGroup = new Group();
+        displayGroup.setViewOrder(-1.0);
         //Create the display (Black background)
         combatScreen = new Canvas(830, 500);
         combatScreen.setLayoutX(185);
         combatScreen.setLayoutY(110);
+
         GraphicsContext gc = combatScreen.getGraphicsContext2D();
         gc.setFill(Color.BLACK);
         gc.fillRect(0, 0, 830, 500);
