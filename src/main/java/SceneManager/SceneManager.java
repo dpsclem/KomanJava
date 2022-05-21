@@ -46,9 +46,11 @@ public class SceneManager {
         addAll();
 
         Scene.addEventFilter(KeyEvent.KEY_PRESSED, e->{
-            if (sceneButtons.isInventoryOpen()) { return; }
+
+            if (sceneButtons.isInventoryOpen() || map.getCharacter().getIsInteracting()) { return; }
             Root.getChildren().clear();
             try {
+
                 switch (e.getCode()) {
                     case LEFT:
                         Map.moveCaracterLeft();
@@ -70,6 +72,8 @@ public class SceneManager {
                         System.out.println("Other click detected");
                         break;
                 }
+
+
             }
             finally {
                 addAll();

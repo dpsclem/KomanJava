@@ -11,6 +11,7 @@ public class Monster extends Entity{
         return caracteristics;
     }
 
+
     private Caracteristics caracteristics;
     private List<Item> dropList = new ArrayList<Item>();
 
@@ -18,12 +19,18 @@ public class Monster extends Entity{
         super(x, y, status, type, imgPath);
         this.caracteristics = caracteristics;
         this.dropList = dropList;
+
     }
 
     public void takeDamages(int damages){
-        int currentHP = this.getCaracteristics().getHp();
-        double calculated = damages/(1 + 0.4*this.caracteristics.getArmor());
+
+        double calculated = 1+damages/(1 + 0.4*this.caracteristics.getArmor());
         System.out.println("Damage calculated = "+calculated);
-        this.caracteristics.setHp(currentHP - (int) calculated);
+        this.caracteristics.setHp(this.caracteristics.getCurrentHP() - (int) calculated);
+    }
+
+    //Puts items in player's inventory
+    public List<Item> getDropList(){
+        return this.dropList;
     }
 }
