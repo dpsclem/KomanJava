@@ -6,7 +6,7 @@ public class Trap extends Entity{
     public TrapType type;
 
     public Trap(int x, int y, EntityStatus status, EntityType type, String imgPath, TrapType trap) {
-        super(x, y, status, type, trap, imgPath);
+        super(x, y, status, type, imgPath);
         this.type = trap;
     }
 

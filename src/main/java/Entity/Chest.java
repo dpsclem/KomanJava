@@ -10,8 +10,8 @@ public class Chest extends Entity{
 
     public List<Item> items = new ArrayList<Item>();
 
-    public Chest(int x, int y, EntityStatus status, EntityType type, List<Item> items,String imgPath, TrapType trap) {
-        super(x, y, status, type, trap, imgPath);
+    public Chest(int x, int y, EntityStatus status, EntityType type, List<Item> items,String imgPath) {
+        super(x, y, status, type, imgPath);
         this.items = items;
     }
 

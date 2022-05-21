@@ -42,7 +42,7 @@ public class HelloApplication extends Application {
         var itemsInChest = new ArrayList<Item>();
         itemsInChest.add(new Equipment("Sword", 10,  EquipmentType.SWORD,new Caracteristics(15,0,0,0), "file:resources/graphics/sprite/equipements/attack.png"));
         itemsInChest.add(new Equipment("Chestplate", 10,  EquipmentType.CHESTPLATE,new Caracteristics(0,10,10,0), "file:resources/graphics/sprite/equipements/chestplate1.png"));
-        var chest = new Chest(0,0, EntityStatus.INACTIVE, EntityType.CHEST,itemsInChest, "file:resources/graphics/sprite/chest.png", TrapType.NONE);
+        var chest = new Chest(0,0, EntityStatus.INACTIVE, EntityType.CHEST,itemsInChest, "file:resources/graphics/sprite/chest.png");
         randomMap.addEntityOnMap(chest);
 
         var itemsInMerchant = new ArrayList<Item>();
@@ -55,10 +55,10 @@ public class HelloApplication extends Application {
         itemsInMerchant.add(new Equipment("Sword", 10,  EquipmentType.CHESTPLATE,new Caracteristics(0,10,10,0), "file:resources/graphics/interface/attack.png"));
         itemsInMerchant.add(new Equipment("Chestplate", 10,  EquipmentType.CHESTPLATE,new Caracteristics(0,10,10,0), "file:resources/graphics/sprite/equipements/chestplate1.png"));
         itemsInMerchant.add(new Equipment("Shield", 15,  EquipmentType.CHESTPLATE,new Caracteristics(0,10,10,0), "file:resources/graphics/sprite/equipements/shield1.png"));
-        var merchant = new Merchant(5, 0, itemsInMerchant, EntityStatus.INACTIVE, EntityType.NPC_MERCHANT, "file:resources/graphics/sprite/merchant.png", TrapType.NONE);
+        var merchant = new Merchant(5, 0, itemsInMerchant, EntityStatus.INACTIVE, EntityType.NPC_MERCHANT, "file:resources/graphics/sprite/merchant.png");
         randomMap.addEntityOnMap(merchant);
 
-        var door = new Entity(5,1, EntityStatus.CLOSE, EntityType.DOOR, TrapType.NONE, "file:resources/graphics/sprite/door.png");
+        var door = new Entity(5,1, EntityStatus.CLOSE, EntityType.DOOR, "file:resources/graphics/sprite/door.png");
         randomMap.addEntityOnMap(door);
 
         randomMap.setCaracter(character);

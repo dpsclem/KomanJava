@@ -14,17 +14,16 @@ public class Entity {
 
     private EntityStatus status;
     private EntityType type;
-    private TrapType trap;
 
     private String imgPath;
 
 
-    public Entity(int x, int y, EntityStatus status, EntityType type, TrapType trap, String imgPath) {
+    public Entity(int x, int y, EntityStatus status, EntityType type, String imgPath) {
         this.x = x;
         this.y = y;
         this.status = status;
         this.type = type;
-        this.trap = trap;
+
         this.imgPath = imgPath;
 
     }
