@@ -5,6 +5,12 @@ import Entity.*;
 import GUI.*;
 import GUI.Character;
 import Item.*;
+import Item.Equipment;
+import Item.EquipmentType;
+import Item.Item;
+import Item.Usable;
+import javafx.animation.KeyFrame;
+import javafx.animation.Timeline;
 import javafx.beans.value.ChangeListener;
 import javafx.scene.Group;
 import javafx.scene.Node;
@@ -21,6 +27,7 @@ import javafx.scene.paint.Color;
 import javafx.scene.paint.ImagePattern;
 import javafx.scene.text.Font;
 import javafx.scene.text.Text;
+import javafx.util.Duration;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -234,6 +241,21 @@ public class SceneButtons {
 
             if (entity instanceof Trap && entity.getX() == characterX && entity.getY() == characterY){
                 ((Trap) entity).triggerTrap(map.getCharacter());
+                //If players interacts with a trap, takes damages and HP fall under 0 : Death of the player
+                if(map.getCharacter().getCaracteristics().getCurrentHP() <=0){
+                    //Animation of death
+                    Animation deathScreen = new Animation(2,"file:resources/graphics/interface/you_died_screen.png",root,800,400,200,170);
+                    deathScreen.playAnimation();
+                    Timeline timeline = new Timeline(new KeyFrame(Duration.seconds(deathScreen.getAnimationLength()), ev ->{
+                        //Then plays death and respawn logic
+                        root.getChildren().remove(root);
+                        //Reloads the MAP and player position (Respawn)
+                        sceneManager.resetAndRespawn(root,map);
+                        //Gives move key controls back to the player
+                        map.getCharacter().setIsInteracting(false);
+                    }));
+                    timeline.play();
+                }
                 return buttons;
             }
             else if(entity instanceof Monster){
@@ -579,6 +601,8 @@ public class SceneButtons {
         root.getChildren().add(closeButton);
 
     }
+
+
 }
 
 

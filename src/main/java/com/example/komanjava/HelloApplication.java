@@ -23,9 +23,11 @@ public class HelloApplication extends Application {
         //Create main display Group
         Group root = new Group();
         stage.setTitle("Koman Java");
-
+        //Creates a new scene for runtime
         var sceneManager = new SceneManager(root, 1450, 850, Color.WHITE);
+        //Creates the map
         Map randomMap = Map.createFirstLevel();
+        //Creates the first character. Respawned character will be created in SceneManager
         Character character = new Character(0,7);
         character.setCaracteristics(new Caracteristics(5,5,20,20));
 

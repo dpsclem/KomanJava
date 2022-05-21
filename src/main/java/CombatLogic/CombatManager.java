@@ -116,7 +116,7 @@ public class CombatManager {
         entitiesDisplayed.getChildren().add(monsterCanvas);
 
         //Displays the monster health
-        Canvas monsterHealthCanvas = new Canvas(100,100);
+        Canvas monsterHealthCanvas = new Canvas(200,100);
         monsterHealthCanvas.setLayoutX(450);
         monsterHealthCanvas.setLayoutY(250);
         GraphicsContext monsterHealthGContext = monsterHealthCanvas.getGraphicsContext2D();
@@ -275,7 +275,7 @@ public class CombatManager {
             //Then plays death and respawn logic
             root.getChildren().remove(displayGroup);
             //Reloads the MAP and player position (Respawn)
-
+            sceneManager.resetAndRespawn(root,map);
             //Gives move key controls back to the player
             playerCharacter.setIsInteracting(false);
         }));

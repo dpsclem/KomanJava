@@ -232,6 +232,57 @@ public class Map {
         }
         return nearEntities;
     }
+    public void initializeEntities(Map level){
+        //resets all possible entities and items on the map
+        level.entities.clear();
+        level.Items.clear();
+
+        //Adds items and entities to the map
+        //Adds monster to the map
+        var monsterDL = new ArrayList<Item>();
+        monsterDL.add( new Equipment("Sword", 60,  EquipmentType.SWORD,new Caracteristics(25,15,10,0), "file:resources/graphics/interface/attack.png"));
+        level.addEntityOnMap(new Monster(12, 11, EntityStatus.INACTIVE, EntityType.MONSTER,
+                "file:resources/graphics/sprite/bat_monster.gif", new Caracteristics(10, 10, 11, 11),monsterDL));
+        level.addEntityOnMap(new Monster(23,7, EntityStatus.INACTIVE, EntityType.MONSTER,
+                "file:resources/graphics/sprite/monster1.gif" ,new Caracteristics(12,14,25,25),null));
+        level.addEntityOnMap(new Monster(6,11, EntityStatus.INACTIVE, EntityType.MONSTER,
+                "file:resources/graphics/sprite/bat_monster.gif" ,new Caracteristics(5,10,7,7),null));
+        //Adds money bag usable
+        level.addItemOnMap(new Usable("moneybag", 15, false, UsableType.MONEYBAG, null, 15, "file:resources/graphics/sprite/moneybag.png"), 6, 1);
+        level.addItemOnMap(new Usable("moneybag", 15, false, UsableType.MONEYBAG, null, 15, "file:resources/graphics/sprite/moneybag.png"), 8, 1);
+        level.addItemOnMap(new Equipment("Chestplate", 10,  EquipmentType.CHESTPLATE,new Caracteristics(0,20,15,0), "file:resources/graphics/sprite/equipements/chestplate1.png"), 13, 1);
+
+        //Adds merchant NPC on the map
+        var itemsInMerchant = new ArrayList<Item>();
+        itemsInMerchant.add(new Equipment("Shield", 25,  EquipmentType.SHIELD,new Caracteristics(0,15,0,0), "file:resources/graphics/sprite/equipements/shield1.png"));
+        itemsInMerchant.add(new Equipment("Sword", 10,  EquipmentType.SWORD,new Caracteristics(10,0,10,0), "file:resources/graphics/interface/attack.png"));
+        itemsInMerchant.add(new Item("key", 50,"file:resources/graphics/sprite/key.png"));
+        var merchant = new Merchant(3, 11, itemsInMerchant, EntityStatus.INACTIVE, EntityType.NPC_MERCHANT, "file:resources/graphics/sprite/merchant.png");
+        level.addEntityOnMap(merchant);
+
+        //Adds doors
+        var door = new Entity(4,4, EntityStatus.CLOSE, EntityType.DOOR, "file:resources/graphics/sprite/door.png");
+        level.addEntityOnMap(door);
+        var door2 = new Entity(10,11, EntityStatus.CLOSE, EntityType.DOOR, "file:resources/graphics/sprite/door.png");
+        level.addEntityOnMap(door2);
+
+        //Adds a chest with items
+        var itemsInChest = new ArrayList<Item>();
+        itemsInChest.add(new Equipment("Sword", 10,  EquipmentType.SWORD,new Caracteristics(15,0,0,0), "file:resources/graphics/sprite/equipements/attack.png"));
+        itemsInChest.add(new Equipment("Chestplate", 10,  EquipmentType.CHESTPLATE,new Caracteristics(0,10,10,0), "file:resources/graphics/sprite/equipements/chestplate1.png"));
+        itemsInChest.add(new Item("key", 10, "file:resources/graphics/sprite/key.png"));
+        var chest = new Chest(2,1, EntityStatus.INACTIVE, EntityType.CHEST,itemsInChest, "file:resources/graphics/sprite/chest.png");
+        level.addEntityOnMap(chest);
+
+        //Adds traps
+        level.addEntityOnMap(new Trap(12,2, EntityStatus.INACTIVE, EntityType.TRAP, "file:resources/graphics/sprite/black_hole.png", TrapType.BLACKHOLE));
+        level.addEntityOnMap(new Trap(14,2, EntityStatus.INACTIVE, EntityType.TRAP, "file:resources/graphics/sprite/black_hole.png", TrapType.BLACKHOLE));
+        level.addEntityOnMap(new Trap(13,3, EntityStatus.INACTIVE, EntityType.TRAP, "file:resources/graphics/sprite/black_hole.png", TrapType.BLACKHOLE));
+        level.addEntityOnMap(new Trap(7,3, EntityStatus.INACTIVE, EntityType.TRAP, "file:resources/graphics/sprite/dart.png", TrapType.DART));
+        level.addEntityOnMap(new Trap(16,5, EntityStatus.INACTIVE, EntityType.TRAP, "file:resources/graphics/sprite/dart.png", TrapType.DART));
+        level.addEntityOnMap(new Trap(17,5, EntityStatus.INACTIVE, EntityType.TRAP, "file:resources/graphics/sprite/dart.png", TrapType.DART));
+
+    }
 
     public static Map createFirstLevel(){
         //Creates walls and floors
@@ -287,8 +338,9 @@ public class Map {
 
 
         var level = new Map(table);
+        //Initializes the entities and items on the map
         //Adds items and entities to the map
-            //Adds monster to the map
+        //Adds monster to the map
         var monsterDL = new ArrayList<Item>();
         monsterDL.add( new Equipment("Sword", 60,  EquipmentType.SWORD,new Caracteristics(25,15,10,0), "file:resources/graphics/interface/attack.png"));
         level.addEntityOnMap(new Monster(12, 11, EntityStatus.INACTIVE, EntityType.MONSTER,
@@ -297,12 +349,12 @@ public class Map {
                 "file:resources/graphics/sprite/monster1.gif" ,new Caracteristics(12,14,25,25),null));
         level.addEntityOnMap(new Monster(6,11, EntityStatus.INACTIVE, EntityType.MONSTER,
                 "file:resources/graphics/sprite/bat_monster.gif" ,new Caracteristics(5,10,7,7),null));
-            //Adds money bag usable
+        //Adds money bag usable
         level.addItemOnMap(new Usable("moneybag", 15, false, UsableType.MONEYBAG, null, 15, "file:resources/graphics/sprite/moneybag.png"), 6, 1);
         level.addItemOnMap(new Usable("moneybag", 15, false, UsableType.MONEYBAG, null, 15, "file:resources/graphics/sprite/moneybag.png"), 8, 1);
         level.addItemOnMap(new Equipment("Chestplate", 10,  EquipmentType.CHESTPLATE,new Caracteristics(0,20,15,0), "file:resources/graphics/sprite/equipements/chestplate1.png"), 13, 1);
 
-            //Adds merchant NPC on the map
+        //Adds merchant NPC on the map
         var itemsInMerchant = new ArrayList<Item>();
         itemsInMerchant.add(new Equipment("Shield", 25,  EquipmentType.SHIELD,new Caracteristics(0,15,0,0), "file:resources/graphics/sprite/equipements/shield1.png"));
         itemsInMerchant.add(new Equipment("Sword", 10,  EquipmentType.SWORD,new Caracteristics(10,0,10,0), "file:resources/graphics/interface/attack.png"));
@@ -316,7 +368,7 @@ public class Map {
         var door2 = new Entity(10,11, EntityStatus.CLOSE, EntityType.DOOR, "file:resources/graphics/sprite/door.png");
         level.addEntityOnMap(door2);
 
-            //Adds a chest with items
+        //Adds a chest with items
         var itemsInChest = new ArrayList<Item>();
         itemsInChest.add(new Equipment("Sword", 10,  EquipmentType.SWORD,new Caracteristics(15,0,0,0), "file:resources/graphics/sprite/equipements/attack.png"));
         itemsInChest.add(new Equipment("Chestplate", 10,  EquipmentType.CHESTPLATE,new Caracteristics(0,10,10,0), "file:resources/graphics/sprite/equipements/chestplate1.png"));
@@ -324,7 +376,7 @@ public class Map {
         var chest = new Chest(2,1, EntityStatus.INACTIVE, EntityType.CHEST,itemsInChest, "file:resources/graphics/sprite/chest.png");
         level.addEntityOnMap(chest);
 
-            //Adds traps
+        //Adds traps
         level.addEntityOnMap(new Trap(12,2, EntityStatus.INACTIVE, EntityType.TRAP, "file:resources/graphics/sprite/black_hole.png", TrapType.BLACKHOLE));
         level.addEntityOnMap(new Trap(14,2, EntityStatus.INACTIVE, EntityType.TRAP, "file:resources/graphics/sprite/black_hole.png", TrapType.BLACKHOLE));
         level.addEntityOnMap(new Trap(13,3, EntityStatus.INACTIVE, EntityType.TRAP, "file:resources/graphics/sprite/black_hole.png", TrapType.BLACKHOLE));
@@ -334,4 +386,8 @@ public class Map {
 
         return level;
     }
+
+
+
+
 }
