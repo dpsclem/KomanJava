@@ -24,7 +24,7 @@ public class Monster extends Entity{
 
     public void takeDamages(int damages){
 
-        double calculated = damages/(1 + 0.4*this.caracteristics.getArmor());
+        double calculated = 1+damages/(1 + 0.4*this.caracteristics.getArmor());
         System.out.println("Damage calculated = "+calculated);
         this.caracteristics.setHp(this.caracteristics.getCurrentHP() - (int) calculated);
     }

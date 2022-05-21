@@ -68,7 +68,7 @@ public class Map {
         this.addItemOnMap(new Item("key", 10, "file:resources/graphics/sprite/key.png"), 3, 3);
         this.addItemOnMap(new Item("pioche", 10, "file:resources/graphics/sprite/pioche.png"), 3, 5);
         this.addItemOnMap(new Item("coin", 10, "file:resources/graphics/sprite/moneybag.png"), 8, 5);
-        this.addEntityOnMap(new Monster(5,5, EntityStatus.INACTIVE, EntityType.MONSTER,"file:resources/graphics/sprite/monster1.gif" ,new Caracteristics(5,10,7,7),null));
+        this.addEntityOnMap(new Monster(5,5, EntityStatus.INACTIVE, EntityType.MONSTER,"file:resources/graphics/sprite/monster1.gif" ,new Caracteristics(45,10,7,7),null));
     }
 
 

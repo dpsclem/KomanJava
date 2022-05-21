@@ -223,13 +223,14 @@ public class CombatManager {
                 reloadEntities(displayGroup);
                 //Ends monster's turn and begins player's turn
                 looseCombat();
+
             }));
             timeline.play();
 
 
         }else{
             //Adds animation
-            Animation basicAttackAnim = new Animation(1,"file:resources/graphics/sprite/hit_animation.gif",displayGroup,250,250,650,300);
+            Animation basicAttackAnim = new Animation(1,"file:resources/graphics/sprite/hit_animation.gif",root,250,250,650,300);
             basicAttackAnim.playAnimation();
             //Timer for readability and animation
             Timeline timeline = new Timeline(new KeyFrame(Duration.seconds(basicAttackAnim.getAnimationLength()),ev ->{
@@ -266,11 +267,19 @@ public class CombatManager {
 
     public void looseCombat(){
         System.out.println("You LOST against an enemy");
-        root.getChildren().remove(displayGroup);
-        //Reloads the MAP and player position (Respawn)
+        //Displays death screen for 2 second:
+        Animation deathScreen = new Animation(2,"file:resources/graphics/interface/you_died_screen.png",displayGroup,800,400,200,170);
+        deathScreen.playAnimation();
+        Timeline timeline = new Timeline(new KeyFrame(Duration.seconds(deathScreen.getAnimationLength()),ev ->{
+            //Then plays death and respawn logic
+            root.getChildren().remove(displayGroup);
+            //Reloads the MAP and player position (Respawn)
 
-        //Gives move key controls back to the player
-        playerCharacter.setIsInteracting(false);
+            //Gives move key controls back to the player
+            playerCharacter.setIsInteracting(false);
+        }));
+        timeline.play();
+
     }
 
 
