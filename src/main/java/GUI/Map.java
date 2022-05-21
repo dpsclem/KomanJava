@@ -302,8 +302,8 @@ public class Map {
 
         //Adds merchant NPC on the map
         var itemsInMerchant = new ArrayList<Item>();
-        itemsInMerchant.add(new Equipment("Shield", 25,  EquipmentType.CHESTPLATE,new Caracteristics(0,15,0,0), "file:resources/graphics/sprite/equipements/shield1.png"));
-        itemsInMerchant.add(new Equipment("Sword", 10,  EquipmentType.CHESTPLATE,new Caracteristics(0,10,10,0), "file:resources/graphics/interface/attack.png"));
+        itemsInMerchant.add(new Equipment("Shield", 25,  EquipmentType.SHIELD,new Caracteristics(0,15,0,0), "file:resources/graphics/sprite/equipements/shield1.png"));
+        itemsInMerchant.add(new Equipment("Sword", 10,  EquipmentType.SWORD,new Caracteristics(0,10,10,0), "file:resources/graphics/interface/attack.png"));
         itemsInMerchant.add(new Item("key", 50,"file:resources/graphics/sprite/key.png"));
         var merchant = new Merchant(3, 11, itemsInMerchant, EntityStatus.INACTIVE, EntityType.NPC_MERCHANT, "file:resources/graphics/sprite/merchant.png");
         level.addEntityOnMap(merchant);
