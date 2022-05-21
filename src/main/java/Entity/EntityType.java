@@ -5,5 +5,6 @@ public enum EntityType {
     NPC_MERCHANT,
     NPC_TALKABLE,
     DOOR,
-    CHEST
+    CHEST,
+    TRAP
 }

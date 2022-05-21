@@ -1,9 +1,7 @@
 package SceneManager;
 
 import CombatLogic.CombatManager;
-import Entity.Chest;
-import Entity.Merchant;
-import Entity.Monster;
+import Entity.*;
 import GUI.*;
 import GUI.Character;
 import Item.Equipment;
@@ -252,36 +250,43 @@ public class SceneButtons {
 
         for (var entity : nearEntities) {
 
-            Button button = new Button();
+            if (entity instanceof Trap && entity.getX() == characterX && entity.getY() == characterY){
+                ((Trap) entity).triggerTrap(map.getCharacter());
+                return buttons;
+            }
+            else if(entity instanceof Monster){
+                map.getCharacter().setIsInteracting(true);//controls need to be frozen
+                CombatManager combatManager = new CombatManager(map.getCharacter(), (Monster) entity, root, map,sceneManager);
+                //Display initialisation
+                combatManager.enterCombatLoop();
+                return buttons;
+            }
 
-            button.setLayoutX(1220);
-            button.setLayoutY(180 + (nearEntities.indexOf(entity) * 50) + (nearEntities.indexOf(entity) * 10));
-            button.setPrefSize(140, 50);
+            else {
+                Button button = new Button();
 
-            button.setText("Interact with " + entity.getType());
+                button.setLayoutX(1220);
+                button.setLayoutY(180 + (nearEntities.indexOf(entity) * 50) + (nearEntities.indexOf(entity) * 10));
+                button.setPrefSize(140, 50);
 
-            button.setOnAction(event -> {
-                if (entity instanceof Chest) { //When interacting with a chest
-                    map.getCharacter().setIsInteracting(true);//controls need to be frozen
-                    addChestInteractionDisplay(root, map, sceneManager, (Chest) entity);
-                } else if(entity instanceof Monster){
-                    map.getCharacter().setIsInteracting(true);//controls need to be frozen
-                    CombatManager combatManager = new CombatManager(map.getCharacter(), (Monster) entity, root, map,sceneManager);
-                    //Display initialisation
-                    combatManager.enterCombatLoop();
-                }
-                else if (entity instanceof Merchant) {
-                    map.getCharacter().setIsInteracting(true);//controls need to be frozen
-                    addMerchantInteractionDisplay(root, map, sceneManager, (Merchant) entity);
-                }
-                else {
-                    root.getChildren().clear();
-                    entity.interact(map, entity);
-                    sceneManager.addAll();
+                button.setText("Interact with " + entity.getType());
 
-                }
-            });
-            buttons.add(button);
+                button.setOnAction(event -> {
+                    if (entity instanceof Chest) { //When interacting with a chest
+                        map.getCharacter().setIsInteracting(true);//controls need to be frozen
+                        addChestInteractionDisplay(root, map, sceneManager, (Chest) entity);
+                    } else if (entity instanceof Merchant) {
+                        map.getCharacter().setIsInteracting(true);//controls need to be frozen
+                        addMerchantInteractionDisplay(root, map, sceneManager, (Merchant) entity);
+                    } else {
+                        root.getChildren().clear();
+                        entity.interact(map, entity);
+                        sceneManager.addAll();
+
+                    }
+                });
+                buttons.add(button);
+            }
         }
         return buttons;
     }

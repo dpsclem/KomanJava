@@ -51,7 +51,9 @@ public class Map {
         randomMap.addItemOnMap(new Item("key", 10, "file:resources/graphics/sprite/key.png"), 3, 3);
         randomMap.addItemOnMap(new Item("pioche", 10, "file:resources/graphics/sprite/pioche.png"), 3, 5);
         randomMap.addItemOnMap(new Usable("moneybag", 0, false, UsableType.MONEYBAG, null, 15, "file:resources/graphics/sprite/moneybag.png"), 8,2);
-        randomMap.addEntityOnMap(new Monster(2,2, EntityStatus.INACTIVE, EntityType.MONSTER,"file:resources/graphics/sprite/monster1.gif" ,new Caracteristics(5,10,7,7),null));
+        randomMap.addEntityOnMap(new Monster(2,2, EntityStatus.INACTIVE, EntityType.MONSTER, TrapType.NONE, "file:resources/graphics/sprite/monster1.gif" ,new Caracteristics(5,10,7,7),null));
+        randomMap.addEntityOnMap(new Trap(2,5, EntityStatus.INACTIVE, EntityType.TRAP, "file:resources/graphics/sprite/black_hole.png", TrapType.BLACKHOLE));
+        randomMap.addEntityOnMap(new Trap(2,8, EntityStatus.INACTIVE, EntityType.TRAP, "file:resources/graphics/sprite/dart.png", TrapType.DART));
 
         return randomMap;
     }
@@ -68,7 +70,10 @@ public class Map {
         this.addItemOnMap(new Item("key", 10, "file:resources/graphics/sprite/key.png"), 3, 3);
         this.addItemOnMap(new Item("pioche", 10, "file:resources/graphics/sprite/pioche.png"), 3, 5);
         this.addItemOnMap(new Item("coin", 10, "file:resources/graphics/sprite/moneybag.png"), 8, 5);
-        this.addEntityOnMap(new Monster(5,5, EntityStatus.INACTIVE, EntityType.MONSTER,"file:resources/graphics/sprite/monster1.gif" ,new Caracteristics(45,10,7,7),null));
+        this.addEntityOnMap(new Monster(5,5, EntityStatus.INACTIVE, EntityType.MONSTER, TrapType.NONE,"file:resources/graphics/sprite/monster1.gif" ,new Caracteristics(45,10,7,7),null));
+        this.addEntityOnMap(new Trap(2,5, EntityStatus.INACTIVE, EntityType.TRAP,"file:resources/graphics/sprite/black_hole.png", TrapType.BLACKHOLE));
+        this.addEntityOnMap(new Trap(2,8, EntityStatus.INACTIVE, EntityType.TRAP, "file:resources/graphics/sprite/dart.png", TrapType.DART));
+
     }
 
 
@@ -137,7 +142,7 @@ public class Map {
         var futureCell = getCellFromCoordinate(newY, newX);
         System.out.println(futureCell.getMaterialProperties());
 
-        if (entities.stream().filter(e -> e.getX() == newX && e.getY() == newY).count() > 0) { //Entity on future cell
+        if (entities.stream().filter(e -> e.getX() == newX && e.getY() == newY && e.getType() != EntityType.TRAP).count() > 0) { //Entity on future cell
             return getCharacterCoordinates();
         }
         if (futureCell.getMaterialProperties().IsWalkable  //Moving on floor
@@ -219,7 +224,8 @@ public class Map {
                 (entity.getY() - characterY == 0)  &&  (entity.getX() - characterX == -1) ||
                 (entity.getY() - characterY == 0)  &&  (entity.getX() - characterX == 1) ||
                 (entity.getY() - characterY == 0)  &&  (entity.getX() - characterX == -1)   ||
-                (entity.getY() - characterY == 0)   &&  (entity.getX() - characterX == 1)  )
+                (entity.getY() - characterY == 0)   &&  (entity.getX() - characterX == 1) ||
+                (entity.getX() - characterX ==0) && (entity.getY() - characterY == 0))
             {
                 nearEntities.add(entity);
             }

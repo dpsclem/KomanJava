@@ -15,8 +15,8 @@ public class Monster extends Entity{
     private Caracteristics caracteristics;
     private List<Item> dropList = new ArrayList<Item>();
 
-    public Monster(int x, int y, EntityStatus status, EntityType type, String imgPath,Caracteristics caracteristics,List<Item> dropList) {
-        super(x, y, status, type, imgPath);
+    public Monster(int x, int y, EntityStatus status, EntityType type, TrapType trap, String imgPath,Caracteristics caracteristics,List<Item> dropList) {
+        super(x, y, status, type, trap, imgPath);
         this.caracteristics = caracteristics;
         this.dropList = dropList;
 
