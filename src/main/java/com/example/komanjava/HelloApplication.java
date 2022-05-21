@@ -4,7 +4,7 @@ import GUI.*;
 import GUI.Character;
 import Item.Equipment;
 import Item.EquipmentType;
-import Item.Item;
+import Item.*;
 import SceneManager.SceneManager;
 import javafx.application.Application;
 import javafx.scene.Group;
@@ -32,6 +32,9 @@ public class HelloApplication extends Application {
         character.setCaracteristics(new Caracteristics(5,5,20,20));
 
         character.addMoney(50);
+
+        var potion = new Usable("HealPotion", 25, false, UsableType.POTION, null, 15, "file:resources/graphics/sprite/healPotion.png");
+        character.addItem(potion);
 
         var shield = new Equipment("Shield", 8,  EquipmentType.SHIELD,new Caracteristics(0,20,0,0), "file:resources/graphics/sprite/equipements/shield1.png");
         character.addItem(shield);

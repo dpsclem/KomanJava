@@ -4,6 +4,7 @@ import CombatLogic.CombatManager;
 import Entity.*;
 import GUI.*;
 import GUI.Character;
+import Item.*;
 import Item.Equipment;
 import Item.EquipmentType;
 import Item.Item;
@@ -41,7 +42,6 @@ public class SceneButtons {
 
     public List<Node> getButtons(Group root, Map map, SceneManager sceneManager) {
         var buttons = new ArrayList<Node>();
-        //buttons.add(getResetMapButton(root, map, sceneManager));
         buttons.add(getInventoryButton(root, map, sceneManager));
         buttons.addAll(getNearInteractions(root, map, sceneManager));
         return buttons;
@@ -50,35 +50,11 @@ public class SceneButtons {
     public boolean isInventoryOpen() {
         return IsInventoryOpen;
     }
-/*
-    private Button getResetMapButton(Group root, Map map, SceneManager sceneManager) {
-        Button resetMapBtn = new Button();
-        resetMapBtn.setText("Reset Map");
-        resetMapBtn.setLayoutX(1220);
-        resetMapBtn.setLayoutY(50);
-        resetMapBtn.setPrefSize(80, 30);
-
-        resetMapBtn.setOnAction(event -> {
-            root.getChildren().clear();
-            //map.UpdateWithRandomMap();
-            var resetCaracter = new Character(1, 1);
-            resetCaracter.setCaracteristics(new Caracteristics(20, 5, 5,5));
-            var shield = new Equipment("Shield", 8, EquipmentType.SHIELD, new Caracteristics(0, 20, 0,0), "file:resources/graphics/sprite/equipements/shield1.png");
-            resetCaracter.addItem(shield);
-            var chestplate = new Equipment("Chestplate", 10, EquipmentType.CHESTPLATE, new Caracteristics(0, 10, 10,0), "file:resources/graphics/sprite/equipements/chestplate1.png");
-            resetCaracter.addItem(chestplate);
-            map.setCaracter(resetCaracter);
-            sceneManager.addAll();
-        });
-        return resetMapBtn;
-    }
-    */
-
 
     private Button getInventoryButton(Group root, Map map, SceneManager sceneManager) {
         Button button = new Button();
 
-        button.setLayoutX(1220);
+        button.setLayoutX(1280);
         button.setLayoutY(100);
         button.setPrefSize(40, 50);
 
@@ -133,6 +109,12 @@ public class SceneButtons {
                             else hoverInformations.setVisible(false);
                         });
 
+                    }
+                    else if (item instanceof Usable) {
+                        if (((Usable) item).getUsableType() == UsableType.POTION) {
+                            map.getCharacter().heal(((Usable) item).getUsablePower());
+                            map.getCharacter().removeItem(item); ;
+                        }
                     }
                     currentGc.setFill(new ImagePattern(itemImage));
                     currentGc.fillRect(0, 0, 70, 70);
