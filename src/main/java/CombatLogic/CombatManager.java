@@ -32,7 +32,7 @@ public class CombatManager {
     private SceneManager sceneManager;
 
 
-    public CombatManager(Character playerCharacter, Monster monsterEntity, Group root, Map map,SceneManager sceneManager){
+    public CombatManager(Character playerCharacter, Monster monsterEntity, Group root, Map map, SceneManager sceneManager){
         this. playerCharacter = playerCharacter;
         this.monsterEntity = monsterEntity;
         this.root = root;
