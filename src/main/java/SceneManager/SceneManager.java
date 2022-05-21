@@ -4,6 +4,8 @@ import GUI.*;
 import GUI.Character;
 import Item.Equipment;
 import Item.EquipmentType;
+import Item.Usable;
+import Item.UsableType;
 import javafx.scene.Group;
 import javafx.scene.Scene;
 import javafx.scene.control.Button;
@@ -120,10 +122,14 @@ public class SceneManager {
 
     public void resetAndRespawn(Group root, Map map){
         root.getChildren().clear();
+
         var resetCaracter = new Character(0, 7);
+        resetCaracter.addMoney(50);
         resetCaracter.setCaracteristics(new Caracteristics(5,5,20,20));
         var shield = new Equipment("Shield", 8, EquipmentType.SHIELD, new Caracteristics(0, 20, 0,0), "file:resources/graphics/sprite/equipements/shield1.png");
         resetCaracter.addItem(shield);
+        var potion = new Usable("HealPotion", 25, false, UsableType.POTION, null, 15, "file:resources/graphics/sprite/healPotion.png");
+        resetCaracter.addItem(potion);
         map.setCaracter(resetCaracter);
         map.initializeEntities(map);
         addAll();
