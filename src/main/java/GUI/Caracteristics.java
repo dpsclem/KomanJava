@@ -5,25 +5,30 @@ public class Caracteristics {
 
     private int attack;
     private int armor;
-    private int hp;
+    private int maxHp;
 
 
-    public Caracteristics(int attack, int armor, int hp) {
+    // MUST BE SET TO 0 IN CONSTRUCTOR IF ITEM
+    // MUST BE = TO MAXHP IN CONSTRUCTOR IF MONSTER OR PLAYER
+    private int currentHP;
+
+    public Caracteristics(int attack, int armor, int maxhp, int currentHP) {
         this.attack = attack;
         this.armor = armor;
-        this.hp = hp;
+        this.maxHp = maxhp;
+        this.currentHP = currentHP;
     }
 
     public void addCaracteristics(Caracteristics carac) {
         this.attack += carac.getAttack();
         this.armor += carac.getArmor();
-        this.hp += carac.getHp();
+        this.maxHp += carac.getMaxHp();
     }
 
     public void substractCaracteristics(Caracteristics carac) {
         this.attack -= carac.getAttack();
         this.armor -= carac.getArmor();
-        this.hp -= carac.getHp();
+        this.maxHp -= carac.getMaxHp();
     }
 
     public int getAttack() {
@@ -34,8 +39,8 @@ public class Caracteristics {
         return armor;
     }
 
-    public int getHp() {
-        return hp;
+    public int getMaxHp() {
+        return maxHp;
     }
 
     public void setAttack(int attack) {
@@ -46,7 +51,12 @@ public class Caracteristics {
         this.armor = armor;
     }
 
+    //Current HP setters and getters
     public void setHp(int hp) {
-        this.hp = hp;
+        this.currentHP = hp;
+    }
+
+    public int getCurrentHP() {
+        return this.currentHP;
     }
 }

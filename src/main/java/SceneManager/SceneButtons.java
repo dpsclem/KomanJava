@@ -61,10 +61,10 @@ public class SceneButtons {
             root.getChildren().clear();
             map.UpdateWithRandomMap();
             var resetCaracter = new Character(1, 1);
-            resetCaracter.setCaracteristics(new Caracteristics(20, 5, 5));
-            var shield = new Equipment("Shield", 8, EquipmentType.SHIELD, new Caracteristics(0, 20, 0), "file:resources/graphics/sprite/equipements/shield1.png");
+            resetCaracter.setCaracteristics(new Caracteristics(20, 5, 5,5));
+            var shield = new Equipment("Shield", 8, EquipmentType.SHIELD, new Caracteristics(0, 20, 0,0), "file:resources/graphics/sprite/equipements/shield1.png");
             resetCaracter.addItem(shield);
-            var chestplate = new Equipment("Chestplate", 10, EquipmentType.CHESTPLATE, new Caracteristics(0, 10, 10), "file:resources/graphics/sprite/equipements/chestplate1.png");
+            var chestplate = new Equipment("Chestplate", 10, EquipmentType.CHESTPLATE, new Caracteristics(0, 10, 10,0), "file:resources/graphics/sprite/equipements/chestplate1.png");
             resetCaracter.addItem(chestplate);
             map.setCaracter(resetCaracter);
             sceneManager.addAll();
@@ -86,14 +86,14 @@ public class SceneButtons {
         button.setOnAction(event -> {
             System.out.println("Open inventory");
 
-            if (!IsInventoryOpen) {
+            if (!IsInventoryOpen && !map.getCharacter().getIsInteracting()) {
                 IsInventoryOpen = true;
+                map.getCharacter().setIsInteracting(true);
                 addInventoryDisplay(root, map, sceneManager);
             } else IsInventoryOpen = false;
         });
         return button;
     }
-
     private void addInventoryDisplay(Group root, Map map, SceneManager sceneManager) {
         Canvas inventoryCanvas = new Canvas(830, 500);
         inventoryCanvas.setLayoutX(185);
@@ -162,9 +162,27 @@ public class SceneButtons {
         }
         root.getChildren().addAll(hoverInformationCanvas);
 
-        Canvas closeButton = getCloseButton(root, sceneManager,inventoryCanvas.getWidth() + inventoryCanvas.getLayoutX() - 30, inventoryCanvas.getLayoutY());
+        Canvas closeButton = getCloseButton(root,map, sceneManager,inventoryCanvas.getWidth() + inventoryCanvas.getLayoutX() - 30, inventoryCanvas.getLayoutY());
 
         root.getChildren().add(closeButton);
+    }
+
+    private Canvas getCloseButton(Group root,Map map, SceneManager sceneManager,double x, double y) {
+        Canvas closeButton = new Canvas(30, 30);
+        closeButton.setLayoutX(x);
+        closeButton.setLayoutY(y);
+
+        GraphicsContext closeBtnGc = closeButton.getGraphicsContext2D();
+        closeBtnGc.setFill(new ImagePattern(new Image("file:resources/graphics/closeButton.png", 30,30, true, false)));
+        closeBtnGc.fillRect(0, 0, 30, 30);
+        closeButton.addEventFilter(MouseEvent.MOUSE_CLICKED, closeBtnEvent -> {
+            root.getChildren().clear();
+            sceneManager.addAll();
+            IsInventoryOpen = false;
+            map.getCharacter().setIsInteracting(false);
+
+        });
+        return closeButton;
     }
 
     private Canvas getHoverInformations(Equipment item, Canvas currentCanva) {
@@ -187,25 +205,25 @@ public class SceneButtons {
         hoverGC.fillRect(marginWidth, marginHeight, 30, 30);
 
         hoverGC.setFill(Color.BLACK);
-        hoverGC.fillText("" + (((Equipment) item).getCaracteristics().getHp()), marginWidth + 50, marginHeight + 20);
+        hoverGC.fillText("" + ((Equipment) item).getCaracteristics().getMaxHp(), marginWidth + 50, marginHeight + 20);
 
         hoverGC.setFill(new ImagePattern(new Image("file:resources/graphics/interface/attack.png", 20, 20, true, false)));
         hoverGC.fillRect(marginWidth, marginHeight + 40, 30, 30);
 
         hoverGC.setFill(Color.BLACK);
-        hoverGC.fillText("" + (((Equipment) item).getCaracteristics().getAttack()), marginWidth + 50, marginHeight + 60);
+        hoverGC.fillText("" + ((Equipment) item).getCaracteristics().getAttack(), marginWidth + 50, marginHeight + 60);
 
         hoverGC.setFill(new ImagePattern(new Image("file:resources/graphics/interface/armor.png", 20, 20, true, false)));
         hoverGC.fillRect(marginWidth, marginHeight + 80, 30, 30);
 
         hoverGC.setFill(Color.BLACK);
-        hoverGC.fillText("" + (((Equipment) item).getCaracteristics().getArmor()), marginWidth + 50, marginHeight + 100);
+        hoverGC.fillText("" + ((Equipment) item).getCaracteristics().getArmor(), marginWidth + 50, marginHeight + 100);
 
         hoverGC.setFill(new ImagePattern(new Image("file:resources/graphics/interface/money.png", 20, 20, true, false)));
         hoverGC.fillRect(marginWidth, marginHeight + 120, 30, 30);
 
         hoverGC.setFill(Color.BLACK);
-        hoverGC.fillText("" + item.getPrice(), marginWidth + 50, marginHeight + 140);
+        hoverGC.fillText("" + ((Equipment) item).getPrice(), marginWidth + 50, marginHeight + 140);
         hoverInformations.setVisible(false);
         return hoverInformations;
     }
@@ -271,13 +289,16 @@ public class SceneButtons {
 
             button.setOnAction(event -> {
                 if (entity instanceof Chest) { //When interacting with a chest
+                    map.getCharacter().setIsInteracting(true);//controls need to be frozen
                     addChestInteractionDisplay(root, map, sceneManager, (Chest) entity);
                 } else if(entity instanceof Monster){
-                    CombatManager combatManager = new CombatManager(map.getCharacter(), (Monster) entity, root, map);
+                    map.getCharacter().setIsInteracting(true);//controls need to be frozen
+                    CombatManager combatManager = new CombatManager(map.getCharacter(), (Monster) entity, root, map,sceneManager);
                     //Display initialisation
                     combatManager.enterCombatLoop();
                 }
                 else if (entity instanceof Merchant) {
+                    map.getCharacter().setIsInteracting(true);//controls need to be frozen
                     addMerchantInteractionDisplay(root, map, sceneManager, (Merchant) entity);
                 }
                 else {
@@ -441,7 +462,7 @@ public class SceneButtons {
         }
         double x = merchantCanvas.getLayoutX()+merchantCanvas.getWidth()-30;
         double y = merchantCanvas.getLayoutY();
-        Canvas closeButton = getCloseButton(root, sceneManager, x,y);
+        Canvas closeButton = getCloseButton(root,map, sceneManager, x,y);
         root.getChildren().add(closeButton);
 
         root.getChildren().addAll(pricesNodes);
@@ -567,7 +588,7 @@ public class SceneButtons {
         root.getChildren().addAll(hoverInformationCanvas);
         double x = chestCanvas.getLayoutX()+chestCanvas.getWidth()-30;
         double y = chestCanvas.getLayoutY();
-        Canvas closeButton = getCloseButton(root, sceneManager, x,y);
+        Canvas closeButton = getCloseButton(root,map, sceneManager, x,y);
         root.getChildren().add(closeButton);
 
     }
