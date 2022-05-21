@@ -1,6 +1,9 @@
 package SceneManager;
 
 import GUI.*;
+import GUI.Character;
+import Item.Equipment;
+import Item.EquipmentType;
 import javafx.scene.Group;
 import javafx.scene.Scene;
 import javafx.scene.control.Button;
@@ -113,5 +116,16 @@ public class SceneManager {
         for (Rectangle currentRectangle: randomMap.getItemRectangle()) {
             root.getChildren().add(currentRectangle);
         }
+    }
+
+    public void resetAndRespawn(Group root, Map map){
+        root.getChildren().clear();
+        var resetCaracter = new Character(0, 7);
+        resetCaracter.setCaracteristics(new Caracteristics(5,5,20,20));
+        var shield = new Equipment("Shield", 8, EquipmentType.SHIELD, new Caracteristics(0, 20, 0,0), "file:resources/graphics/sprite/equipements/shield1.png");
+        resetCaracter.addItem(shield);
+        map.setCaracter(resetCaracter);
+        map.initializeEntities(map);
+        addAll();
     }
 }
