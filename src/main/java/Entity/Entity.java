@@ -18,7 +18,7 @@ public class Entity {
     private String imgPath;
 
 
-    public Entity(int x, int y, EntityStatus status, EntityType type, String imgPath) {
+    public Entity(int x, int y, EntityStatus status,EntityType type, String imgPath) {
         this.x = x;
         this.y = y;
         this.status = status;
@@ -59,7 +59,7 @@ public class Entity {
         return this.imgPath;
     }
 
-
+    //interact
     public void interact(Map map, Entity entity) {
         if (type == EntityType.DOOR ) {
             var caracter = map.getCharacter();
