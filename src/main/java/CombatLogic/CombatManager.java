@@ -64,8 +64,6 @@ public class CombatManager {
         //Adds player and monster + current health of both
         loadEntities(displayGroup);
 
-
-
         //Finally, adds all groups to the root group for general display
         root.getChildren().add(displayGroup);
     }

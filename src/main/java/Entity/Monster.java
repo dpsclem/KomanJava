@@ -26,7 +26,8 @@ public class Monster extends Entity{
 
         double calculated = 1+damages/(1 + 0.4*this.caracteristics.getArmor());
         System.out.println("Damage calculated = "+calculated);
-        this.caracteristics.setHp(this.caracteristics.getCurrentHP() - (int) calculated);
+        if (this.caracteristics.getCurrentHP() - (int) calculated <= 0){this.caracteristics.setHp(0);}
+        else {this.caracteristics.setHp(this.caracteristics.getCurrentHP() - (int) calculated);}
     }
 
     //Puts items in player's inventory

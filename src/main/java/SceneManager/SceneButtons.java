@@ -285,6 +285,8 @@ public class SceneButtons {
                 dialogArea.setText(text);
                 dialogArea.setMaxHeight(130);
                 dialogArea.setOpacity(0.68);
+                dialogArea.positionCaret(-1);
+                dialogArea.styleProperty().set("-fx-display-caret: false;");
 
 
 
