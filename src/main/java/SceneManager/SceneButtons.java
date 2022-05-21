@@ -4,10 +4,7 @@ import CombatLogic.CombatManager;
 import Entity.*;
 import GUI.*;
 import GUI.Character;
-import Item.Equipment;
-import Item.EquipmentType;
-import Item.Item;
-import Item.Usable;
+import Item.*;
 import javafx.beans.value.ChangeListener;
 import javafx.scene.Group;
 import javafx.scene.Node;
@@ -128,6 +125,12 @@ public class SceneButtons {
                             else hoverInformations.setVisible(false);
                         });
 
+                    }
+                    else if (item instanceof Usable) {
+                        if (((Usable) item).getUsableType() == UsableType.POTION) {
+                            map.getCharacter().heal(((Usable) item).getUsablePower());
+                            map.getCharacter().removeItem(item); ;
+                        }
                     }
                     currentGc.setFill(new ImagePattern(itemImage));
                     currentGc.fillRect(0, 0, 70, 70);
