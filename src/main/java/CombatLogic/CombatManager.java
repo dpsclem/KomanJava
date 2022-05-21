@@ -7,6 +7,7 @@ import GUI.Character;
 import GUI.Map;
 import Item.Item;
 import Item.Usable;
+import SceneManager.SceneManager;
 import javafx.animation.KeyFrame;
 import javafx.animation.Timeline;
 import javafx.scene.Group;
@@ -28,14 +29,15 @@ public class CombatManager {
     private Group entitiesDisplayed;
     private Group root;
     private Map map;
+    private SceneManager sceneManager;
 
 
-
-    public CombatManager(Character playerCharacter, Monster monsterEntity, Group root, Map map){
+    public CombatManager(Character playerCharacter, Monster monsterEntity, Group root, Map map,SceneManager sceneManager){
         this. playerCharacter = playerCharacter;
         this.monsterEntity = monsterEntity;
         this.root = root;
         this.map = map;
+        this.sceneManager = sceneManager;
 
 
     }
@@ -193,7 +195,7 @@ public class CombatManager {
         });
 
         //If player has a usable in inventory, adds the option to use it in combat
-        
+
 
 
         entitiesDisplayed.getChildren().add(basicAttack);
@@ -246,9 +248,16 @@ public class CombatManager {
         //Removes combat screen
         root.getChildren().remove(displayGroup);
         //Asks the monster to give it's items to the player
+        if(monsterEntity.getDropList() != null){ //Verifies the droplist isn't null
+            for(Item item: monsterEntity.getDropList()){
+                playerCharacter.addItem(item);
+            }
+        }
 
         //Removes the monster entity and reloads the map DISPLAY
-
+        map.getEntities().remove(this.monsterEntity);
+        root.getChildren().clear();
+        sceneManager.addAll();
         //Removes current combat manager
 
         //Gives move key controls back to the player

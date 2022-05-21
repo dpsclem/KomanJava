@@ -244,7 +244,7 @@ public class SceneButtons {
                     addChestInteractionDisplay(root, map, sceneManager, (Chest) entity);
                 } else if(entity instanceof Monster){
                     map.getCharacter().setIsInteracting(true);//controls need to be frozen
-                    CombatManager combatManager = new CombatManager(map.getCharacter(), (Monster) entity, root, map);
+                    CombatManager combatManager = new CombatManager(map.getCharacter(), (Monster) entity, root, map,sceneManager);
                     //Display initialisation
                     combatManager.enterCombatLoop();
                 }

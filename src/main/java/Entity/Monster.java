@@ -28,4 +28,9 @@ public class Monster extends Entity{
         System.out.println("Damage calculated = "+calculated);
         this.caracteristics.setHp(this.caracteristics.getCurrentHP() - (int) calculated);
     }
+
+    //Puts items in player's inventory
+    public List<Item> getDropList(){
+        return this.dropList;
+    }
 }
