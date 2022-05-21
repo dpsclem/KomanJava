@@ -283,25 +283,7 @@ public class SceneButtons {
                     } else if (entity instanceof Merchant) {
                         map.getCharacter().setIsInteracting(true);//controls need to be frozen
                         addMerchantInteractionDisplay(root, map, sceneManager, (Merchant) entity);
-                        var dialogArea = new TextArea();
-                        var text = ((Merchant) entity).getDialog();
-                        Text t = new Text(text);
-                        t.setFont(dialogArea.getFont());
-                        StackPane pane = new StackPane(t);
-                        pane.layout();
-                        double width = t.getLayoutBounds().getWidth();
-                        double padding = 20 ;
-                        dialogArea.setMaxWidth(width+padding);
-                        dialogArea.setText(text);
-                        dialogArea.setMaxHeight(130);
-                        dialogArea.setOpacity(0.68);
 
-
-
-                        dialogArea.setWrapText(true);
-                        dialogArea.setLayoutX((entity.getX() + 1) * Cell.Width);
-                        dialogArea.setLayoutY(entity.getY() * Cell.Height);
-                        root.getChildren().add(dialogArea);
                     } else {
                         root.getChildren().clear();
                         entity.interact(map, entity);
@@ -311,6 +293,28 @@ public class SceneButtons {
                     }
                 });
                 buttons.add(button);
+            }
+
+            if(entity instanceof Merchant){ //Adds dialog when walking near merchant NPC
+                var dialogArea = new TextArea();
+                var text = ((Merchant) entity).getDialog();
+                Text t = new Text(text);
+                t.setFont(dialogArea.getFont());
+                StackPane pane = new StackPane(t);
+                pane.layout();
+                double width = t.getLayoutBounds().getWidth();
+                double padding = 20 ;
+                dialogArea.setMaxWidth(width+padding);
+                dialogArea.setText(text);
+                dialogArea.setMaxHeight(130);
+                dialogArea.setOpacity(0.68);
+
+
+
+                dialogArea.setWrapText(true);
+                dialogArea.setLayoutX((entity.getX() + 1) * Cell.Width);
+                dialogArea.setLayoutY(entity.getY() * Cell.Height);
+                root.getChildren().add(dialogArea);
             }
 
         }
