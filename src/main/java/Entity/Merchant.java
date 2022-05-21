@@ -8,7 +8,7 @@ import java.util.List;
 
 public class Merchant extends Entity {
     private List<Item> items=new ArrayList<Item>();
-    private String dialog="Bonjour, koman java? De quoi avez-vous besoin ?";
+    private String dialog="Bonjour, koman java ? De quoi avez-vous besoin ?";
 
 
     public Merchant(int x, int y, List<Item> items, EntityStatus status, EntityType type, String imgPath) {

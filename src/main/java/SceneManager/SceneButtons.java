@@ -16,17 +16,22 @@ import javafx.scene.Node;
 import javafx.scene.canvas.Canvas;
 import javafx.scene.canvas.GraphicsContext;
 import javafx.scene.control.Button;
+import javafx.scene.control.TextArea;
 import javafx.scene.control.Tooltip;
 import javafx.scene.image.Image;
 import javafx.scene.image.ImageView;
 import javafx.scene.input.MouseEvent;
+import javafx.scene.layout.StackPane;
 import javafx.scene.paint.Color;
 import javafx.scene.paint.ImagePattern;
 import javafx.scene.text.Font;
+import javafx.scene.text.Text;
 
 import java.util.ArrayList;
 import java.util.List;
 import java.util.concurrent.CountedCompleter;
+
+import static java.awt.SystemColor.text;
 
 public class SceneButtons {
 
@@ -139,9 +144,9 @@ public class SceneButtons {
                                 map.getCharacter().equipItem((Equipment) item);
                         }
                         else if (item instanceof Usable) {
-                            ((Usable) item).use(map);
+                            /*((Usable) item).use(map);
                             map.getCharacter().getItems().remove(item);
-                            root.getChildren().remove(currentCanva);
+                            root.getChildren().remove(currentCanva);*/
                         }
                         else {
                             map.getCharacter().getItems().remove(item);
@@ -241,6 +246,28 @@ public class SceneButtons {
             button.setPrefSize(140, 50);
 
             button.setText("Interact with " + entity.getType());
+
+            if(entity instanceof Merchant) {
+                var dialogArea = new TextArea();
+                var text = ((Merchant) entity).getDialog();
+                Text t = new Text(text);
+                t.setFont(dialogArea.getFont());
+                StackPane pane = new StackPane(t);
+                pane.layout();
+                double width = t.getLayoutBounds().getWidth();
+                double padding = 20 ;
+                dialogArea.setMaxWidth(width+padding);
+                dialogArea.setText(text);
+                dialogArea.setMaxHeight(130);
+                dialogArea.setOpacity(0.68);
+
+
+
+                dialogArea.setWrapText(true);
+                dialogArea.setLayoutX((entity.getX() + 1) * Cell.Width);
+                dialogArea.setLayoutY(entity.getY() * Cell.Height);
+                root.getChildren().add(dialogArea);
+            }
 
             button.setOnAction(event -> {
                 if (entity instanceof Chest) { //When interacting with a chest
