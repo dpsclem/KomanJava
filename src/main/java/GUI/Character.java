@@ -22,6 +22,8 @@ public class Character {
     @Expose
     private int money = 0;
 
+    private List<Item> items = new ArrayList<Item>();
+
     public List<Item> getItems() {
         return items;
     }
@@ -64,7 +66,6 @@ public class Character {
         items.remove(item);
     }
 
-    private List<Item> items = new ArrayList<Item>();
 
     public Caracteristics getCaracteristics() {
         return caracteristics;
@@ -74,14 +75,22 @@ public class Character {
         this.caracteristics = caracteristics;
     }
 
-    public void equipItem(Equipment item){
-        caracteristics.addCaracteristics(item.getCaracteristics());
-        item.setEquiped(true);
+    public Boolean equipItem(Equipment item){
+        if (items.stream().anyMatch(i -> i instanceof Equipment && ((Equipment)i).getEquipmentType() == item.getEquipmentType() && ((Equipment)i).isEquiped())) { //Si on a déjà un item de ce type équipé, on interdit d'équiper l'item
+            return false;
+        }
+        else { //Autrement, on équipe l'item
+            caracteristics.addCaracteristics(item.getCaracteristics());
+            item.setEquiped(true);
+            return true;
+        }
     }
 
     public void unequipItem(Equipment item){
-        caracteristics.substractCaracteristics(item.getCaracteristics());
-        item.setEquiped(false);
+        if (item.isEquiped()) {
+            caracteristics.substractCaracteristics(item.getCaracteristics());
+            item.setEquiped(false);
+        }
     }
 
     public int getMoney() {
@@ -97,8 +106,11 @@ public class Character {
     }
 
     public void sellItem(Item item) {
-        addMoney(item.getPrice());
-        removeItem(item);
+        if (item instanceof Equipment) {
+            this.unequipItem((Equipment) item);
+            addMoney(item.getPrice());
+            removeItem(item);
+        }
     }
 
     public void takeDamages(int damages){

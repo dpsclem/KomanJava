@@ -8,6 +8,7 @@ import GUI.*;
 import GUI.Character;
 import Item.Equipment;
 import Item.EquipmentType;
+import Item.Item;
 import Item.Usable;
 import javafx.beans.value.ChangeListener;
 import javafx.scene.Group;
@@ -80,88 +81,128 @@ public class SceneButtons {
         button.setOnAction(event -> {
             System.out.println("Open inventory");
 
-            root.getChildren().clear();
-            sceneManager.addAll();
             if (!IsInventoryOpen) {
                 IsInventoryOpen = true;
-
-                Canvas inventoryCanvas = new Canvas(830, 500);
-                inventoryCanvas.setLayoutX(185);
-                inventoryCanvas.setLayoutY(110);
-                GraphicsContext gc = inventoryCanvas.getGraphicsContext2D();
-                gc.setFill(Color.DARKBLUE);
-                gc.fillRect(0, 0, 830, 500);
-                root.getChildren().add(inventoryCanvas);
-
-                var items = map.getCharacter().getItems();
-                var itemsIterator = items.iterator();
-                for (int i = 0; i < 7; i++) {
-                    for (int j = 0; j < 7; j++) {
-                        if (itemsIterator.hasNext()) {
-                            var item = itemsIterator.next();
-                            var itemImage = new Image(item.getImagePath(), 70, 70, true, false);
-
-                            Canvas currentCanva = new Canvas(70, 70);
-                            currentCanva.setLayoutX(185 + (j * 70) + (j * 40) + 30);
-                            currentCanva.setLayoutY(110 + (i * 70) + (i * 40) + 30);
-
-                            GraphicsContext currentGc = currentCanva.getGraphicsContext2D();
-                            if (item instanceof Equipment) {
-                                if (((Equipment) item).isEquiped()) {
-                                    currentGc.setFill(Color.RED);
-                                    currentGc.fillRect(0, 0, 70, 70);
-                                }
-                                Canvas hoverInformations = new Canvas(100, 180);
-                                hoverInformations.setLayoutX(currentCanva.getLayoutX() + currentCanva.getWidth() + 20);
-                                hoverInformations.setLayoutY(currentCanva.getLayoutY() - 20);
-
-                                AddHoverDisplay((Equipment) item, hoverInformations);
-
-                                currentCanva.hoverProperty().addListener((ChangeListener<Boolean>) (observable, oldValue, newValue) -> {
-                                    if (newValue) root.getChildren().add(hoverInformations);
-                                    else root.getChildren().remove(hoverInformations);
-                                });
-                            }
-                            currentGc.setFill(new ImagePattern(itemImage));
-                            currentGc.fillRect(0, 0, 70, 70);
-
-                            currentCanva.addEventFilter(MouseEvent.MOUSE_CLICKED, event1 -> {
-                                System.out.println("Clicked on item");
-                                if (item instanceof Equipment) {
-                                    if (!((Equipment) item).isEquiped()) {
-                                        map.getCharacter().equipItem((Equipment) item);
-
-                                        currentGc.setFill(Color.RED);
-                                        currentGc.fillRect(0, 0, 70, 70);
-                                        currentGc.setFill(new ImagePattern(itemImage));
-                                        currentGc.fillRect(0, 0, 70, 70);
-                                    } else {
-                                        map.getCharacter().unequipItem((Equipment) item);
-                                        currentGc.setFill(Color.DARKBLUE);
-                                        currentGc.fillRect(0, 0, 70, 70);
-                                        currentGc.setFill(new ImagePattern(itemImage));
-                                        currentGc.fillRect(0, 0, 70, 70);
-                                    }
-                                } else if (item instanceof Usable) {
-                                    ((Usable) item).use(map);
-                                    map.getCharacter().getItems().remove(item);
-                                    root.getChildren().remove(currentCanva);
-
-                                } else {
-                                    map.getCharacter().getItems().remove(item);
-                                    root.getChildren().remove(currentCanva);
-                                }
-                            });
-                            root.getChildren().add(currentCanva);
-                        }
-                    }
-                }
-                Canvas closeButton = getCloseButton(root, sceneManager,inventoryCanvas.getWidth() + inventoryCanvas.getLayoutX() - 30, inventoryCanvas.getLayoutY());
-
-                root.getChildren().add(closeButton);
+                addInventoryDisplay(root, map, sceneManager);
             } else IsInventoryOpen = false;
         });
         return button;
+    }
+
+    private void addInventoryDisplay(Group root, Map map, SceneManager sceneManager) {
+        Canvas inventoryCanvas = new Canvas(830, 500);
+        inventoryCanvas.setLayoutX(185);
+        inventoryCanvas.setLayoutY(110);
+        GraphicsContext gc = inventoryCanvas.getGraphicsContext2D();
+        gc.setFill(Color.DARKBLUE);
+        gc.fillRect(0, 0, 830, 500);
+        root.getChildren().add(inventoryCanvas);
+
+        var hoverInformationCanvas = new ArrayList<Canvas>();
+        var items = map.getCharacter().getItems();
+        var itemsIterator = items.iterator();
+        for (int i = 0; i < 7; i++) {
+            for (int j = 0; j < 7; j++) {
+                if (itemsIterator.hasNext()) {
+                    var item = itemsIterator.next();
+                    var itemImage = new Image(item.getImagePath(), 70, 70, true, false);
+
+                    Canvas currentCanva = new Canvas(70, 70);
+                    currentCanva.setLayoutX(185 + (j * 70) + (j * 40) + 30);
+                    currentCanva.setLayoutY(110 + (i * 70) + (i * 40) + 30);
+
+                    GraphicsContext currentGc = currentCanva.getGraphicsContext2D();
+                    if (item instanceof Equipment) {
+                        if (((Equipment) item).isEquiped()) {
+                            currentGc.setFill(Color.RED);
+                            currentGc.fillRect(0, 0, 70, 70);
+                        }
+
+                        Canvas hoverInformations = getHoverInformations((Equipment) item, currentCanva);
+                        hoverInformationCanvas.add(hoverInformations);
+                        currentCanva.hoverProperty().addListener((ChangeListener<Boolean>) (observable, oldValue, newValue) -> {
+                            if (newValue) hoverInformations.setVisible(true);
+                            else hoverInformations.setVisible(false);
+                        });
+
+                    }
+                    currentGc.setFill(new ImagePattern(itemImage));
+                    currentGc.fillRect(0, 0, 70, 70);
+
+                    currentCanva.addEventFilter(MouseEvent.MOUSE_CLICKED, event1 -> {
+                        System.out.println("Clicked on item");
+                        if (item instanceof Equipment) {
+                            if (((Equipment) item).isEquiped()) {
+                                map.getCharacter().unequipItem((Equipment) item); //Return true si l'item a été équipé. Si c'est le cas, on place un fond rouge sur la case de l'item
+                            }
+                            else
+                                map.getCharacter().equipItem((Equipment) item);
+                        }
+                        else if (item instanceof Usable) {
+                            ((Usable) item).use(map);
+                            map.getCharacter().getItems().remove(item);
+                            root.getChildren().remove(currentCanva);
+                        }
+                        else {
+                            map.getCharacter().getItems().remove(item);
+                            root.getChildren().remove(currentCanva);
+                        }
+                        root.getChildren().clear();
+                        sceneManager.addAll();
+                        addInventoryDisplay(root, map, sceneManager);
+                    });
+                    root.getChildren().add(currentCanva);
+                }
+            }
+        }
+        root.getChildren().addAll(hoverInformationCanvas);
+
+        Canvas closeButton = getCloseButton(root, sceneManager,inventoryCanvas.getWidth() + inventoryCanvas.getLayoutX() - 30, inventoryCanvas.getLayoutY());
+
+        root.getChildren().add(closeButton);
+    }
+
+    private Canvas getHoverInformations(Equipment item, Canvas currentCanva) {
+        Canvas hoverInformations = new Canvas(120, 180);
+        hoverInformations.setLayoutX(currentCanva.getLayoutX() + currentCanva.getWidth() + 20);
+        hoverInformations.setLayoutY(currentCanva.getLayoutY() - 20);
+
+        //AddHoverDisplay((Equipment) item, hoverInformations);
+        GraphicsContext hoverGC = hoverInformations.getGraphicsContext2D();
+        hoverGC.setFill(Color.LIGHTGRAY);
+        hoverGC.fillRect(0, 0, 120, 180);
+
+
+        hoverGC.setFont(new Font("Arial", 30));
+
+        int marginWidth = 10;
+        int marginHeight = 20;
+
+        hoverGC.setFill(new ImagePattern(new Image("file:resources/graphics/interface/heart.png", 20, 20, true, false)));
+        hoverGC.fillRect(marginWidth, marginHeight, 30, 30);
+
+        hoverGC.setFill(Color.BLACK);
+        hoverGC.fillText("" + (((Equipment) item).getCaracteristics().getHp()), marginWidth + 50, marginHeight + 20);
+
+        hoverGC.setFill(new ImagePattern(new Image("file:resources/graphics/interface/attack.png", 20, 20, true, false)));
+        hoverGC.fillRect(marginWidth, marginHeight + 40, 30, 30);
+
+        hoverGC.setFill(Color.BLACK);
+        hoverGC.fillText("" + (((Equipment) item).getCaracteristics().getAttack()), marginWidth + 50, marginHeight + 60);
+
+        hoverGC.setFill(new ImagePattern(new Image("file:resources/graphics/interface/armor.png", 20, 20, true, false)));
+        hoverGC.fillRect(marginWidth, marginHeight + 80, 30, 30);
+
+        hoverGC.setFill(Color.BLACK);
+        hoverGC.fillText("" + (((Equipment) item).getCaracteristics().getArmor()), marginWidth + 50, marginHeight + 100);
+
+        hoverGC.setFill(new ImagePattern(new Image("file:resources/graphics/interface/money.png", 20, 20, true, false)));
+        hoverGC.fillRect(marginWidth, marginHeight + 120, 30, 30);
+
+        hoverGC.setFill(Color.BLACK);
+        hoverGC.fillText("" + item.getPrice(), marginWidth + 50, marginHeight + 140);
+        hoverInformations.setVisible(false);
+        return hoverInformations;
     }
 
     private Canvas getCloseButton(Group root, SceneManager sceneManager,double x, double y) {
@@ -181,39 +222,7 @@ public class SceneButtons {
     }
 
     private void AddHoverDisplay(Equipment item, Canvas hoverInformations) {
-        GraphicsContext hoverGC = hoverInformations.getGraphicsContext2D();
-        hoverGC.setFill(Color.LIGHTGRAY);
-        hoverGC.fillRect(0, 0, 100, 180);
 
-
-        hoverGC.setFont(new Font("Arial", 30));
-
-        int marginWidth = 10;
-        int marginHeight = 20;
-
-        hoverGC.setFill(new ImagePattern(new Image("file:resources/graphics/interface/heart.png", 20, 20, true, false)));
-        hoverGC.fillRect(marginWidth, marginHeight, 30, 30);
-
-        hoverGC.setFill(Color.BLACK);
-        hoverGC.fillText("" + item.getCaracteristics().getHp(), marginWidth + 50, marginHeight + 20);
-
-        hoverGC.setFill(new ImagePattern(new Image("file:resources/graphics/interface/attack.png", 20, 20, true, false)));
-        hoverGC.fillRect(marginWidth, marginHeight + 40, 30, 30);
-
-        hoverGC.setFill(Color.BLACK);
-        hoverGC.fillText("" + item.getCaracteristics().getAttack(), marginWidth + 50, marginHeight + 60);
-
-        hoverGC.setFill(new ImagePattern(new Image("file:resources/graphics/interface/armor.png", 20, 20, true, false)));
-        hoverGC.fillRect(marginWidth, marginHeight + 80, 30, 30);
-
-        hoverGC.setFill(Color.BLACK);
-        hoverGC.fillText("" + item.getCaracteristics().getArmor(), marginWidth + 50, marginHeight + 100);
-
-        hoverGC.setFill(new ImagePattern(new Image("file:resources/graphics/interface/money.png", 20, 20, true, false)));
-        hoverGC.fillRect(marginWidth, marginHeight + 120, 30, 30);
-
-        hoverGC.setFill(Color.BLACK);
-        hoverGC.fillText("" + item.getPrice(), marginWidth + 50, marginHeight + 140);
     }
 
     private List<Button> getNearInteractions(Group root, Map map, SceneManager sceneManager) {
@@ -258,6 +267,9 @@ public class SceneButtons {
 
 
     private void addMerchantInteractionDisplay(Group root, Map map, SceneManager sceneManager, Merchant entity) {
+        var hoverInformationCanvas = new ArrayList<Canvas>();
+
+
         // CHARACTER INVENTORY
         Canvas inventoryCanvas = new Canvas(550, 600);
         inventoryCanvas.setLayoutX(0);
@@ -287,9 +299,17 @@ public class SceneButtons {
                             currentGc.setFill(Color.RED);
                             currentGc.fillRect(0, 0, 70, 70);
                         }
+                        Canvas hoverInformations = getHoverInformations((Equipment)item, currentCanva);
+                        hoverInformationCanvas.add(hoverInformations);
+                        currentCanva.hoverProperty().addListener((ChangeListener<Boolean>) (observable, oldValue, newValue) -> {
+                            if (newValue) hoverInformations.setVisible(true);
+                            else hoverInformations.setVisible(false);
+                        });
                     }
                     currentGc.setFill(new ImagePattern(itemImage));
                     currentGc.fillRect(0, 0, 70, 70);
+
+
 
 
                     Canvas itemPriceCanva = new Canvas(70,20);
@@ -349,9 +369,17 @@ public class SceneButtons {
                             currentGc.setFill(Color.RED);
                             currentGc.fillRect(0, 0, 70, 70);
                         }
+                        Canvas hoverInformations = getHoverInformations((Equipment)item, currentCanva);
+                        hoverInformationCanvas.add(hoverInformations);
+                        currentCanva.hoverProperty().addListener((ChangeListener<Boolean>) (observable, oldValue, newValue) -> {
+                            if (newValue) hoverInformations.setVisible(true);
+                            else hoverInformations.setVisible(false);
+                        });
                     }
                     currentGc.setFill(new ImagePattern(itemImage));
                     currentGc.fillRect(0, 0, 70, 70);
+
+
 
 
                     Canvas itemPriceCanva = new Canvas(70,20);
@@ -390,11 +418,14 @@ public class SceneButtons {
         root.getChildren().add(closeButton);
 
         root.getChildren().addAll(pricesNodes);
+        root.getChildren().addAll(hoverInformationCanvas);
 
 
     }
 
     private void addChestInteractionDisplay(Group root, Map map, SceneManager sceneManager, Chest entity) {
+        var hoverInformationCanvas = new ArrayList<Canvas>();
+
         // CHARACTER INVENTORY
         Canvas inventoryCanvas = new Canvas(550, 600);
         inventoryCanvas.setLayoutX(0);
@@ -422,6 +453,12 @@ public class SceneButtons {
                             currentGc.setFill(Color.RED);
                             currentGc.fillRect(0, 0, 70, 70);
                         }
+                        Canvas hoverInformations = getHoverInformations((Equipment)item, currentCanva);
+                        hoverInformationCanvas.add(hoverInformations);
+                        currentCanva.hoverProperty().addListener((ChangeListener<Boolean>) (observable, oldValue, newValue) -> {
+                            if (newValue) hoverInformations.setVisible(true);
+                            else hoverInformations.setVisible(false);
+                        });
                     }
                     currentGc.setFill(new ImagePattern(itemImage));
                     currentGc.fillRect(0, 0, 70, 70);
@@ -429,6 +466,9 @@ public class SceneButtons {
                     currentCanva.addEventFilter(MouseEvent.MOUSE_CLICKED, event1 -> {
                         System.out.println("Clicked on item");
                         if (map.getCharacter().hasItem(item)) {
+                            if (item instanceof Equipment) {
+                                if (((Equipment) item).isEquiped()) map.getCharacter().unequipItem((Equipment) item);
+                            }
                             map.getCharacter().removeItem(item);
                             entity.addItemInChest(item);
                         }
@@ -469,6 +509,12 @@ public class SceneButtons {
                             currentGc.setFill(Color.RED);
                             currentGc.fillRect(0, 0, 70, 70);
                         }
+                        Canvas hoverInformations = getHoverInformations((Equipment)item, currentCanva);
+                        hoverInformationCanvas.add(hoverInformations);
+                        currentCanva.hoverProperty().addListener((ChangeListener<Boolean>) (observable, oldValue, newValue) -> {
+                            if (newValue) hoverInformations.setVisible(true);
+                            else hoverInformations.setVisible(false);
+                        });
                     }
                     currentGc.setFill(new ImagePattern(itemImage));
                     currentGc.fillRect(0, 0, 70, 70);
@@ -491,10 +537,12 @@ public class SceneButtons {
 
             }
         }
+        root.getChildren().addAll(hoverInformationCanvas);
         double x = chestCanvas.getLayoutX()+chestCanvas.getWidth()-30;
         double y = chestCanvas.getLayoutY();
         Canvas closeButton = getCloseButton(root, sceneManager, x,y);
         root.getChildren().add(closeButton);
+
     }
 }
 
