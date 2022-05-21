@@ -5,6 +5,8 @@ import GUI.Animation;
 import GUI.Cell;
 import GUI.Character;
 import GUI.Map;
+import Item.Item;
+import Item.Usable;
 import javafx.animation.KeyFrame;
 import javafx.animation.Timeline;
 import javafx.scene.Group;
@@ -88,8 +90,8 @@ public class CombatManager {
         entitiesDisplayed.getChildren().add(playerCanvas);
 
         //Displays the player health
-        Canvas playerHealthCanvas = new Canvas(100,100);
-        playerHealthCanvas.setLayoutX(650);
+        Canvas playerHealthCanvas = new Canvas(200,100);
+        playerHealthCanvas.setLayoutX(600);
         playerHealthCanvas.setLayoutY(450);
         GraphicsContext playerHealthGContext = playerHealthCanvas.getGraphicsContext2D();
         playerHealthGContext.setFont(new Font("Arial",35));
@@ -98,7 +100,7 @@ public class CombatManager {
         playerHealthGContext.fillRect(0, 0, 35, 35);
         //adds health text
         playerHealthGContext.setFill(Color.WHITE);
-        playerHealthGContext.fillText(""+playerCharacter.getCaracteristics().getHp(),35,35);
+        playerHealthGContext.fillText(playerCharacter.getCaracteristics().getCurrentHP()+"/"+playerCharacter.getCaracteristics().getMaxHp(),35,35);
         entitiesDisplayed.getChildren().add(playerHealthCanvas);
 
         //Displays the monster:
@@ -121,7 +123,7 @@ public class CombatManager {
         monsterHealthGContext.fillRect(0, 0, 35, 35);
         //adds health text
         monsterHealthGContext.setFill(Color.WHITE);
-        monsterHealthGContext.fillText(""+monsterEntity.getCaracteristics().getHp(),35,35);
+        monsterHealthGContext.fillText(monsterEntity.getCaracteristics().getCurrentHP()+"/"+monsterEntity.getCaracteristics().getMaxHp(),35,35);
         entitiesDisplayed.getChildren().add(monsterHealthCanvas);
 
 
@@ -156,11 +158,11 @@ public class CombatManager {
             //Perform attack on monster
             System.out.println("Player attack = "+playerCharacter.getCaracteristics().getAttack());
             monsterEntity.takeDamages(playerCharacter.getCaracteristics().getAttack());
-            System.out.println("new monster HP = "+monsterEntity.getCaracteristics().getHp());
+            System.out.println("new monster HP = "+monsterEntity.getCaracteristics().getCurrentHP());
             reloadEntities(displayGroup); //Reloads combat display
 
 
-            if(monsterEntity.getCaracteristics().getHp() <=0){
+            if(monsterEntity.getCaracteristics().getCurrentHP() <=0){
                 //Adds animation
                 Animation basicAttackAnim = new Animation(1,"file:resources/graphics/sprite/hit_animation.gif",displayGroup,250,250,270,130);
                 basicAttackAnim.playAnimation();
@@ -190,6 +192,9 @@ public class CombatManager {
             }
         });
 
+        //If player has a usable in inventory, adds the option to use it in combat
+        
+
 
         entitiesDisplayed.getChildren().add(basicAttack);
 
@@ -206,7 +211,7 @@ public class CombatManager {
         playerCharacter.takeDamages(monsterEntity.getCaracteristics().getAttack());
         //Reloads combat display
 
-        if(playerCharacter.getCaracteristics().getHp() <=0){
+        if(playerCharacter.getCaracteristics().getCurrentHP() <=0){
             //Adds animation
             Animation basicAttackAnim = new Animation(1,"file:resources/graphics/sprite/hit_animation.gif",displayGroup,250,250,650,300);
             basicAttackAnim.playAnimation();
@@ -246,12 +251,17 @@ public class CombatManager {
 
         //Removes current combat manager
 
+        //Gives move key controls back to the player
+        playerCharacter.setIsInteracting(false);
     }
 
     public void looseCombat(){
         System.out.println("You LOST against an enemy");
         root.getChildren().remove(displayGroup);
         //Reloads the MAP and player position (Respawn)
+
+        //Gives move key controls back to the player
+        playerCharacter.setIsInteracting(false);
     }
 
 

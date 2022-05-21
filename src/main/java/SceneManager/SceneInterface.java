@@ -34,25 +34,25 @@ public class SceneInterface {
         gc.fillRect(0, 0, 50, 50);
 
         gc.setFill(Color.BLACK);
-        gc.fillText("" + map.getCharacter().getCaracteristics().getHp(), 55, 40);
+        gc.fillText(map.getCharacter().getCaracteristics().getCurrentHP()+"/" + map.getCharacter().getCaracteristics().getMaxHp(), 55, 40);
 
         gc.setFill(new ImagePattern(attackImage));
-        gc.fillRect(150, 0, 50, 50);
+        gc.fillRect(200, 0, 50, 50);
 
         gc.setFill(Color.BLACK);
-        gc.fillText("" + map.getCharacter().getCaracteristics().getAttack(), 205, 40);
+        gc.fillText("" + map.getCharacter().getCaracteristics().getAttack(), 245, 40);
 
         gc.setFill(new ImagePattern(armorImage));
-        gc.fillRect(300, 0, 50, 50);
+        gc.fillRect(340, 0, 50, 50);
 
         gc.setFill(Color.BLACK);
-        gc.fillText("" + map.getCharacter().getCaracteristics().getArmor(), 355, 40);
+        gc.fillText("" + map.getCharacter().getCaracteristics().getArmor(), 395, 40);
 
         gc.setFill( new ImagePattern(moneyImage));
-        gc.fillRect(450, 0,50,50);
+        gc.fillRect(490, 0,50,50);
 
         gc.setFill(Color.BLACK);
-        gc.fillText("" + map.getCharacter().getMoney(), 505,40);
+        gc.fillText("" + map.getCharacter().getMoney(), 545,40);
 
         nodes.add(caracteristicsCanvas);
         return nodes;
