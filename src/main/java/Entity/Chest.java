@@ -24,7 +24,5 @@ public class Chest extends Entity{
         items.add(item);
     }
 
-    public void removeItemInChest(Item item){
-        items.remove(item);
-    }
+
 }

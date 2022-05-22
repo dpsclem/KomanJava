@@ -171,8 +171,8 @@ public class Map {
                 "file:resources/graphics/sprite/bat_monster.gif" ,new Caracteristics(5,10,7,7),null));
 
         //Adds money bag usable
-        level.addItemOnMap(new Usable("moneybag", 15, false, UsableType.MONEYBAG, null, 15, "file:resources/graphics/sprite/moneybag.png"), 6, 1);
-        level.addItemOnMap(new Usable("moneybag", 15, false, UsableType.MONEYBAG, null, 15, "file:resources/graphics/sprite/moneybag.png"), 8, 1);
+        level.addItemOnMap(new Usable("moneybag", 15, false, UsableType.MONEYBAG,  15, "file:resources/graphics/sprite/moneybag.png"), 6, 1);
+        level.addItemOnMap(new Usable("moneybag", 15, false, UsableType.MONEYBAG,  15, "file:resources/graphics/sprite/moneybag.png"), 8, 1);
         level.addItemOnMap(new Equipment("Chestplate", 10,  EquipmentType.CHESTPLATE,new Caracteristics(0,20,15,0), "file:resources/graphics/sprite/equipements/chestplate1.png"), 13, 1);
 
         //Adds merchant NPC on the map
@@ -272,8 +272,8 @@ public class Map {
         level.addEntityOnMap(new Monster(6,11, EntityStatus.INACTIVE, EntityType.MONSTER,
                 "file:resources/graphics/sprite/bat_monster.gif" ,new Caracteristics(5,10,7,7),null));
         //Adds money bag usable
-        level.addItemOnMap(new Usable("moneybag", 15, false, UsableType.MONEYBAG, null, 15, "file:resources/graphics/sprite/moneybag.png"), 6, 1);
-        level.addItemOnMap(new Usable("moneybag", 15, false, UsableType.MONEYBAG, null, 15, "file:resources/graphics/sprite/moneybag.png"), 8, 1);
+        level.addItemOnMap(new Usable("moneybag", 15, false, UsableType.MONEYBAG,  15, "file:resources/graphics/sprite/moneybag.png"), 6, 1);
+        level.addItemOnMap(new Usable("moneybag", 15, false, UsableType.MONEYBAG,  15, "file:resources/graphics/sprite/moneybag.png"), 8, 1);
         level.addItemOnMap(new Equipment("Chestplate", 10,  EquipmentType.CHESTPLATE,new Caracteristics(0,20,15,0), "file:resources/graphics/sprite/equipements/chestplate1.png"), 13, 1);
 
         //Adds merchant NPC on the map
@@ -312,7 +312,7 @@ public class Map {
 
         character.addMoney(50);
 
-        var potion = new Usable("HealPotion", 25, false, UsableType.POTION, null, 15, "file:resources/graphics/sprite/healPotion.png");
+        var potion = new Usable("HealPotion", 25, false, UsableType.POTION, 15, "file:resources/graphics/sprite/healPotion.png");
         character.addItem(potion);
 
         var shield = new Equipment("Shield", 8,  EquipmentType.SHIELD,new Caracteristics(0,20,0,0), "file:resources/graphics/sprite/equipements/shield1.png");

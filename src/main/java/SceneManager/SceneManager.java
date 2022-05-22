@@ -18,7 +18,6 @@ import java.util.List;
 public class SceneManager {
 
     private Scene Scene;
-    private List<Button> Buttons;
     private Group Root;
     private GUI.Map Map;
 
@@ -129,7 +128,7 @@ public class SceneManager {
         resetCaracter.setCaracteristics(new Caracteristics(5,5,20,20));
         var shield = new Equipment("Shield", 8, EquipmentType.SHIELD, new Caracteristics(0, 20, 0,0), "file:resources/graphics/sprite/equipements/shield1.png");
         resetCaracter.addItem(shield);
-        var potion = new Usable("HealPotion", 25, false, UsableType.POTION, null, 15, "file:resources/graphics/sprite/healPotion.png");
+        var potion = new Usable("HealPotion", 25, false, UsableType.POTION,  15, "file:resources/graphics/sprite/healPotion.png");
         resetCaracter.addItem(potion);
 
         map.setCaracter(resetCaracter);

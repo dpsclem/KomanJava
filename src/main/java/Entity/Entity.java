@@ -36,14 +36,6 @@ public class Entity {
         return y;
     }
 
-    public EntityStatus getStatus() {
-        return status;
-    }
-
-    public void setStatus(EntityStatus status) {
-        this.status = status;
-    }
-
     public EntityType getType() {
         return type;
     }
