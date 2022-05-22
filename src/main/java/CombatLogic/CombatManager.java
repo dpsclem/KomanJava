@@ -1,12 +1,10 @@
 package CombatLogic;
 
-import Entity.*;
+import Entity.Monster;
 import GUI.Animation;
-import GUI.Cell;
 import GUI.Character;
 import GUI.Map;
 import Item.Item;
-import Item.Usable;
 import SceneManager.SceneManager;
 import javafx.animation.KeyFrame;
 import javafx.animation.Timeline;
@@ -40,10 +38,6 @@ public class CombatManager {
         this.sceneManager = sceneManager;
 
 
-    }
-
-    public void announceCombat(){
-        System.out.println("Combat between player and monster");
     }
 
     public void createDisplay(Group root){
@@ -196,8 +190,6 @@ public class CombatManager {
         entitiesDisplayed.getChildren().add(basicAttack);
 
     }
-
-
 
     private void playPlayerTurn(){
         loadPlayerActions();
