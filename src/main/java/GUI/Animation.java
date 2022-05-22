@@ -39,6 +39,7 @@ public class Animation {
         rectangle.setFill(new ImagePattern(img));
         animGroup.getChildren().add(rectangle);
         group.getChildren().add(animGroup);
+        animGroup.setViewOrder(-2.0);//Ensures animations will always stay on top of anything else
 
     }
 

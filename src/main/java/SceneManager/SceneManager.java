@@ -81,8 +81,14 @@ public class SceneManager {
 
             }
             finally {
+                if(map.getCharacter().getX()==24 && map.getCharacter().getY()==7){
+                    map.getCharacter().setIsInteracting(true);
+                    System.out.println("You finished the game !");
+                    sceneInterface.displayEndScreen(Root,map,this);
+                }
                 addAll();
             }
+
         });
     }
 
@@ -130,6 +136,7 @@ public class SceneManager {
         resetCaracter.addItem(shield);
         var potion = new Usable("HealPotion", 25, false, UsableType.POTION, null, 15, "file:resources/graphics/sprite/healPotion.png");
         resetCaracter.addItem(potion);
+
         map.setCaracter(resetCaracter);
         map.initializeEntities(map);
         addAll();

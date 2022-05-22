@@ -195,7 +195,6 @@ public class CombatManager {
             }
         });
 
-        //If player has a usable in inventory, adds the option to use it in combat
 
 
 

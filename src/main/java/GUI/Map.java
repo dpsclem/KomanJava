@@ -2,6 +2,7 @@ package GUI;
 
 import Entity.*;
 import Item.*;
+import SceneManager.SceneManager;
 import com.google.gson.Gson;
 import com.google.gson.GsonBuilder;
 import com.google.gson.annotations.Expose;
@@ -21,7 +22,7 @@ public class Map {
     private Cell[][] table;
     @Expose
     private Character character;
-
+    private SceneManager sceneManager;
     @Expose
     private List<Entity> entities = new ArrayList<Entity>();
 
@@ -30,13 +31,14 @@ public class Map {
 
     private static int MapWidth = 25;
     private static int MapHeight = 15;
-    public Map(Cell[][] table) {
+    public Map(Cell[][] table ) {
         this.table = table;
     }
 
     public Map(Cell[][] table, Character character) {
         this.table = table;
         this.character = character;
+
     }
 /*
     public static Map CreateRandomMap(){
@@ -155,7 +157,6 @@ public class Map {
                 }
             }
             Items.removeAll(itemtoDelete);
-
             return new Coordinates(newX, newY);
         }
 
