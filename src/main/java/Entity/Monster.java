@@ -7,11 +7,6 @@ import java.util.ArrayList;
 import java.util.List;
 
 public class Monster extends Entity{
-    public Caracteristics getCaracteristics() {
-        return caracteristics;
-    }
-
-
     private Caracteristics caracteristics;
     private List<Item> dropList = new ArrayList<Item>();
 
@@ -22,10 +17,13 @@ public class Monster extends Entity{
 
     }
 
-    public void takeDamages(int damages){
+    public Caracteristics getCaracteristics() {
+        return caracteristics;
+    }
 
+
+    public void takeDamages(int damages){
         double calculated = 1+damages/(1 + 0.4*this.caracteristics.getArmor());
-        System.out.println("Damage calculated = "+calculated);
         if (this.caracteristics.getCurrentHP() - (int) calculated <= 0){this.caracteristics.setHp(0);}
         else {this.caracteristics.setHp(this.caracteristics.getCurrentHP() - (int) calculated);}
     }

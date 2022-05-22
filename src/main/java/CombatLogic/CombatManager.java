@@ -193,9 +193,6 @@ public class CombatManager {
             }
         });
 
-
-
-
         entitiesDisplayed.getChildren().add(basicAttack);
 
     }

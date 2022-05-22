@@ -15,6 +15,7 @@ public class Chest extends Entity{
         this.items = items;
     }
 
+
     public List<Item> getItems() {
         return items;
     }

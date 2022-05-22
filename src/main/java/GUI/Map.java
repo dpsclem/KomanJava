@@ -2,27 +2,19 @@ package GUI;
 
 import Entity.*;
 import Item.*;
-import SceneManager.SceneManager;
-import com.google.gson.Gson;
-import com.google.gson.GsonBuilder;
 import com.google.gson.annotations.Expose;
-import com.google.gson.stream.JsonReader;
 import javafx.scene.image.Image;
 import javafx.scene.paint.ImagePattern;
 import javafx.scene.shape.Rectangle;
 
-import java.io.FileNotFoundException;
-import java.io.FileReader;
 import java.util.ArrayList;
 import java.util.List;
-import java.util.concurrent.ThreadLocalRandom;
 
 public class Map {
     @Expose
     private Cell[][] table;
     @Expose
     private Character character;
-    private SceneManager sceneManager;
     @Expose
     private List<Entity> entities = new ArrayList<Entity>();
 
@@ -31,54 +23,11 @@ public class Map {
 
     private static int MapWidth = 25;
     private static int MapHeight = 15;
+
     public Map(Cell[][] table ) {
         this.table = table;
     }
 
-    public Map(Cell[][] table, Character character) {
-        this.table = table;
-        this.character = character;
-
-    }
-/*
-    public static Map CreateRandomMap(){
-        var table = new Cell[Map.MapWidth][Map.MapHeight];
-        for(int i = 0; i < Map.MapWidth; i++){
-            for(int j = 0; j < Map.MapHeight; j++){
-                if (ThreadLocalRandom.current().nextInt(1, 11) == 1) table[i][j] = new Cell(CellMaterial.Wall, i, j);
-                else table[i][j] = new Cell(CellMaterial.Floor, i, j);
-            }
-        }
-        var randomMap = new Map(table);
-        randomMap.addItemOnMap(new Item("key", 10, "file:resources/graphics/sprite/key.png"), 3, 3);
-        randomMap.addItemOnMap(new Item("pioche", 10, "file:resources/graphics/sprite/pioche.png"), 3, 5);
-        randomMap.addItemOnMap(new Usable("moneybag", 0, false, UsableType.MONEYBAG, null, 15, "file:resources/graphics/sprite/moneybag.png"), 8,2);
-        randomMap.addEntityOnMap(new Monster(2,2, EntityStatus.INACTIVE, EntityType.MONSTER, "file:resources/graphics/sprite/monster1.gif" ,new Caracteristics(5,10,7,7),null));
-        randomMap.addEntityOnMap(new Trap(2,5, EntityStatus.INACTIVE, EntityType.TRAP, "file:resources/graphics/sprite/black_hole.png", TrapType.BLACKHOLE));
-        randomMap.addEntityOnMap(new Trap(2,8, EntityStatus.INACTIVE, EntityType.TRAP, "file:resources/graphics/sprite/dart.png", TrapType.DART));
-
-        return randomMap;
-    }
-
-    public void UpdateWithRandomMap(){
-        table = new Cell[Map.MapWidth][Map.MapHeight];
-        for(int i = 0; i < Map.MapWidth; i++){
-            for(int j = 0; j < Map.MapHeight; j++){
-                if (ThreadLocalRandom.current().nextInt(1, 11) == 1) table[i][j] = new Cell(CellMaterial.Wall, i, j);
-                else table[i][j] = new Cell(CellMaterial.Floor, i, j);
-            }
-        }
-
-        this.addItemOnMap(new Item("key", 10, "file:resources/graphics/sprite/key.png"), 3, 3);
-        this.addItemOnMap(new Item("pioche", 10, "file:resources/graphics/sprite/pioche.png"), 3, 5);
-        this.addItemOnMap(new Item("coin", 10, "file:resources/graphics/sprite/moneybag.png"), 8, 5);
-        this.addEntityOnMap(new Monster(5,5, EntityStatus.INACTIVE, EntityType.MONSTER,"file:resources/graphics/sprite/monster1.gif" ,new Caracteristics(45,10,7,7),null));
-        this.addEntityOnMap(new Trap(2,5, EntityStatus.INACTIVE, EntityType.TRAP,"file:resources/graphics/sprite/black_hole.png", TrapType.BLACKHOLE));
-        this.addEntityOnMap(new Trap(2,8, EntityStatus.INACTIVE, EntityType.TRAP, "file:resources/graphics/sprite/dart.png", TrapType.DART));
-
-    }
-
-*/
     public int getTableWidth(){
         return table[0].length;
     }
@@ -132,17 +81,15 @@ public class Map {
         updatePlayerPosition(futureCoord);
     }
 
+    //Retrieve coordinates for future cell, when a character wants to move in a certain direction
     private Coordinates getFutureCoordinatesForMovingInto(int x, int y) {
         int newX = character.getX() + x;
         int newY = character.getY() + y;
-        System.out.println(newX + ":" + newY);
         if (newX < 0 || newX >= getTableHeight() || newY < 0 || newY >= getTableWidth())
         {
-            System.out.println("Going out of table");
             return getCharacterCoordinates();
         }
         var futureCell = getCellFromCoordinate(newY, newX);
-        System.out.println(futureCell.getMaterialProperties());
 
         if (entities.stream().filter(e -> e.getX() == newX && e.getY() == newY && e.getType() != EntityType.TRAP).count() > 0) { //Entity on future cell
             return getCharacterCoordinates();
@@ -161,18 +108,6 @@ public class Map {
         }
 
         return getCharacterCoordinates();
-    }
-
-
-    private boolean canMoveCaracterAt(Coordinates newCoords){
-        if (newCoords.X < 0 || newCoords.X >= getTableHeight() || newCoords.Y < 0 || newCoords.Y >= getTableWidth()) return false;
-
-        var futureCell = getCellFromCoordinate(newCoords.Y, newCoords.X);
-        if (futureCell.getMaterialProperties().IsWalkable
-                && futureCell.getMaterialProperties().IsPassable) {
-            return true;
-        }
-        return false;
     }
 
     public void addItemOnMap(Item item, int x, int y){
@@ -197,19 +132,6 @@ public class Map {
         return rectangles;
     }
 
-    public String getSaveFormat() {
-        Gson gson = new GsonBuilder().excludeFieldsWithoutExposeAnnotation().setPrettyPrinting().create();;
-        //var mapDto = new MapDTO(_table, _caracter);
-        return gson.toJson(this);
-    }
-/*
-    public static Map createFromSave(String filePath) throws FileNotFoundException {
-        Gson gson = new GsonBuilder().excludeFieldsWithoutExposeAnnotation().setPrettyPrinting().create();
-        JsonReader reader = new JsonReader(new FileReader(filePath));
-        Map map = gson.fromJson(reader, Map.class);
-        return map;
-    }
-*/
     public List<Entity> getEntities(){
         return this.entities;
     }
@@ -238,7 +160,6 @@ public class Map {
         level.entities.clear();
         level.Items.clear();
 
-        //Adds items and entities to the map
         //Adds monster to the map
         var monsterDL = new ArrayList<Item>();
         monsterDL.add( new Equipment("Sword", 60,  EquipmentType.SWORD,new Caracteristics(25,15,10,0), "file:resources/graphics/interface/attack.png"));
@@ -248,6 +169,7 @@ public class Map {
                 "file:resources/graphics/sprite/monster1.gif" ,new Caracteristics(25,14,25,25),null));
         level.addEntityOnMap(new Monster(6,11, EntityStatus.INACTIVE, EntityType.MONSTER,
                 "file:resources/graphics/sprite/bat_monster.gif" ,new Caracteristics(5,10,7,7),null));
+
         //Adds money bag usable
         level.addItemOnMap(new Usable("moneybag", 15, false, UsableType.MONEYBAG, null, 15, "file:resources/graphics/sprite/moneybag.png"), 6, 1);
         level.addItemOnMap(new Usable("moneybag", 15, false, UsableType.MONEYBAG, null, 15, "file:resources/graphics/sprite/moneybag.png"), 8, 1);
@@ -330,7 +252,7 @@ public class Map {
         }
         //Floors in place of walls to make a passage
         table[0][7] = new Cell(CellMaterial.Floor, 0, 7);
-        table[24][7] = new Cell(CellMaterial.Floor, 24, 7);
+        table[24][7] = new Cell(CellMaterial.Portal, 24, 7);
         table[7][3] = new Cell(CellMaterial.Floor, 7, 3);
         table[6][11] = new Cell(CellMaterial.Floor, 6, 11);
         table[14][9] = new Cell(CellMaterial.Floor, 14, 9);
@@ -339,8 +261,7 @@ public class Map {
 
 
         var level = new Map(table);
-        //Initializes the entities and items on the map
-        //Adds items and entities to the map
+
         //Adds monster to the map
         var monsterDL = new ArrayList<Item>();
         monsterDL.add( new Equipment("Sword", 60,  EquipmentType.SWORD,new Caracteristics(25,15,10,0), "file:resources/graphics/interface/attack.png"));
@@ -357,7 +278,7 @@ public class Map {
 
         //Adds merchant NPC on the map
         var itemsInMerchant = new ArrayList<Item>();
-        itemsInMerchant.add(new Equipment("Shield", 25,  EquipmentType.SHIELD,new Caracteristics(0,15,0,0), "file:resources/graphics/sprite/equipements/shield1.png"));
+        itemsInMerchant.add(new Equipment("Shield", 25,  EquipmentType.SHIELD,new Caracteristics(0,25,5,0), "file:resources/graphics/sprite/equipements/shield1.png"));
         itemsInMerchant.add(new Equipment("Sword", 10,  EquipmentType.SWORD,new Caracteristics(10,0,10,0), "file:resources/graphics/interface/attack.png"));
         itemsInMerchant.add(new Item("key", 50,"file:resources/graphics/sprite/key.png"));
         var merchant = new Merchant(3, 11, itemsInMerchant, EntityStatus.INACTIVE, EntityType.NPC_MERCHANT, "file:resources/graphics/sprite/merchant.png");
@@ -384,6 +305,20 @@ public class Map {
         level.addEntityOnMap(new Trap(7,3, EntityStatus.INACTIVE, EntityType.TRAP, "file:resources/graphics/sprite/dart.png", TrapType.DART));
         level.addEntityOnMap(new Trap(16,5, EntityStatus.INACTIVE, EntityType.TRAP, "file:resources/graphics/sprite/dart.png", TrapType.DART));
         level.addEntityOnMap(new Trap(17,5, EntityStatus.INACTIVE, EntityType.TRAP, "file:resources/graphics/sprite/dart.png", TrapType.DART));
+
+        //Add character
+        Character character = new Character(0,7);
+        character.setCaracteristics(new Caracteristics(5,5,20,20));
+
+        character.addMoney(50);
+
+        var potion = new Usable("HealPotion", 25, false, UsableType.POTION, null, 15, "file:resources/graphics/sprite/healPotion.png");
+        character.addItem(potion);
+
+        var shield = new Equipment("Shield", 8,  EquipmentType.SHIELD,new Caracteristics(0,20,0,0), "file:resources/graphics/sprite/equipements/shield1.png");
+        character.addItem(shield);
+
+        level.setCaracter(character);
 
         return level;
     }

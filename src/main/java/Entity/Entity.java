@@ -59,7 +59,7 @@ public class Entity {
         return this.imgPath;
     }
 
-    //interact
+    //For a door, allow to passe only if the door is open or if the player has the key
     public void interact(Map map, Entity entity) {
         if (type == EntityType.DOOR ) {
             var caracter = map.getCharacter();

@@ -24,12 +24,8 @@ public class Character {
 
     private List<Item> items = new ArrayList<Item>();
 
-
-
     //Gives the program the information if the player is in an interaction and move keys needs to be frozen.
     private boolean isInteracting = false;
-
-
 
     public List<Item> getItems() {
         return items;

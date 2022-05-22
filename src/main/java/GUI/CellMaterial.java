@@ -2,6 +2,7 @@ package GUI;
 
 public enum CellMaterial {
     Wall,
-    Floor
+    Floor,
+    Portal
 }
 

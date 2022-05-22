@@ -1,14 +1,16 @@
 package SceneManager;
 
 import CombatLogic.CombatManager;
-import Entity.*;
-import GUI.*;
-import GUI.Character;
-import Item.*;
+import Entity.Chest;
+import Entity.Merchant;
+import Entity.Monster;
+import Entity.Trap;
+import GUI.Animation;
+import GUI.Cell;
+import GUI.Map;
 import Item.Equipment;
-import Item.EquipmentType;
-import Item.Item;
 import Item.Usable;
+import Item.UsableType;
 import javafx.animation.KeyFrame;
 import javafx.animation.Timeline;
 import javafx.beans.value.ChangeListener;
@@ -18,7 +20,6 @@ import javafx.scene.canvas.Canvas;
 import javafx.scene.canvas.GraphicsContext;
 import javafx.scene.control.Button;
 import javafx.scene.control.TextArea;
-import javafx.scene.control.Tooltip;
 import javafx.scene.image.Image;
 import javafx.scene.image.ImageView;
 import javafx.scene.input.MouseEvent;
@@ -31,15 +32,13 @@ import javafx.util.Duration;
 
 import java.util.ArrayList;
 import java.util.List;
-import java.util.concurrent.CountedCompleter;
-
-import static java.awt.SystemColor.text;
 
 public class SceneButtons {
 
     private boolean IsInventoryOpen = false;
 
 
+    //Retrieve all buttons needed for main scene
     public List<Node> getButtons(Group root, Map map, SceneManager sceneManager) {
         var buttons = new ArrayList<Node>();
         buttons.add(getInventoryButton(root, map, sceneManager));
@@ -73,6 +72,8 @@ public class SceneButtons {
         });
         return button;
     }
+
+    //Add the inventory display to the root
     private void addInventoryDisplay(Group root, Map map, SceneManager sceneManager) {
         Canvas inventoryCanvas = new Canvas(830, 500);
         inventoryCanvas.setLayoutX(185);
@@ -82,6 +83,7 @@ public class SceneButtons {
         gc.fillRect(0, 0, 830, 500);
         root.getChildren().add(inventoryCanvas);
 
+        //Loop through the inventory and display it
         var hoverInformationCanvas = new ArrayList<Canvas>();
         var items = map.getCharacter().getItems();
         var itemsIterator = items.iterator();
@@ -97,7 +99,7 @@ public class SceneButtons {
 
                     GraphicsContext currentGc = currentCanva.getGraphicsContext2D();
                     if (item instanceof Equipment) {
-                        if (((Equipment) item).isEquiped()) {
+                        if (((Equipment) item).isEquiped()) { //If the item is equipped, display it in a different color
                             currentGc.setFill(Color.RED);
                             currentGc.fillRect(0, 0, 70, 70);
                         }
@@ -105,7 +107,7 @@ public class SceneButtons {
                         Canvas hoverInformations = getHoverInformations((Equipment) item, currentCanva);
                         hoverInformationCanvas.add(hoverInformations);
                         currentCanva.hoverProperty().addListener((ChangeListener<Boolean>) (observable, oldValue, newValue) -> {
-                            if (newValue) hoverInformations.setVisible(true);
+                            if (newValue) hoverInformations.setVisible(true); //If the mouse is over the item, display the hover information
                             else hoverInformations.setVisible(false);
                         });
 
@@ -123,7 +125,7 @@ public class SceneButtons {
                             else
                                 map.getCharacter().equipItem((Equipment) item);
                         }
-                        else if (item instanceof Usable) {
+                        else if (item instanceof Usable) { //If the item is usable, use it
                             ((Usable) item).use(map);
                             map.getCharacter().getItems().remove(item);
                             if (((Usable) item).getUsableType() == UsableType.POTION) {
@@ -142,11 +144,10 @@ public class SceneButtons {
                 }
             }
         }
-        root.getChildren().addAll(hoverInformationCanvas);
+        root.getChildren().addAll(hoverInformationCanvas); //Add the hover information canvas to the root in the end, so it will be displayed on top of the other items
 
         Canvas closeButton = getCloseButton(root,map, sceneManager,inventoryCanvas.getWidth() + inventoryCanvas.getLayoutX() - 30, inventoryCanvas.getLayoutY());
-
-        root.getChildren().add(closeButton);
+        root.getChildren().add(closeButton); //Add the close button which allows to close the inventory
     }
 
     private Canvas getCloseButton(Group root,Map map, SceneManager sceneManager,double x, double y) {
@@ -172,7 +173,6 @@ public class SceneButtons {
         hoverInformations.setLayoutX(currentCanva.getLayoutX() + currentCanva.getWidth() + 20);
         hoverInformations.setLayoutY(currentCanva.getLayoutY() - 20);
 
-        //AddHoverDisplay((Equipment) item, hoverInformations);
         GraphicsContext hoverGC = hoverInformations.getGraphicsContext2D();
         hoverGC.setFill(Color.LIGHTGRAY);
         hoverGC.fillRect(0, 0, 120, 180);
@@ -208,26 +208,6 @@ public class SceneButtons {
         hoverGC.fillText("" + ((Equipment) item).getPrice(), marginWidth + 50, marginHeight + 140);
         hoverInformations.setVisible(false);
         return hoverInformations;
-    }
-
-    private Canvas getCloseButton(Group root, SceneManager sceneManager,double x, double y) {
-        Canvas closeButton = new Canvas(30, 30);
-        closeButton.setLayoutX(x);
-        closeButton.setLayoutY(y);
-
-        GraphicsContext closeBtnGc = closeButton.getGraphicsContext2D();
-        closeBtnGc.setFill(new ImagePattern(new Image("file:resources/graphics/closeButton.png", 30,30, true, false)));
-        closeBtnGc.fillRect(0, 0, 30, 30);
-        closeButton.addEventFilter(MouseEvent.MOUSE_CLICKED, closeBtnEvent -> {
-            root.getChildren().clear();
-            sceneManager.addAll();
-            IsInventoryOpen = false;
-        });
-        return closeButton;
-    }
-
-    private void AddHoverDisplay(Equipment item, Canvas hoverInformations) {
-
     }
 
     private List<Button> getNearInteractions(Group root, Map map, SceneManager sceneManager) {
@@ -292,7 +272,7 @@ public class SceneButtons {
                 buttons.add(button);
             }
 
-            if(entity instanceof Merchant){ //Adds dialog when walking near merchant NPC
+            if(entity instanceof Merchant){ //Add dialog when walking near merchant NPC
                 var dialogArea = new TextArea();
                 var text = ((Merchant) entity).getDialog();
                 Text t = new Text(text);
@@ -307,9 +287,6 @@ public class SceneButtons {
                 dialogArea.setOpacity(0.68);
                 dialogArea.positionCaret(-1);
                 dialogArea.styleProperty().set("-fx-display-caret: false;");
-
-
-
                 dialogArea.setWrapText(true);
                 dialogArea.setLayoutX((entity.getX() + 1) * Cell.Width);
                 dialogArea.setLayoutY(entity.getY() * Cell.Height);
@@ -336,6 +313,8 @@ public class SceneButtons {
 
         var pricesNodes = new ArrayList<Node>(); //We keep them and add them to the root later to make sure they are on top of the other nodes
 
+
+        //Loop through the items in the character's inventory
         var items = map.getCharacter().getItems();
         var itemsIterator = items.iterator();
         for (int i = 0; i < 7; i++) {
@@ -350,11 +329,11 @@ public class SceneButtons {
 
                     GraphicsContext currentGc = currentCanva.getGraphicsContext2D();
                     if (item instanceof Equipment) {
-                        if (((Equipment) item).isEquiped()) {
+                        if (((Equipment) item).isEquiped()) { //If the item is equipped, we change the color of the item
                             currentGc.setFill(Color.RED);
                             currentGc.fillRect(0, 0, 70, 70);
                         }
-                        Canvas hoverInformations = getHoverInformations((Equipment)item, currentCanva);
+                        Canvas hoverInformations = getHoverInformations((Equipment)item, currentCanva); //We add the hover information canvas
                         hoverInformationCanvas.add(hoverInformations);
                         currentCanva.hoverProperty().addListener((ChangeListener<Boolean>) (observable, oldValue, newValue) -> {
                             if (newValue) hoverInformations.setVisible(true);
@@ -367,7 +346,7 @@ public class SceneButtons {
 
 
 
-                    Canvas itemPriceCanva = new Canvas(70,20);
+                    Canvas itemPriceCanva = new Canvas(70,20); //We create the canvas that displays the price of the item
                     itemPriceCanva.setLayoutX(0 + (j * 70) + (j * 50) + 50);
                     itemPriceCanva.setLayoutY(50 + (i * 70) + (i * 50) + 100);
 
@@ -405,6 +384,7 @@ public class SceneButtons {
         merchantGc.setFill(Color.LIGHTCORAL);
         merchantGc.fillRect(0, 0, 600, 600);
         root.getChildren().add(merchantCanvas);
+
         var merchantItems = entity.getItems();
         var merchantItemsIterator = merchantItems.iterator();
         for (int i = 0; i < 7; i++) {
@@ -472,8 +452,8 @@ public class SceneButtons {
         Canvas closeButton = getCloseButton(root,map, sceneManager, x,y);
         root.getChildren().add(closeButton);
 
-        root.getChildren().addAll(pricesNodes);
-        root.getChildren().addAll(hoverInformationCanvas);
+        root.getChildren().addAll(pricesNodes); //Add prices display on top of items
+        root.getChildren().addAll(hoverInformationCanvas); //Then hover informations, on top of everything
 
 
     }

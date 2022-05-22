@@ -6,10 +6,6 @@ public class Caracteristics {
     private int attack;
     private int armor;
     private int maxHp;
-
-
-    // MUST BE SET TO 0 IN CONSTRUCTOR IF ITEM
-    // MUST BE = TO MAXHP IN CONSTRUCTOR IF MONSTER OR PLAYER
     private int currentHP;
 
     public Caracteristics(int attack, int armor, int maxhp, int currentHP) {
@@ -41,14 +37,6 @@ public class Caracteristics {
 
     public int getMaxHp() {
         return maxHp;
-    }
-
-    public void setAttack(int attack) {
-        this.attack = attack;
-    }
-
-    public void setArmor(int armor) {
-        this.armor = armor;
     }
 
     //Current HP setters and getters

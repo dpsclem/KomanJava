@@ -14,7 +14,6 @@ public class Merchant extends Entity {
     public Merchant(int x, int y, List<Item> items, EntityStatus status, EntityType type, String imgPath) {
         super(x, y, status, type, imgPath);
         this.items=items;
-
     }
 
     public List<Item> getItems() {
@@ -32,10 +31,10 @@ public class Merchant extends Entity {
 
 
     public void buyItem(Item item, Character character) {
-        if (character.getMoney()>=item.getPrice()){ //si le personnage a assez d'argent
-            character.takeMoney(item.getPrice()); //on enlève l'argent au personnage
-            character.addItem(item); //on ajoute l'item au personnage
-            removeItem(item); //on enlève l'item du marchand
+        if (character.getMoney()>=item.getPrice()){
+            character.takeMoney(item.getPrice());
+            character.addItem(item);
+            removeItem(item);
         }
     }
 }

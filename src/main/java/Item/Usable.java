@@ -21,7 +21,6 @@ public class Usable extends Item {
         return this.isPassive;
     }
 
-
     public UsableType getUsableType(){
         return this.usableType;
     }

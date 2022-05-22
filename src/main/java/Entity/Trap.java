@@ -10,6 +10,7 @@ public class Trap extends Entity{
         this.type = trap;
     }
 
+    //Apply trap effect to the character
     public void triggerTrap(Character character){
         if (type == TrapType.BLACKHOLE) {
             character.takeDamages(1000);

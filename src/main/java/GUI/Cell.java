@@ -49,21 +49,8 @@ public class Cell {
         return rectangle;
     }
 
-
-
-    public CellMaterial getMaterial() {
-        return _material;
-    }
-
     public CellMaterialProperties getMaterialProperties() {
         return _materialProperties;
-    }
-
-    public static int getWidth() {
-        return Width;
-    }
-    public static int getHeight() {
-        return Height;
     }
 
     public int getX() {

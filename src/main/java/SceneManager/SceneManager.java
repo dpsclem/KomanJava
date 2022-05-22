@@ -83,17 +83,12 @@ public class SceneManager {
             finally {
                 if(map.getCharacter().getX()==24 && map.getCharacter().getY()==7){
                     map.getCharacter().setIsInteracting(true);
-                    System.out.println("You finished the game !");
                     sceneInterface.displayEndScreen(Root,map,this);
                 }
                 addAll();
             }
 
         });
-    }
-
-    public void clearChildrens(){
-        Root.getChildren().clear();
     }
 
     public void addEntities()
@@ -109,7 +104,7 @@ public class SceneManager {
         Root.getChildren().addAll(sceneInterface.getInterface(Root, Map));
     }
 
-    private void fillSceneWithMap(Group root, Map randomMap) {
+    private void fillSceneWithMap(Group root, Map randomMap) { //Display the map
         for (int i = 0; i < randomMap.getTableWidth(); i++) {
             for (int j = 0; j < randomMap.getTableHeight(); j++) {
                 Cell cell = randomMap.getCellFromCoordinate(i, j);
@@ -126,7 +121,7 @@ public class SceneManager {
         }
     }
 
-    public void resetAndRespawn(Group root, Map map){
+    public void resetAndRespawn(Group root, Map map){ //Reset the map and respawn the character
         root.getChildren().clear();
 
         var resetCaracter = new Character(0, 7);
