@@ -107,13 +107,11 @@ public class CombatManager {
         entitiesDisplayed.getChildren().add(playerHealthCanvas);
 
         //Displays the monster:
-        Canvas monsterCanvas = new Canvas(100,100);
-        monsterCanvas.setLayoutX(320);
-        monsterCanvas.setLayoutY(200);
-        GraphicsContext monsterGContext = monsterCanvas.getGraphicsContext2D();
-        monsterGContext.setFill(new ImagePattern(new Image(monsterEntity.getImgPath(),100,100, true,false)));
-        monsterGContext.fillRect(0, 0, 100, 100);
-        entitiesDisplayed.getChildren().add(monsterCanvas);
+        var rectangle = new Rectangle(320,200,100,100);
+        Image img = new Image(monsterEntity.getImgPath(),100, 100, true, false);
+        rectangle.setFill(new ImagePattern(img));
+
+        entitiesDisplayed.getChildren().add(rectangle);
 
         //Displays the monster health
         Canvas monsterHealthCanvas = new Canvas(200,100);

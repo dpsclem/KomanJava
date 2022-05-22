@@ -243,9 +243,9 @@ public class Map {
         var monsterDL = new ArrayList<Item>();
         monsterDL.add( new Equipment("Sword", 60,  EquipmentType.SWORD,new Caracteristics(25,15,10,0), "file:resources/graphics/interface/attack.png"));
         level.addEntityOnMap(new Monster(12, 11, EntityStatus.INACTIVE, EntityType.MONSTER,
-                "file:resources/graphics/sprite/bat_monster.gif", new Caracteristics(10, 10, 11, 11),monsterDL));
+                "file:resources/graphics/sprite/bat_monster.gif", new Caracteristics(15, 10, 11, 11),monsterDL));
         level.addEntityOnMap(new Monster(23,7, EntityStatus.INACTIVE, EntityType.MONSTER,
-                "file:resources/graphics/sprite/monster1.gif" ,new Caracteristics(12,14,25,25),null));
+                "file:resources/graphics/sprite/monster1.gif" ,new Caracteristics(25,14,25,25),null));
         level.addEntityOnMap(new Monster(6,11, EntityStatus.INACTIVE, EntityType.MONSTER,
                 "file:resources/graphics/sprite/bat_monster.gif" ,new Caracteristics(5,10,7,7),null));
         //Adds money bag usable
@@ -345,9 +345,9 @@ public class Map {
         var monsterDL = new ArrayList<Item>();
         monsterDL.add( new Equipment("Sword", 60,  EquipmentType.SWORD,new Caracteristics(25,15,10,0), "file:resources/graphics/interface/attack.png"));
         level.addEntityOnMap(new Monster(12, 11, EntityStatus.INACTIVE, EntityType.MONSTER,
-                "file:resources/graphics/sprite/bat_monster.gif", new Caracteristics(10, 10, 11, 11),monsterDL));
+                "file:resources/graphics/sprite/bat_monster.gif", new Caracteristics(15, 10, 11, 11),monsterDL));
         level.addEntityOnMap(new Monster(23,7, EntityStatus.INACTIVE, EntityType.MONSTER,
-                "file:resources/graphics/sprite/monster1.gif" ,new Caracteristics(12,14,25,25),null));
+                "file:resources/graphics/sprite/monster1.gif" ,new Caracteristics(25,14,25,25),null));
         level.addEntityOnMap(new Monster(6,11, EntityStatus.INACTIVE, EntityType.MONSTER,
                 "file:resources/graphics/sprite/bat_monster.gif" ,new Caracteristics(5,10,7,7),null));
         //Adds money bag usable
