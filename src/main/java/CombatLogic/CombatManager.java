@@ -62,9 +62,7 @@ public class CombatManager {
         root.getChildren().add(displayGroup);
     }
 
-    public void endCombat(Group root){
-
-    }
+    
 
     public void enterCombatLoop(){
         createDisplay(root);
