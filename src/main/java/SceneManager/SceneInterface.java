@@ -76,17 +76,17 @@ public class SceneInterface {
         gc.setFill(Color.BLACK);
         gc.fillRect(0, 0, 1200, 720);
         gc.setFill(Color.WHITE);
-        gc.fillText("YOU LIBERATED THE CASTLE !",100,200);
+        gc.fillText("VOUS ÊTES VAINQUEUR !",200,200);
         gc.setFont(new Font("Arial",30));
-        gc.fillText("Retry ?",500,300);
+        gc.fillText("Réessayer ?",490,300);
 
         //Adds a retry/new game button
         Button retryButton = new Button();
         retryButton.setViewOrder(-4.0);//Ensures retry button is on top of everything
         retryButton.setLayoutX(470);
         retryButton.setLayoutY(350);
-        retryButton.setPrefSize(140, 50);
-        retryButton.setText("New game");
+        retryButton.setPrefSize(190, 50);
+        retryButton.setText("Nouvelle partie");
         retryButton.setOnAction(event ->{
             sceneManager.resetAndRespawn(root,map);
                 });
