@@ -1,11 +1,11 @@
 package CombatLogic;
 
-import Entity.Monster;
-import GUI.Animation;
-import GUI.Character;
-import GUI.Map;
-import Item.Item;
-import SceneManager.SceneManager;
+import Entities.Monster;
+import GameManagement.Animation;
+import GameManagement.Character;
+import GameManagement.Map;
+import Items.Item;
+import SceneManagers.SceneManager;
 import javafx.animation.KeyFrame;
 import javafx.animation.Timeline;
 import javafx.scene.Group;

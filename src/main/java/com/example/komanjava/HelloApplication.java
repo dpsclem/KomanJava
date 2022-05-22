@@ -1,21 +1,13 @@
 package com.example.komanjava;
-import Entity.*;
-import GUI.*;
-import GUI.Character;
-import Item.Equipment;
-import Item.EquipmentType;
-import Item.*;
-import SceneManager.SceneManager;
+import GameManagement.*;
+import SceneManagers.SceneManager;
 import javafx.application.Application;
 import javafx.scene.Group;
 import javafx.scene.paint.Color;
 import javafx.stage.Stage;
 
-import java.io.PrintWriter;
-
 
 import java.io.IOException;
-import java.util.ArrayList;
 
 public class HelloApplication extends Application {
     @Override

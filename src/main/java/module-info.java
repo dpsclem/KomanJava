@@ -10,12 +10,12 @@ module com.example.komanjava {
 
     opens com.example.komanjava to javafx.fxml, google.code.gson, com.google.gson.Gson;
     exports com.example.komanjava;
-    exports GUI to com.google.gson;
-    opens GUI to com.google.gson;
-    exports SceneManager to com.google.gson;
-    opens SceneManager to com.google.gson;
-    exports Item to com.google.gson;
-    opens Item to com.google.gson;
-    exports Entity to com.google.gson;
-    opens Entity to com.google.gson;
+    exports GameManagement to com.google.gson;
+    opens GameManagement to com.google.gson;
+    exports SceneManagers to com.google.gson;
+    opens SceneManagers to com.google.gson;
+    exports Items to com.google.gson;
+    opens Items to com.google.gson;
+    exports Entities to com.google.gson;
+    opens Entities to com.google.gson;
 }
